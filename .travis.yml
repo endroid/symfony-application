@@ -22,5 +22,6 @@ before_script:
 
 script:
   - sudo chmod 777 -R .
-  - ./rebuild
+  - ./run
+  - docker-compose exec --user 1000 php /bin/sh ./rebuild
   - docker-compose exec --user 1000 php /bin/sh ./check
