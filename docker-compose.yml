@@ -1,15 +1,19 @@
 version: '3'
 services:
-    elasticsearch:
-        image: elasticsearch:5.5.1-alpine
-    kibana:
-        image: kibana:5.5.1
+#    elasticsearch:
+#        image: elasticsearch:5.5.1-alpine
+#        expose:
+#            - 9200
+#    kibana:
+#        image: kibana:5.5.1
+#        expose:
+#            - 5601
     mailcatcher:
         image: schickling/mailcatcher
-        ports:
-            - 1080:1080
-    mongodb:
-        image: mongo:3
+#    mongodb:
+#        image: mongo:3
+#        expose:
+#            - 27017
     mariadb:
         build: docker/mariadb/
         environment:
@@ -17,55 +21,58 @@ services:
             MYSQL_DATABASE: application
         volumes:
             - ./docker/mariadb/data:/var/lib/mysql
-    prediction_io:
-        build: docker/prediction-io
-        tty: true
-        volumes:
-          - ./docker/prediction-io:/docker
-        ports:
-            - 7070:7070
-            - 8000:8000
-    rabbitmq:
-        image: rabbitmq:3.6.3-management
-        environment:
-          - RABBITMQ_DEFAULT_USER=root
-          - RABBITMQ_DEFAULT_PASS=root
-    redis:
-        image: redis:3
-    selenium_hub:
-        image: selenium/hub:3.5.2
-        ports:
-            - 4444
-    selenium_node_chrome:
-        image: selenium/node-chrome:3.5.2
-        depends_on:
-            - selenium_hub
-        environment:
-            - HUB_PORT_4444_TCP_ADDR=selenium_hub
-            - HUB_PORT_4444_TCP_PORT=4444
         expose:
-            - 5555
+            - 3306
+#    prediction_io:
+#        build: docker/prediction-io
+#        tty: true
+#        volumes:
+#          - ./docker/prediction-io:/docker
+#        ports:
+#            - 7070:7070
+#            - 8000:8000
+#    rabbitmq:
+#        image: rabbitmq:3.6.3-management
+#        environment:
+#          - RABBITMQ_DEFAULT_USER=root
+#          - RABBITMQ_DEFAULT_PASS=root
+#        expose:
+#            - 15672
+#    redis:
+#        image: redis:3
+#        expose:
+#            - 6379
+#    selenium_hub:
+#        image: selenium/hub:3.5.2
+#        ports:
+#            - 4444
+#    selenium_node_chrome:
+#        image: selenium/node-chrome:3.5.2
+#        depends_on:
+#            - selenium_hub
+#        environment:
+#            - HUB_PORT_4444_TCP_ADDR=selenium_hub
+#            - HUB_PORT_4444_TCP_PORT=4444
+#        expose:
+#            - 5555
     php:
         build: docker/php/
         environment:
-            - ENVIRONMENT=dev
-            - BLACKFIRE_SERVER_ID=X
-            - BLACKFIRE_SERVER_TOKEN=X
-            - GITHUB_OAUTH_TOKEN=X
+            - ENVIRONMENT=prod
         volumes:
             - .:/var/www/html
             - ~/.gitconfig:/var/www/.gitconfig
             - ~/.gitignore_global:/var/www/.gitignore_global
             - ~/.ssh:/var/www/.ssh
-        depends_on:
-            - elasticsearch
-            - mailcatcher
-            - mongodb
-            - mariadb
-            - prediction_io
-            - rabbitmq
-            - redis
-            - selenium_hub
+#        depends_on:
+#            - elasticsearch
+#            - mailcatcher
+#            - mongodb
+#            - mariadb
+#            - prediction_io
+#            - rabbitmq
+#            - redis
+#            - selenium_hub
         dns:
             - 8.8.8.8
             - 8.8.4.4

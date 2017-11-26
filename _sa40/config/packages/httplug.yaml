@@ -1,0 +1,4 @@
+httplug:
+    clients:
+        default:
+            factory: 'httplug.factory.guzzle6'

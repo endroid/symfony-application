@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+cp package.json.dist package.json
+
+yarn add \
+    @symfony/webpack-encore \
+    babel-preset-react \
+    bootstrap@4.0.0-beta.2 \
+    font-awesome jquery \
+    popper.js \
+    psi \
+    react \
+    react-dom \
+    react-s-alert \
+    superagent

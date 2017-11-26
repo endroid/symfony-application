@@ -1,0 +1,14 @@
+{
+  "name": "Symfony Application",
+  "short_name": "Symfony",
+  "start_url": "/?utm_source=homescreen",
+  "display": "standalone",
+  "theme_color": "#212529",
+  "background_color": "#212529",
+  "description": "Symfony Application",
+  "icons": [{
+    "src": "/favicon.ico",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}

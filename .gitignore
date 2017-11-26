@@ -1,13 +1,2 @@
-###> symfony/framework-bundle ###
-.env
-/public/bundles/
-/var/
-/vendor/
-###< symfony/framework-bundle ###
-
-/node_modules/
-
-/public/build/
-/public/metrics/
-/features/screenshots/
-/config/jwt/
+/.env
+/application/

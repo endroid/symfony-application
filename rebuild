@@ -1,0 +1,143 @@
+#!/usr/bin/env bash
+
+readonly SYMFONY_VERSION=3.3
+readonly SHOW_COMMANDS=false
+
+set -e # Break on any error
+
+if [ $SHOW_COMMANDS = true ]; then
+    set -o xtrace
+fi
+
+# When not in docker start docker and execute script again
+if [ ! -d "/var/www/html/docker" ] ; then
+    ./stop
+    echo y | docker-compose rm
+    docker-compose build
+    docker-compose up -d
+    docker-compose exec --user 1000 php /bin/sh rebuild
+    exit 0 # Do not continue as we already ran the script above
+fi
+
+rm -rf application
+
+readonly SYMFONY_VERSION_MAJOR=^$SYMFONY_VERSION
+readonly SYMFONY_VERSION_MINOR=~$SYMFONY_VERSION.0
+
+# Create new project from skeleton and build parts
+composer create-project symfony/skeleton:$SYMFONY_VERSION_MINOR application -s beta
+
+# Further build application
+(
+    cd application
+
+    composer config minimum-stability beta
+
+    # Symlink directories
+    ln -s ../features features
+    ln -s ../frontend frontend
+    ln -s ../templates templates
+    ln -s ../translations translations
+
+    # Kernel does not work in symlink path so symlink src directories
+    (
+        cd src
+        for directory in `find ../../src/* -maxdepth 0 -type d`
+        do
+            rm -rf `basename $directory`
+            ln -s $directory `basename $directory`;
+        done
+    )
+
+    # Allow auto configuration for user contributed bundles
+    composer config extra.symfony.allow-contrib true
+
+    # Use source when installing personal libraries
+    sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
+
+    # Application bundles that work in SF [3.3, 3.4, 4.0]
+    composer require \
+        doctrine/doctrine-fixtures-bundle \
+        friendsofsymfony/oauth-server-bundle \
+        friendsofsymfony/rest-bundle \
+        hwi/oauth-bundle \
+        javiereguiluz/easyadmin-bundle \
+        jms/serializer-bundle \
+        lexik/jwt-authentication-bundle \
+        nelmio/api-doc-bundle \
+        php-http/guzzle6-adapter \
+        php-http/httplug-bundle \
+        symfony/swiftmailer-bundle \
+        symfony/templating:$SYMFONY_VERSION_MAJOR \
+        symfony/web-link:$SYMFONY_VERSION_MAJOR \
+        --no-update
+
+    # Bundles compatible with SF 3.3
+    if [ $SYMFONY_VERSION = 3.3 ]; then
+        composer require \
+            friendsofsymfony/user-bundle \
+            sonata-project/doctrine-orm-admin-bundle \
+            --no-update
+    fi
+
+    # Bundles compatible with SF 3.4
+    if [ $SYMFONY_VERSION = 3.4 ]; then
+        composer require \
+            friendsofsymfony/user-bundle \
+            --no-update
+    fi
+
+    # Bundles compatible with SF 4.0
+    if [ $SYMFONY_VERSION = 4.0 ]; then
+        echo nothing
+    fi
+
+    # Personal libraries and bundles
+    composer require \
+        endroid/calendar:dev-master \
+        endroid/data-sanitize:dev-master \
+        endroid/flusher:dev-master \
+        endroid/guide:dev-master \
+        endroid/import:dev-master \
+        endroid/prediction-io:dev-master \
+        endroid/property-access:dev-master \
+        endroid/qrcode:dev-master \
+        endroid/soccer-calendar:dev-master \
+        endroid/soccer-data:dev-master \
+        --no-update
+
+        #endroid/cm-sms:dev-master \
+        #endroid/cm-sms-bundle:dev-master \
+        #endroid/pusher-bundle:dev-master \
+        #endroid/soccer-calendar-bundle:dev-master \
+        #endroid/tile:dev-master \
+
+    # Development bundles
+    composer require \
+        symfony/profiler-pack \
+        phpmetrics/phpmetrics \
+        friendsofphp/php-cs-fixer \
+        phpunit/phpunit \
+        --no-update --dev
+
+    # Make sure changes are incorporated so cache can be cleared by update below
+    cp -a ../overwrites/. .
+
+    # Update to the latest possible versions
+    composer update -n
+
+    # Make sure changes are incorporated so cache can be cleared by update below
+    cp -a ../overwrites/. .
+
+    # Set up frontend
+    (
+        cd frontend
+        ./rebuild
+    )
+)
+
+# Reset the application itself to make it functional
+(
+    cd application
+    ./reset
+)
