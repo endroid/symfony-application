@@ -34,12 +34,6 @@ endroid_guide:
             label: Fargo
             type: epguides
         -
-            label: Mr Robot
-            type: epguides
-        -
-            label: Better Call Saul
-            type: epguides
-        -
             label: South Park
             type: epguides
         -
