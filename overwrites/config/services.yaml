@@ -21,7 +21,7 @@ services:
         resource: '../src/*'
         # you can exclude directories or files
         # but if a service is unused, it's removed anyway
-        exclude: '../src/{DataFixtures,Entity,Migrations,Tests}'
+        exclude: '../src/{Entity,Migrations,Tests}'
 
     # controllers are imported separately to make sure they
     # have the tag that allows actions to type-hint services
@@ -29,7 +29,12 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
-    App\Security\UserProvider: ['@fos_user.user_manager.default', { }]
+    # aliases
+    FOS\OAuthServerBundle\Entity\ClientManager: '@fos_oauth_server.client_manager.default'
+    FOS\UserBundle\Model\UserManagerInterface: '@fos_user.user_manager.default'
+
+    App\Security\UserProvider:
+        $properties: {}
 
     admin.model_manager:
         class: App\Admin\ModelManager
