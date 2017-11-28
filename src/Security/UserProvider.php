@@ -10,8 +10,6 @@
 namespace App\Security;
 
 use FOS\UserBundle\Model\UserInterface;
-use FOS\UserBundle\Model\UserManager;
-use FOS\UserBundle\Model\UserManagerInterface;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\Exception\AccountNotLinkedException;
 use HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider;
