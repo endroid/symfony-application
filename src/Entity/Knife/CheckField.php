@@ -9,6 +9,7 @@
 
 namespace App\Entity\Knife;
 
+use Doctrine\DBAL\Types\BooleanType;
 use Doctrine\ORM\Mapping as ORM;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -25,6 +26,6 @@ class CheckField extends AbstractField
 
     public function addToListMapper(ListMapper $listMapper)
     {
-        $listMapper->add($this->getName(), 'checkbox');
+        $listMapper->add($this->getName(), 'boolean', ['editable' => true]);
     }
 }

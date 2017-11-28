@@ -31,11 +31,15 @@ services:
 
     App\Security\UserProvider: ['@fos_user.user_manager.default', { }]
 
+    admin.model_manager:
+        class: App\Admin\ModelManager
+        arguments: ['@doctrine']
+
     admin.service:
         class: App\Admin\ServiceAdmin
         arguments: [~, App\Entity\Knife\Service, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Service }
+            - { name: sonata.admin, manager_type: orm, label: Service, group: Content }
         calls:
             - [ addChild, [ '@admin.field' ] ]
             - [ addChild, [ '@admin.product' ] ]
@@ -54,5 +58,5 @@ services:
         class: App\Admin\ProductAdmin
         arguments: [~, App\Entity\Knife\Product, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Product, show_in_dashboard: false }
+            - { name: sonata.admin, model_manager: admin.model_manager, manager_type: orm, label: Product, show_in_dashboard: false }
         public: true
