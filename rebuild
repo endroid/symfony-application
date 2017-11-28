@@ -22,7 +22,6 @@ fi
 rm -rf application
 
 readonly SYMFONY_VERSION_MAJOR=^$SYMFONY_VERSION
-readonly SYMFONY_VERSION_MINOR=~$SYMFONY_VERSION.0
 
 # Create new project from skeleton and build parts
 composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s beta
@@ -55,11 +54,12 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     # Use source when installing personal libraries
     sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
 
-    # Application bundles that work in SF [3.3, 3.4, 4.0]
+    # Application bundles that work in SF 3.4 and 4.0
     composer require \
         doctrine/doctrine-fixtures-bundle \
         friendsofsymfony/oauth-server-bundle \
         friendsofsymfony/rest-bundle \
+        friendsofsymfony/user-bundle \
         hwi/oauth-bundle \
         javiereguiluz/easyadmin-bundle \
         jms/serializer-bundle \
@@ -67,30 +67,15 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         nelmio/api-doc-bundle \
         php-http/guzzle6-adapter \
         php-http/httplug-bundle \
+        sonata-project/doctrine-orm-admin-bundle \
         symfony/swiftmailer-bundle \
         symfony/templating:$SYMFONY_VERSION_MAJOR \
         symfony/web-link:$SYMFONY_VERSION_MAJOR \
         --no-update
 
-    # Bundles compatible with SF 3.3
-    if [ $SYMFONY_VERSION = 3.3 ]; then
-        composer require \
-            friendsofsymfony/user-bundle \
-            sonata-project/doctrine-orm-admin-bundle \
-            --no-update
-    fi
-
-    # Bundles compatible with SF 3.4
-    if [ $SYMFONY_VERSION = 3.4 ]; then
-        composer require \
-            friendsofsymfony/user-bundle \
-            sonata-project/doctrine-orm-admin-bundle \
-            --no-update
-    fi
-
-    # Bundles compatible with SF 4.0
+    # Bundles that only work in SF 4.0
     if [ $SYMFONY_VERSION = 4.0 ]; then
-        echo nothing
+        echo todo
     fi
 
     # Personal libraries and bundles
