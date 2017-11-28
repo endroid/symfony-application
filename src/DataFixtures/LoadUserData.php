@@ -7,19 +7,22 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\DataFixtures\ORM;
+namespace App\DataFixtures;
 
 use App\Entity\OAuth\Client;
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
 use FOS\OAuthServerBundle\Entity\ClientManager;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
-class LoadUserData implements FixtureInterface, ContainerAwareInterface
+class LoadUserData extends Fixture
 {
-    use ContainerAwareTrait;
+    private $clientManager;
+
+    public function __construct(ClientManager $clientManager)
+    {
+        $this->clientManager = $clientManager;
+    }
 
     /**
      * {@inheritdoc}
@@ -41,13 +44,10 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
 
     private function createOAuthClient(User $user)
     {
-        /** @var ClientManager $clientManager */
-        $clientManager = $this->container->get('fos_oauth_server.client_manager.default');
-
         /** @var Client $client */
-        $client = $clientManager->createClient();
+        $client = $this->clientManager->createClient();
         $client->setAllowedGrantTypes(['client_credentials']);
         $client->setUser($user);
-        $clientManager->updateClient($client);
+        $this->clientManager->updateClient($client);
     }
 }
