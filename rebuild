@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-readonly SYMFONY_VERSION=3.3
+readonly SYMFONY_VERSION=3.4
 readonly SHOW_COMMANDS=false
 
 set -e # Break on any error
@@ -25,7 +25,7 @@ readonly SYMFONY_VERSION_MAJOR=^$SYMFONY_VERSION
 readonly SYMFONY_VERSION_MINOR=~$SYMFONY_VERSION.0
 
 # Create new project from skeleton and build parts
-composer create-project symfony/skeleton:$SYMFONY_VERSION_MINOR application -s beta
+composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s beta
 
 # Further build application
 (
@@ -84,6 +84,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MINOR application -s b
     if [ $SYMFONY_VERSION = 3.4 ]; then
         composer require \
             friendsofsymfony/user-bundle \
+            sonata-project/doctrine-orm-admin-bundle \
             --no-update
     fi
 
@@ -120,14 +121,12 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MINOR application -s b
         phpunit/phpunit \
         --no-update --dev
 
-    # Make sure changes are incorporated so cache can be cleared by update below
-    cp -a ../overwrites/. .
+    ../overwrite
 
     # Update to the latest possible versions
     composer update -n
 
-    # Make sure changes are incorporated so cache can be cleared by update below
-    cp -a ../overwrites/. .
+    ../overwrite
 
     # Set up frontend
     (
