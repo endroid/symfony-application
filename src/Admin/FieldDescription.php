@@ -4,7 +4,7 @@ namespace App\Admin;
 
 use Doctrine\Common\Inflector\Inflector;
 use Sonata\AdminBundle\Exception\NoValueException;
-use Sonata\DoctrineORMAdminBundle\Admin\FieldDescription AS BaseFieldDescription;
+use Sonata\DoctrineORMAdminBundle\Admin\FieldDescription as BaseFieldDescription;
 
 class FieldDescription extends BaseFieldDescription
 {

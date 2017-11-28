@@ -3,7 +3,7 @@
 namespace App\Admin;
 
 use Sonata\AdminBundle\Model\ModelManagerInterface;
-use Sonata\DoctrineORMAdminBundle\Model\ModelManager AS BaseModelManager;
+use Sonata\DoctrineORMAdminBundle\Model\ModelManager as BaseModelManager;
 
 class ModelManager extends BaseModelManager implements ModelManagerInterface
 {

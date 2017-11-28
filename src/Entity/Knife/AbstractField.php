@@ -26,17 +26,10 @@ abstract class AbstractField
      * @var int
      *
      * @ORM\Id
-     * @ORM\Column(type="string")
-     * @ORM\GeneratedValue(strategy="UUID")
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string")
-     */
-    protected $name;
 
     /**
      * @var string
@@ -51,35 +44,19 @@ abstract class AbstractField
     protected $service;
 
     /**
-     * @return string
+     * @return int
      */
-    public function getId(): string
+    public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * @param string $id
+     * @param int $id
      */
-    public function setId(string $id)
+    public function setId(int $id)
     {
         $this->id = $id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName(string $name)
-    {
-        $this->name = $name;
     }
 
     /**
@@ -116,6 +93,11 @@ abstract class AbstractField
 
     abstract public function addToFormMapper(FormMapper $formMapper);
     abstract public function addToListMapper(ListMapper $listMapper);
+
+    public function getName()
+    {
+        return 'field'.$this->id;
+    }
 
     public function __toString()
     {
