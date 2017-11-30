@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Always operate from script directory
+cd "$(dirname "$0")"
+
 readonly SYMFONY_VERSION=3.4
 readonly SHOW_COMMANDS=false
 
@@ -45,6 +48,11 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     ln -s ../frontend frontend
     ln -s ../templates templates
     ln -s ../translations translations
+
+    (
+        cd vendor
+        ln -s ../../vendor/endroid endroid
+    )
 
     # Kernel does not work in symlink path so symlink src directories
     (
@@ -111,7 +119,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         symfony/profiler-pack \
         phpmetrics/phpmetrics \
         friendsofphp/php-cs-fixer \
-        phpunit/phpunit \
+        symfony/phpunit-bridge \
         --no-update --dev
 
     ../overwrite
