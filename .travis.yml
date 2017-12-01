@@ -24,4 +24,4 @@ script:
   - sudo chmod 777 -R .
   - docker-compose up -d >/dev/null
   - docker-compose exec --user 1000 php /bin/sh ./rebuild
-  - docker-compose exec --user 1000 php /bin/sh ./check
+  - docker-compose exec --user 1000 php /bin/sh ./application/check

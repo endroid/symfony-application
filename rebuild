@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Always operate from script directory
+cd "$(dirname "$0")"
+
 readonly SYMFONY_VERSION=3.4
 readonly SHOW_COMMANDS=false
 
@@ -32,13 +35,11 @@ rm -rf application
 readonly SYMFONY_VERSION_MAJOR=^$SYMFONY_VERSION
 
 # Create new project from skeleton and build parts
-composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s beta
+composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application
 
 # Further build application
 (
     cd application
-
-    composer config minimum-stability beta
 
     # Symlink directories
     ln -s ../features features
@@ -48,6 +49,11 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
 
     # Separate app specific services from default to allow easier upgrades
     echo 'imports: [{ resource: services_custom.yaml }{ resource: services_no_autowire.yaml }]' >> config/services.yaml
+
+    (
+        cd vendor
+        ln -s ../../vendor/endroid endroid
+    )
 
     # Kernel does not work in symlink path so symlink src directories
     (
@@ -114,7 +120,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         symfony/profiler-pack \
         phpmetrics/phpmetrics \
         friendsofphp/php-cs-fixer \
-        phpunit/phpunit \
+        symfony/phpunit-bridge \
         --no-update --dev
 
     ../overwrite
