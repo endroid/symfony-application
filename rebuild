@@ -35,19 +35,20 @@ rm -rf application
 readonly SYMFONY_VERSION_MAJOR=^$SYMFONY_VERSION
 
 # Create new project from skeleton and build parts
-composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s beta
+composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application
 
 # Further build application
 (
     cd application
-
-    composer config minimum-stability beta
 
     # Symlink directories
     ln -s ../features features
     ln -s ../frontend frontend
     ln -s ../templates templates
     ln -s ../translations translations
+
+    # Separate app specific services from default to allow easier upgrades
+    echo 'imports: [{ resource: services_custom.yaml }{ resource: services_no_autowire.yaml }]' >> config/services.yaml
 
     (
         cd vendor
