@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+./stop
+
 docker-compose up -d
 
 ./login
