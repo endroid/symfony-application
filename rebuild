@@ -46,6 +46,9 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     ln -s ../templates templates
     ln -s ../translations translations
 
+    # Separate app specific services from default to allow easier upgrades
+    echo 'imports: [{ resource: services_custom.yaml }{ resource: services_no_autowire.yaml }]' >> config/services.yaml
+
     # Kernel does not work in symlink path so symlink src directories
     (
         cd src
