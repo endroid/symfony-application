@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Always operate from script directory
+cd "$(dirname "$0")"
+
+# Further build application
+(
+    cd application
+
+    # Fix for pending recipes
+    sed -i '/QrCode\\Bundle/d' config/bundles.php
+    sed -i '/CmSms\\Bundle/d' config/bundles.php
+
+    composer install
+
+    ../overwrite
+
+    # Set up frontend
+    (
+        cd frontend
+        ./rebuild
+    )
+)
+
+# Reset the application itself to make it functional
+(
+    cd application
+    ./reset
+)
