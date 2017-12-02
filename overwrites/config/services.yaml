@@ -1,5 +1,10 @@
+imports:
+    - { resource: services_no_autowire.yaml }
+    - { resource: services_default.yaml }
+
 parameters:
-    mailer_user: info@endroid.nl
+    locale: 'en'
+    mailer_user: 'info@endroid.nl'
 
 services:
     _defaults:

@@ -49,8 +49,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     ln -s ../templates templates
     ln -s ../translations translations
 
-    # Separate app specific services from default to allow easier upgrades
-    printf 'imports:\n    - { resource: services_custom.yaml }\n    - { resource: services_no_autowire.yaml }\n\n' | cat - config/services.yaml >> config/services.yaml.tmp && mv config/services.yaml.tmp config/services.yaml
+    cp config/services.yaml config/services_default.yaml
 
     (
         cd vendor
