@@ -13,3 +13,5 @@ yarn add \
     react-dom \
     react-s-alert \
     superagent
+
+yarn build

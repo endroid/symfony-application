@@ -35,11 +35,13 @@ rm -rf application
 readonly SYMFONY_VERSION_MAJOR=^$SYMFONY_VERSION
 
 # Create new project from skeleton and build parts
-composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application
+composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s beta
 
 # Further build application
 (
     cd application
+
+    composer config minimum-stability beta
 
     # Symlink directories
     ln -s ../features features
@@ -48,7 +50,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application
     ln -s ../translations translations
 
     # Separate app specific services from default to allow easier upgrades
-    echo 'imports: [{ resource: services_custom.yaml }{ resource: services_no_autowire.yaml }]' >> config/services.yaml
+    printf 'imports:\n    - { resource: services_custom.yaml }\n    - { resource: services_no_autowire.yaml }\n\n' | cat - config/services.yaml >> config/services.yaml.tmp && mv config/services.yaml.tmp config/services.yaml
 
     (
         cd vendor
@@ -61,7 +63,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application
         for directory in `find ../../src/* -maxdepth 0 -type d`
         do
             rm -rf `basename $directory`
-            ln -s $directory `basename $directory`;
+            ln -s $directory `basename $directory`
         done
     )
 
@@ -71,12 +73,12 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application
     # Use source when installing personal libraries
     sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
 
-    # Application bundles that work in SF 3.4 and 4.0
+    # Application bundles
     composer require \
         doctrine/doctrine-fixtures-bundle \
+        friendsofsymfony/user-bundle \
         friendsofsymfony/oauth-server-bundle \
         friendsofsymfony/rest-bundle \
-        friendsofsymfony/user-bundle \
         hwi/oauth-bundle \
         javiereguiluz/easyadmin-bundle \
         jms/serializer-bundle \
@@ -90,14 +92,11 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application
         symfony/web-link:$SYMFONY_VERSION_MAJOR \
         --no-update
 
-    # Bundles that only work in SF 4.0
-    if [ $SYMFONY_VERSION = 4.0 ]; then
-        echo todo
-    fi
-
     # Personal libraries and bundles
     composer require \
         endroid/calendar:dev-master \
+        endroid/cm-sms:dev-master \
+        endroid/cm-sms-bundle:dev-master \
         endroid/data-sanitize:dev-master \
         endroid/flusher:dev-master \
         endroid/guide:dev-master \
@@ -105,12 +104,11 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application
         endroid/prediction-io:dev-master \
         endroid/property-access:dev-master \
         endroid/qrcode:dev-master \
+        endroid/qrcode-bundle:dev-master \
         endroid/soccer-calendar:dev-master \
         endroid/soccer-data:dev-master \
         --no-update
 
-        #endroid/cm-sms:dev-master \
-        #endroid/cm-sms-bundle:dev-master \
         #endroid/pusher-bundle:dev-master \
         #endroid/soccer-calendar-bundle:dev-master \
         #endroid/tile:dev-master \
