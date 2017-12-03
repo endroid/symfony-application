@@ -1,8 +1,0 @@
-endroid_cm_sms:
-    disable_delivery: true
-    product_token: '%env(CM_SMS_PRODUCT_TOKEN)%'
-    defaults:
-        sender: 'Endroid'
-        unicode: 'auto'
-        minimum_number_of_message_parts: 1
-        maximum_number_of_message_parts: 3

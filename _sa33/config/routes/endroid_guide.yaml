@@ -1,4 +1,0 @@
-EndroidGuideBundle:
-    resource: "@EndroidGuideBundle/Controller/"
-    type: annotation
-    prefix: /guide
