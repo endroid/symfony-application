@@ -1,0 +1,11 @@
+#parameters:
+#    # Fallback for when variables are not available
+#    # Avoids errors while warming up cache
+#    env(PUSHER_APP_ID): ''
+#    env(PUSHER_KEY): ''
+#    env(PUSHER_SECRET): ''
+#
+#endroid_pusher:
+#    app_id: '%env(PUSHER_APP_ID)%'
+#    key: '%env(PUSHER_KEY)%'
+#    secret: '%env(PUSHER_SECRET)%'
