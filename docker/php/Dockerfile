@@ -1,6 +1,6 @@
 FROM php:7.1-fpm
 
-RUN apt-get update && apt-get install -y wget vim nano git bash-completion zlib1g-dev libicu-dev g++ libssl-dev libxml2-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev libsasl2-dev libcurl4-openssl-dev pkg-config --fix-missing
+RUN apt-get update && apt-get install -y wget vim nano git bash-completion zlib1g-dev libicu-dev g++ libssl-dev libxml2-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev libsasl2-dev libcurl4-openssl-dev pkg-config libxrender1 libfontconfig1 --fix-missing
 
 RUN pecl install mongodb
 RUN docker-php-ext-enable mongodb
