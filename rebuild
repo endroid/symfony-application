@@ -78,9 +78,11 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         friendsofsymfony/user-bundle \
         friendsofsymfony/oauth-server-bundle \
         friendsofsymfony/rest-bundle \
+        h4cc/wkhtmltopdf-amd64 \
         hwi/oauth-bundle \
         javiereguiluz/easyadmin-bundle \
         jms/serializer-bundle \
+        knplabs/knp-snappy-bundle \
         lexik/jwt-authentication-bundle \
         nelmio/api-doc-bundle \
         php-http/guzzle6-adapter \
@@ -96,8 +98,8 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/calendar:dev-master \
         endroid/cm-sms:dev-master \
         endroid/cm-sms-bundle:dev-master \
-        endroid/data-sanitize:dev-master \
         endroid/flusher:dev-master \
+        endroid/flusher-bundle:dev-master \
         endroid/guide:dev-master \
         endroid/import:dev-master \
         endroid/prediction-io:dev-master \
@@ -108,6 +110,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/soccer-data:dev-master \
         --no-update
 
+        #endroid/data-sanitize:dev-master \
         #endroid/pusher-bundle:dev-master \
         #endroid/soccer-calendar-bundle:dev-master \
         #endroid/tile:dev-master \
