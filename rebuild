@@ -69,6 +69,9 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     # Allow auto configuration for user contributed bundles
     composer config extra.symfony.allow-contrib true
 
+    # Make sure private repositories are found
+    composer config repositories.play-bundle git git@github.com:endroid/EndroidPlayBundle.git
+
     # Use source when installing personal libraries
     sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
 
@@ -102,12 +105,14 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/flusher-bundle:dev-master \
         endroid/guide:dev-master \
         endroid/import:dev-master \
+        endroid/play-bundle:dev-master \
         endroid/prediction-io:dev-master \
         endroid/property-access:dev-master \
         endroid/qrcode:dev-master \
         endroid/qrcode-bundle:dev-master \
         endroid/soccer-calendar:dev-master \
         endroid/soccer-data:dev-master \
+        endroid/sudoku:dev-master \
         --no-update
 
         #endroid/data-sanitize:dev-master \
