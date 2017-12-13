@@ -1,13 +1,13 @@
-FROM php:7.1-fpm
+FROM php:7.2-fpm
 
-RUN apt-get update && apt-get install -y wget vim nano git bash-completion zlib1g-dev libicu-dev g++ libssl-dev libxml2-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev libsasl2-dev libcurl4-openssl-dev pkg-config libxrender1 libfontconfig1 --fix-missing
+RUN apt-get update && apt-get install -y wget vim nano git gnupg bash-completion zlib1g-dev libicu-dev g++ libssl-dev libxml2-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libsasl2-dev libcurl4-openssl-dev pkg-config libxrender1 libfontconfig1 --fix-missing
 
 RUN pecl install mongodb
 RUN docker-php-ext-enable mongodb
 
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
-RUN docker-php-ext-install bcmath ftp gd iconv intl mbstring mcrypt opcache pdo pdo_mysql soap zip
+RUN docker-php-ext-install bcmath ftp gd iconv intl mbstring opcache pdo pdo_mysql soap zip
 
 RUN curl -LsS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
@@ -26,9 +26,8 @@ RUN chmod a+x /usr/local/bin/security-checker
 RUN curl -LsS https://github.com/sensiolabs-de/deprecation-detector/releases/download/0.1.0-alpha4/deprecation-detector.phar -o /usr/local/bin/deprecation-detector
 RUN chmod a+x /usr/local/bin/deprecation-detector
 
-RUN apt-get update && apt-get install -y npm nodejs --fix-missing
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
-RUN ln -s /usr/bin/nodejs /usr/bin/node
+RUN apt-get update && apt-get install -y npm nodejs --fix-missing
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
