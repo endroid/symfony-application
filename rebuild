@@ -69,8 +69,9 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     # Allow auto configuration for user contributed bundles
     composer config extra.symfony.allow-contrib true
 
-    # Make sure private repositories are found
+    # Add private repositories
     composer config repositories.play-bundle git git@github.com:endroid/EndroidPlayBundle.git
+    sed -i -e 's/;/+ [Endroid\\Bundle\\PlayBundle\\EndroidPlayBundle::class => ["all" => true]];/g' config/bundles.php
 
     # Use source when installing personal libraries
     sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
