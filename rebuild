@@ -12,6 +12,10 @@ if [ $SHOW_COMMANDS = true ]; then
     set -o xtrace
 fi
 
+if [ ! -f docker/nginx/nginx.conf ]; then
+    cp docker/nginx/nginx.conf.dist docker/nginx/nginx.conf
+fi
+
 if [ ! -f .env ]; then
     cp .env.dist .env
 fi
