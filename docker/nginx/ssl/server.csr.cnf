@@ -5,10 +5,4 @@ default_md = sha256
 distinguished_name = dn
 
 [dn]
-C=US
-ST=New York
-L=Rochester
-O=End Point
-OU=Testing Domain
-emailAddress=info@endroid.nl
-CN = localhost
+C = US
