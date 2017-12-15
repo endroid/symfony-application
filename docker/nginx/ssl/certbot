@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+if [ $DOMAIN != "localhost" ]; then
+    certbot --nginx -d $DOMAIN --non-interactive --agree-tos --email info@$DOMAIN
+fi

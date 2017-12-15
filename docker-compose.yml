@@ -66,7 +66,6 @@ services:
             - ~/.ssh:/var/www/.ssh
 #        depends_on:
 #            - elasticsearch
-#            - mailcatcher
 #            - mongodb
 #            - mariadb
 #            - prediction_io
@@ -84,6 +83,8 @@ services:
             - .:/var/www/html
         depends_on:
             - php
+        environment:
+            - DOMAIN=${DOMAIN}
         ports:
             - 80:80
             - 443:443

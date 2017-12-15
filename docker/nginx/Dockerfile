@@ -7,8 +7,7 @@ ADD ssl /etc/nginx/ssl
 
 RUN usermod -u 1000 www-data
 
-ENTRYPOINT sh /var/www/html/docker/nginx/entrypoint.sh && php-fpm
-#CMD ["nginx"]
+CMD ["nginx"]
 
 WORKDIR /var/www/html
 

@@ -30,6 +30,7 @@ if [ ! -d "/var/www/html/docker" ] ; then
     echo y | docker-compose rm
     docker-compose build
     docker-compose up -d
+    docker-compose exec nginx docker/nginx/ssl/certbot
     docker-compose exec --user 1000 php /bin/sh rebuild
     exit 0 # Do not continue as we already ran the script above
 fi
