@@ -1,5 +1,7 @@
 # Routes
 
+Update: route annotations zitten tegenwoordig in symfony/framework
+
 Symfony offers different methods of defining routes. The most popular being the
 configuration file (routing.yml) and the annotation (@Route). To make a good
 choice I list the advantages of each approach here.
