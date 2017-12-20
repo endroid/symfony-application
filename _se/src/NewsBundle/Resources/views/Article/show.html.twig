@@ -1,0 +1,19 @@
+{% extends 'NewsBundle::layout.html.twig' %}
+
+{% block title %}{{ article.title }} - {{ parent() }}{% endblock %}
+
+{#{% block languages %}#}
+
+    {#{% render(controller('AppBundle:Language:switch', { route: 'news_article_show', params: { slug: 'article.slug' }, translatables: { 'article': article }})) %}#}
+
+{#{% endblock %}#}
+
+{% block page_content %}
+
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.translatable.date|localizeddate('long', 'none', app.request.locale) }}</p>
+    <p>{{ article.content|raw }}</p>
+    {#<p>{% thumbnail article.translatable.image, 'big' %}</p>#}
+    <p><a href="{{ path('news_article_index') }}">{{ 'back'|trans }}</a></p>
+
+{% endblock %}

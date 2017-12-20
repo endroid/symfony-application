@@ -1,0 +1,21 @@
+groups:
+    group_superadmin:
+        name: Super administrators
+        roles: [ ROLE_SUPER_ADMIN ]
+    group_admin:
+        name: Administrators
+        roles: [ ROLE_ADMIN ]
+
+users:
+    user_superadmin:
+        username: superadmin
+        email: superadmin@example.com
+        groups: [ group_superadmin ]
+        enabled: true
+        password: superadmin
+    user_admin:
+        username: admin
+        email: admin@example.com
+        groups: [ group_admin ]
+        enabled: true
+        password: admin

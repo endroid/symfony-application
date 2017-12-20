@@ -1,0 +1,5 @@
+oauth.label: OAuth
+oauth.clients.label: Applications
+oauth.client.id.label: ID
+oauth.client.name.label: Name
+oauth.client.secret.label: Secret

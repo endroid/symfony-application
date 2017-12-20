@@ -1,0 +1,9 @@
+doctrine_mongodb:
+    connections:
+        default:
+            server: "%mongodb_host%"
+            options: {}
+    default_database: "%mongodb_database"
+    document_managers:
+        default:
+            auto_mapping: true

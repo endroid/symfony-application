@@ -1,0 +1,31 @@
+services:
+    news.admin.article_admin:
+        class: NewsBundle\Admin\ArticleAdmin
+        arguments: [ null, NewsBundle\Entity\Article, null ]
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Content, label: admin.articles.label, label_catalogue: messages }
+
+    news.admin.article_category_admin:
+        class: NewsBundle\Admin\ArticleCategoryAdmin
+        arguments: [ null, NewsBundle\Entity\ArticleCategory, null ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Content, label: admin.article_categories.label, label_catalogue: messages }
+
+    news.service.route_provider:
+        class: NewsBundle\Provider\RouteProvider
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
+        tags:
+            -  { name: route.provider.route_provider }
+
+    news.handler.article_handler:
+        class: NewsBundle\Handler\ArticleHandler
+        arguments: [ '@doctrine.orm.entity_manager', NewsBundle\Entity\Article ]
+
+#    news.voter.article_voter:
+#        class: NewsBundle\Security\ArticleVoter
+#        arguments: [ '@service_container' ]
+#        tags:
+#            - { name: security.voter }

@@ -1,0 +1,32 @@
+# This file is auto-generated during the composer install
+parameters:
+    application_key: symfony_application
+    locale: en
+    locales:
+        - en
+        - fr
+        - de
+        - nl
+    database_host: mariadb
+    database_port: null
+    database_name: application
+    database_user: root
+    database_password: root
+    mailer_transport: smtp
+    mailer_host: mailcatcher
+    mailer_user: null
+    mailer_password: null
+    mailer_port: 1025
+    mailer_auth_mode: null
+    secret: ThisTokenIsNotSoSecretChangeIt
+    google_analytics_trackers: null
+    mongodb_host: mongodb
+    mongodb_database: application
+    elasticsearch_host: elasticsearch
+    elasticsearch_index: application
+    redis_host: redis
+    redis_prefix: application
+    google_oauth_client_id: client_id
+    google_oauth_client_secret: client_secret
+    user_whitelist: null
+    prediction_io.endroid.key: endroid

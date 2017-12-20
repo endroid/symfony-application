@@ -1,0 +1,4 @@
+#endroid_image_placeholder:
+#    enabled: %kernel.debug%
+#    provider: placehoff
+#    check_image_exists: true

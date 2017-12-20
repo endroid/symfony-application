@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#224470">
+    <title>{% block title %}Endroid.nl{% endblock %}</title>
+    <link rel="icon" href="{{ asset('icon.gif') }}">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+    {{ google_analytics_tracker('default') }}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ preload(manifest_asset('build/app.css', 'bundles/app/build/manifest.json')) }}">
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+        {% block content %}
+
+        {% endblock %}
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{ preload(manifest_asset('build/app.js', 'bundles/app/build/manifest.json')) }}"></script>
+
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(function(registered){
+                        console.log('Service worker registered');
+                    }).catch(function(error) {
+                        console.log('Failed to register service worker: ', error);
+                    });
+            }
+        </script>
+    {% endblock %}
+</body>
+</html>

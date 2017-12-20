@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include('PdfBundle:Pdf:css.html.twig') %}
+        <!-- FILTERS_PLACEHOLDER -->
+    </head>
+    <body class="content">
+        <div class="intro">
+            <h1>{{ intro.title }}</h1>
+            <div class="banner"></div>
+            {{ intro.content|raw }}
+        </div>
+        <div class="items">
+            {% for item in items %}
+                <div class="item" id="{{ item.id }}">
+                    <h1>{{ item.title }}</h1>
+                    {{ item.content|raw }}
+                    {% for sub in item.subs %}
+                        <div class="sub">
+                            <h2>{{ sub.title }}</h2>
+                            {{ sub.content|raw }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

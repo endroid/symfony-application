@@ -1,0 +1,11 @@
+Endroid\State\Delta:
+  type: entity
+  table: delta
+  id:
+    uuid:
+      type: string
+  fields:
+    type:
+      type: string
+    processed:
+      type: boolean

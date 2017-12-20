@@ -1,0 +1,24 @@
+#sonata_media:
+#    default_context: default
+#    db_driver: doctrine_orm
+#    contexts:
+#        default:
+#            providers:
+#                - sonata.media.provider.dailymotion
+#                - sonata.media.provider.youtube
+#                - sonata.media.provider.image
+#                - sonata.media.provider.file
+#            formats:
+#                small: { width: 100 , quality: 70}
+#                big:   { width: 500 , quality: 70}
+#    cdn:
+#        server:
+#            path: /uploads/media
+#    filesystem:
+#        local:
+#            directory:  %kernel.root_dir%/../web/uploads/media
+#            create:     true
+#    class:
+#        media: MediaBundle\Entity\Media
+#        gallery: MediaBundle\Entity\Gallery
+#        gallery_has_media: MediaBundle\Entity\GalleryHasMedia

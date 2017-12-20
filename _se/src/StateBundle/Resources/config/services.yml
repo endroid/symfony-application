@@ -1,0 +1,18 @@
+services:
+#    endroid_state.uuid_generator:
+#        class: Endroid\State\UuidGenerator\RandomUuidGenerator
+#    endroid.state.manager:
+#        class: Endroid\State\Manager
+#        arguments: [ '@endroid.state.storage', '@endroid.state.uuid_generator' ]
+#    endroid.state.monitor:
+#        class: Endroid\State\Monitor
+#        arguments: [ '@endroid.state.storage' ]
+#    endroid.state.storage:
+#        class: Endroid\State\Storage\OrmStorage
+#        arguments: [ '@doctrine.orm.entity_manager' ]
+#
+#    endroid_state.command.monitor_command:
+#        class: StateBundle\Command\MonitorCommand
+#        arguments: [ null, '@endroid.state.monitor' ]
+#        tags:
+#            - { name: console.command }

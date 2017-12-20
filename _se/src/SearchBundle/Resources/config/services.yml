@@ -1,0 +1,5 @@
+services:
+    search.twig.extension:
+          class: SearchBundle\Twig\Extension\SearchExtension
+          tags:
+              - { name: twig.extension }

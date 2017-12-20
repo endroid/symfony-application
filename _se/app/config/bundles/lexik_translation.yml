@@ -1,0 +1,4 @@
+#lexik_translation:
+#    fallback_locale: '%locale%'
+#    managed_locales: '%locales%'
+#    auto_cache_clean: true

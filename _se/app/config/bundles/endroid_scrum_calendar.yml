@@ -1,0 +1,26 @@
+endroid_scrum_calendar:
+    sprint_definitions:
+        tasks:
+            label: Tasks
+            url: https://calendar.google.com/calendar/ical/b7paql3k47d28akdmmeml8dk6o%40group.calendar.google.com/private-5d2289d7c9251145e97946b4b7a1b17e/basic.ics
+            date_start: '2017-05-01'
+            date_interval: P1M
+            repeat: true
+        netvlies:
+            label: Netvlies
+            url: https://calendar.google.com/calendar/ical/netvlies.net_1kk2m9c0loptc8snke858osso0%40group.calendar.google.com/private-1685fd22ca1373d93364ad6749483035/basic.ics
+            date_start: '2017-05-01'
+            date_interval: P1M
+            repeat: true
+        scrum_calendar_1:
+            label: Scrum Calendar 1
+            url: https://calendar.google.com/calendar/ical/endroid.nl_evp8ubt3hc3p8ja46b4oh4jstg%40group.calendar.google.com/private-32ad3f69ae59bd9c54bc70ae92a819ee/basic.ics
+            date_start: '2017-05-01'
+            date_interval: P1M
+            repeat: true
+        scrum_calendar_2:
+            label: Scrum Calendar 2
+            url: https://calendar.google.com/calendar/ical/endroid.nl_sgs8cbpahis6842auvn9vrnsjc%40group.calendar.google.com/private-e9dcba7da65fd42e46c920b00056f091/basic.ics
+            date_start: '2017-05-01'
+            date_interval: P2W
+            repeat: true

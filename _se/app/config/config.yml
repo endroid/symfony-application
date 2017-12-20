@@ -1,0 +1,77 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }
+    - { resource: services.yml }
+    - { resource: bundles/ }
+
+framework:
+    esi:             ~
+    translator:      { fallbacks: ["%locale%"] }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    web_link:
+        enabled: true
+    cache:
+        app: cache.adapter.redis
+        default_redis_provider: redis://%redis_host%
+        pools:
+            app.cache.page:
+                adapter: cache.app
+                default_lifetime: 1200
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    session:
+        save_path: "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+        handler_id: session.handler.native_file
+        cookie_lifetime: 31557600
+        gc_maxlifetime: 31557600
+    fragments:       ~
+    http_method_override: true
+    assets: ~
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+#    globals:
+#        locales: %locales%
+#        locale_flags: { nl: 'nl', en: 'gb', de: 'de', fr: 'fr' }
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   pdo_mysql
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+#        types:
+#            json: Sonata\Doctrine\Types\JsonType
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+        mappings:
+            EndroidDataSanitizeBundle:
+                mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    auth_mode: "%mailer_auth_mode%"
+    port:      "%mailer_port%"
+    spool:     { type: memory }

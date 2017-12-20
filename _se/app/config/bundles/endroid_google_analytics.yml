@@ -1,0 +1,2 @@
+endroid_google_analytics:
+    trackers: '%google_analytics_trackers%'

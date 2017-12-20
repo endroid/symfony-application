@@ -1,0 +1,3 @@
+services:
+    route.collector.route_collector:
+        class: RouteBundle\Collector\RouteCollector

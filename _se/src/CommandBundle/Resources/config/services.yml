@@ -1,0 +1,3 @@
+services:
+    endroid_command.command_bus:
+        class: Endroid\Command\CommandBus

@@ -1,0 +1,135 @@
+{
+    "name": "endroid/symfony-application",
+    "license": "MIT",
+    "type": "project",
+    "description": "Endroid Symfony Application",
+    "autoload": {
+        "psr-4": { "": "src/" },
+        "files": [ "app/AppKernel.php", "app/AppCache.php" ]
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "tests/" },
+        "files": [ "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php" ]
+    },
+    "require": {
+        "endroid/behavior-bundle": "dev-master",
+        "endroid/command": "dev-master",
+        "endroid/dashboard": "dev-master",
+        "endroid/form-bundle": "dev-master",
+        "endroid/gcm": "dev-master",
+        "endroid/google-analytics-bundle": "dev-master",
+        "endroid/google-api-bundle": "dev-master",
+        "endroid/image-placeholder-bundle": "dev-master",
+        "endroid/intake-bundle": "dev-master",
+        "endroid/openweathermap": "dev-master",
+        "endroid/play-bundle": "dev-master",
+        "endroid/priority-shuffle-random": "dev-master",
+        "endroid/property-access": "dev-master",
+        "endroid/pusher-bundle": "dev-master",
+        "endroid/scrum-calendar": "dev-master",
+        "endroid/simple-excel": "dev-master",
+        "endroid/soccer-calendar": "dev-master",
+        "endroid/task": "dev-master",
+        "endroid/tile": "dev-master",
+        "endroid/twitter": "dev-master",
+        "doctrine/mongodb-odm": "^1.0",
+        "doctrine/mongodb-odm-bundle": "^3.0",
+        "alcaeus/mongo-php-adapter": "^1.1",
+        "javiereguiluz/easyadmin-bundle": "^1.0",
+        "doctrine/doctrine-migrations-bundle": "^1.2",
+        "doctrine/doctrine-fixtures-bundle": "^2.3",
+        "fzaninotto/faker": "^1.6",
+        "predis/predis": "^1.1",
+        "friendsofsymfony/elastica-bundle": "5.0.x-dev",
+        "friendsofsymfony/user-bundle": "^2.0",
+        "hwi/oauth-bundle": "^0.5",
+        "friendsofsymfony/rest-bundle": "^2.1",
+        "nelmio/api-doc-bundle": "^2.13",
+        "jms/serializer-bundle": "^1.4",
+        "friendsofsymfony/oauth-server-bundle": "^1.5",
+        "jms/i18n-routing-bundle": "^2.0",
+        "knplabs/knp-snappy-bundle": "^1.4",
+        "h4cc/wkhtmltopdf-amd64": "^0.12.3",
+        "iio/libmergepdf": "^3.0",
+        "phpoffice/phpexcel": "^1.8",
+        "phpoffice/phpword": "^0.13",
+        "sonata-project/doctrine-orm-admin-bundle": "^3.1",
+        "lexik/translation-bundle": "dev-master",
+        "ibrows/sonata-translation-bundle" : "^1.0",
+        "knplabs/doctrine-behaviors": "^1.4",
+        "a2lix/translation-form-bundle": "^2.1",
+        "a2lix/auto-form-bundle": "dev-master",
+        "white-october/pagerfanta-bundle": "^1.0",
+        "egeloen/ckeditor-bundle": "^5.0",
+        "league/tactician-bundle": "^0.4",
+        "behat/mink-extension": "^2.2",
+        "behat/mink-goutte-driver": "^1.2",
+        "behat/behat": "dev-master",
+        "behat/mink-selenium2-driver": "^1.3",
+        "box/spout": "^2.4",
+        "helios-ag/fm-elfinder-bundle": "^6.2"
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "^3.0",
+        "symfony/phpunit-bridge": "^3.0",
+        "phpunit/phpunit": "^6.0"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url":  "git@github.com:endroid/Command.git"
+        },
+        {
+            "type": "git",
+            "url":  "git@github.com:endroid/Dashboard.git"
+        },
+        {
+            "type": "git",
+            "url":  "git@github.com:endroid/EndroidPlayBundle.git"
+        },
+        {
+            "type": "git",
+            "url":  "git@github.com:endroid/Import.git"
+        },
+        {
+            "type": "git",
+            "url":  "git@github.com:endroid/Task.git"
+        }
+    ],
+    "scripts": {
+        "symfony-scripts": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "post-install-cmd": [
+            "@symfony-scripts"
+        ],
+        "post-update-cmd": [
+            "@symfony-scripts"
+        ]
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-bin-dir": "bin",
+        "symfony-var-dir": "var",
+        "symfony-web-dir": "web",
+        "symfony-tests-dir": "tests",
+        "symfony-assets-install": "relative",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "branch-alias": {
+            "dev-master": "3.3-dev"
+        }
+    },
+    "config": {
+        "component-dir": "web/assets/elfinder"
+    },
+    "provide": {
+        "ext-mongo": "1.6.14"
+    }
+}

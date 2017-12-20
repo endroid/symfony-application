@@ -1,0 +1,15 @@
+services:
+    page.admin.page_admin:
+        class: PageBundle\Admin\PageAdmin
+        arguments: [ null, PageBundle\Entity\Page, null]
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Content, label: Pages, label_catalogue: messages }
+
+    page.provider.route_provider:
+        class: PageBundle\Provider\RouteProvider
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
+        tags:
+            -  { name: route.provider.route_provider }

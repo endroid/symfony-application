@@ -1,0 +1,9 @@
+#jms_serializer:
+#    metadata:
+#        directories:
+#            news:
+#                namespace_prefix: NewsBundle
+#                path: "@NewsBundle/Resources/config/serializer"
+#            page:
+#                namespace_prefix: PageBundle
+#                path: "@PageBundle/Resources/config/serializer"

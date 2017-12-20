@@ -1,0 +1,142 @@
+<style>
+
+    /* General */
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+        text-align: justify;
+    }
+    h1, h2 {
+        color: #555;
+    }
+    table, tr, td, th, tbody, thead, tfoot, p {
+        page-break-inside: avoid !important;
+    }
+
+    /* Cover */
+
+    .cover {
+        background-image: url('/bundles/pdf/img/cover.jpg');
+        background-size: 700px auto;
+        width: 100%;
+        height: 900px;
+        padding-top: 50px;
+    }
+    .cover .overlay {
+        padding: 25px 50px;
+        background: rgba(0,0,0,0.6);
+        color: #fff;
+    }
+    .cover h1 {
+        font-size: 30px;
+        text-transform: uppercase;
+        line-height: 20px;
+        color: #fff;
+    }
+
+    /* TOC */
+
+    .toc {
+        margin: 0px 20px;
+    }
+    .toc div {
+        border-bottom: 1px dashed rgb(200,200,200);
+    }
+    .toc span {
+        float: right;
+    }
+    .toc li {
+        list-style: none;
+    }
+    .toc ul {
+        padding-left: 0em;
+    }
+    .toc ul ul {
+        padding-left: 1em;
+        font-size: 80%;
+    }
+    .toc a {
+        text-decoration:none;
+        color: black;
+    }
+
+    /* Content */
+
+    .content {
+        padding: 0px 20px;
+    }
+    .content .item {
+        page-break-before: always;
+        page-break-inside: avoid;
+    }
+    .content .sub {
+        page-break-before: always;
+        page-break-inside: avoid;
+    }
+    .content .intro .banner {
+        background-image: url('/bundles/pdf/img/banner.jpg');
+        width: 100%;
+        background-size: auto 150px;
+        height: 150px;
+    }
+    .content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    .content table th {
+        text-transform: uppercase;
+        background-color: #ccc;
+    }
+    .content table td {
+        color: #555;
+    }
+    .content table th,
+    .content table td {
+        border: 1px solid #ccc;
+        text-align: center;
+        padding: 2px 5px;
+    }
+
+    /* Header */
+
+    .header {
+        background-color: #555;
+        height: 45px;
+        padding: 0px 20px;
+        text-transform: uppercase;
+    }
+    .header h1 {
+        position: absolute;
+        width: 100%;
+        text-align: right;
+        right: 20px;
+        top: 4px;
+        font-size: 15px;
+        color: #fff;
+    }
+
+    /* Footer */
+
+    .footer {
+        height: 45px;
+        padding: 0px 20px;
+        text-transform: uppercase;
+    }
+    .footer .title {
+        width: 100%;
+        position: absolute;
+        left: 20px;
+        top: 2px;
+        font-size: 12px;
+        color: #999;
+    }
+    .footer .page {
+        position: absolute;
+        right: 20px;
+        font-size: 15px;
+        color: #555;
+    }
+
+</style>

@@ -1,0 +1,40 @@
+fos_elastica:
+    clients:
+        default: { host: '%elasticsearch_host%', port: 9200 }
+    indexes:
+        '%elasticsearch_index%':
+            client: default
+            settings:
+                index:
+                    number_of_replicas: 0
+            finder: ~
+            types:
+                page_translation:
+                    properties:
+                        title: { boost: 3 }
+                        content: { boost: 2 }
+                        locale: ~
+                        slug: ~
+                    persistence:
+                        driver: orm
+                        model: PageBundle\Entity\PageTranslation
+                        provider: ~
+                        finder: ~
+                        listener: ~
+                        elastica_to_model_transformer:
+                            ignore_missing: true
+                news_article_translation:
+                    properties:
+                        title: { boost: 3 }
+                        date: ~
+                        content: { boost: 2 }
+                        locale: ~
+                        slug: ~
+                    persistence:
+                        driver: orm
+                        model: NewsBundle\Entity\ArticleTranslation
+                        provider: ~
+                        finder: ~
+                        listener: ~
+                        elastica_to_model_transformer:
+                            ignore_missing: true

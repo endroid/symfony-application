@@ -1,0 +1,4 @@
+endroid_open_weather_map:
+    api_key: db7a0557296375685623ef3c516da876
+    units: metric
+    language: en

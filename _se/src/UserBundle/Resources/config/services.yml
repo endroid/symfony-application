@@ -1,0 +1,31 @@
+services:
+    user.admin.user_admin:
+        class: UserBundle\Admin\UserAdmin
+        arguments: [ null, UserBundle\Entity\User, null ]
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin.users.label, label: admin.users.label, label_catalogue: messages }
+
+    user.admin.group_admin:
+        class: UserBundle\Admin\GroupAdmin
+        arguments: [ null, UserBundle\Entity\Group, null ]
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin.users.label, label: admin.groups.label, label_catalogue: messages }
+
+    user.provider.user_provider:
+        class: UserBundle\Provider\UserProvider
+        arguments: [ '@fos_user.user_manager', { google: googleId } ]
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
+            - [ setEntityManager, [ '@doctrine.orm.entity_manager' ] ]
+
+    user.handler.user_handler:
+        class: UserBundle\Handler\UserHandler
+        arguments: [ '@doctrine.orm.entity_manager', UserBundle\Entity\User ]
+
+    user.handler.login:
+        class: UserBundle\Handler\LoginHandler
+        arguments: [ '@security.authorization_checker', '@router' ]

@@ -1,0 +1,31 @@
+services:
+    oauth.admin.extension.user:
+        class: OAuthBundle\Admin\Extension\UserAdminExtension
+        tags:
+            - { name: sonata.admin.extension }
+
+    oauth.event_listener.user:
+        class: OAuthBundle\EventListener\UserListener
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
+        tags:
+           - { name: doctrine.event_listener, event: prePersist }
+
+    oauth.admin.client:
+        class: OAuthBundle\Admin\ClientAdmin
+        arguments: [ null, OAuthBundle\Entity\Client, null]
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
+
+    oauth.factory.client:
+        class: OAuthBundle\Factory\ClientFactory
+        arguments: [ '@fos_oauth_server.client_manager.default' ]
+
+    oauth.command.create_client:
+        class: OAuthBundle\Command\CreateClientCommand
+        calls:
+            - [ setClientFactory, [ '@oauth.factory.client' ] ]
+        tags:
+            -  { name: console.command }

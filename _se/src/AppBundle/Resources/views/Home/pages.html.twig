@@ -1,0 +1,11 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block page_content %}
+
+    <ul>
+        {% for pageTranslation in pageTranslations %}
+            <li><a href="{{ path('page_page_show', { slug: pageTranslation.slug }) }}">{{ pageTranslation.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

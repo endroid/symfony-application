@@ -1,0 +1,20 @@
+{% extends 'PageBundle::layout.html.twig' %}
+
+{% block title %}{{ pageTranslation.title }} - {{ parent() }}{% endblock %}
+
+{#{% block languages %}#}
+
+    {#{% render(controller('AppBundle:Language:switch', { route: 'page_page_show', params: { slug: 'page.slug' }, translatables: { 'page': page }})) %}#}
+
+{#{% endblock %}#}
+
+{% block page_content %}
+
+    <h1>{{ pageTranslation.title }}</h1>
+    <p>{{ pageTranslation.content|raw }}</p>
+
+    {% if pageTranslation.form %}
+        {{ render(controller('EndroidFormBundle:Form:show', { form: pageTranslation.form })) }}
+    {% endif %}
+
+{% endblock %}
