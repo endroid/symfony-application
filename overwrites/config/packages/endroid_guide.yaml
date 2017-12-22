@@ -1,47 +1,47 @@
-#endroid_guide:
-#    shows:
+endroid_guide:
+    shows:
 #        -
 #            label: LuckyTV
 #            type: luckytv
-#        -
-#            label: Sluipschutters
-#            type: npo
-#        -
-#            label: Klikbeet
-#            type: npo
-#        -
-#            label: De Kwis
-#            type: npo
-#        -
-#            label: Zondag met Lubach
-#            type: npo
-#        -
-#            label: Draadstaal
-#            type: npo
-#        -
-#            label: Missie Aarde
-#            type: npo
-#        -
-#            label: Voetbal Inside
-#            type: rtl
-#        -
-#            label: Internetpesters
-#            type: rtl
-#        -
-#            label: Tour de Jour
-#            type: rtl
-#        -
-#            label: Fargo
-#            type: epguides
-#        -
-#            label: South Park
-#            type: epguides
-#        -
-#            label: Homeland
-#            type: epguides
-#        -
-#            label: Big Bang Theory
-#            type: epguides
-#        -
-#            label: Curb Your Enthusiasm
-#            type: epguides
+        -
+            label: Sluipschutters
+            type: npo
+        -
+            label: Klikbeet
+            type: npo
+        -
+            label: De Kwis
+            type: npo
+        -
+            label: Zondag met Lubach
+            type: npo
+        -
+            label: Draadstaal
+            type: npo
+        -
+            label: Missie Aarde
+            type: npo
+        -
+            label: Voetbal Inside
+            type: rtl
+        -
+            label: Internetpesters
+            type: rtl
+        -
+            label: Tour de Jour
+            type: rtl
+        -
+            label: Fargo
+            type: epguides
+        -
+            label: South Park
+            type: epguides
+        -
+            label: Homeland
+            type: epguides
+        -
+            label: Big Bang Theory
+            type: epguides
+        -
+            label: Curb Your Enthusiasm
+            type: epguides
