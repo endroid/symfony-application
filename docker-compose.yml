@@ -64,6 +64,7 @@ services:
             - ~/.gitconfig:/var/www/.gitconfig
             - ~/.gitignore_global:/var/www/.gitignore_global
             - ~/.ssh:/var/www/.ssh
+            - ~/.composer/cache:/var/www/.composer/cache
 #        depends_on:
 #            - elasticsearch
 #            - mongodb

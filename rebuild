@@ -95,12 +95,11 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         knplabs/knp-snappy-bundle \
         lexik/jwt-authentication-bundle \
         nelmio/api-doc-bundle \
-        php-http/guzzle6-adapter \
-        php-http/httplug-bundle \
+        php-http/httplug-pack \
         sonata-project/doctrine-orm-admin-bundle \
         symfony/swiftmailer-bundle \
-        symfony/templating:$SYMFONY_VERSION_MAJOR \
-        symfony/web-link:$SYMFONY_VERSION_MAJOR \
+        symfony/templating \
+        symfony/web-link \
         --no-update
 
     # Personal libraries and bundles
@@ -118,13 +117,13 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/qrcode:dev-master \
         endroid/qrcode-bundle:dev-master \
         endroid/soccer-calendar:dev-master \
+        endroid/soccer-calendar-bundle:dev-master \
         endroid/soccer-data:dev-master \
         endroid/sudoku:dev-master \
         --no-update
 
         #endroid/data-sanitize:dev-master \
         #endroid/pusher-bundle:dev-master \
-        #endroid/soccer-calendar-bundle:dev-master \
         #endroid/tile:dev-master \
 
     # Development bundles
