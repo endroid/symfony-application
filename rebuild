@@ -120,6 +120,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/soccer-calendar-bundle:dev-master \
         endroid/soccer-data:dev-master \
         endroid/sudoku:dev-master \
+        endroid/sudoku-bundle:dev-master \
         --no-update
 
         #endroid/data-sanitize:dev-master \
