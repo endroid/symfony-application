@@ -1,0 +1,15 @@
+fos_elastica:
+    clients:
+        default: { host: elasticsearch, port: 9200 }
+    indexes:
+        app:
+            types:
+                user:
+                    properties:
+                        username: ~
+                        email: ~
+                    persistence:
+                        driver: orm
+                        model: App\Entity\User
+                        provider: ~
+                        finder: ~

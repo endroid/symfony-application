@@ -85,9 +85,10 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     # Application bundles
     composer require \
         doctrine/doctrine-fixtures-bundle \
-        friendsofsymfony/user-bundle \
+        friendsofsymfony/elastica-bundle \
         friendsofsymfony/oauth-server-bundle \
         friendsofsymfony/rest-bundle \
+        friendsofsymfony/user-bundle \
         h4cc/wkhtmltopdf-amd64 \
         hwi/oauth-bundle \
         javiereguiluz/easyadmin-bundle \
@@ -120,11 +121,11 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/soccer-calendar-bundle:dev-master \
         endroid/soccer-data:dev-master \
         endroid/sudoku:dev-master \
-        endroid/sudoku-bundle:dev-master \
         --no-update
 
         #endroid/data-sanitize:dev-master \
         #endroid/pusher-bundle:dev-master \
+        #endroid/sudoku-bundle:dev-master \
         #endroid/tile:dev-master \
 
     # Development bundles
