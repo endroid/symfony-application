@@ -25,7 +25,9 @@ Feature: Admin
     And I fill in "Username" with "superadmin"
     And I fill in "Password" with "superadmin"
     And I press "Log in"
-    Then I should see "Log out"
+    And I follow "Log out"
+    And I make a screenshot
+    Then I should see "Log in"
 
   @javascript
   Scenario: Incorrect login
