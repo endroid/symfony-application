@@ -1,0 +1,21 @@
+default:
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                bootstrap: features/bootstrap/bootstrap.php
+                class: App\Kernel
+        Behat\MinkExtension:
+            base_url: https://nginx
+            goutte:
+                guzzle_parameters:
+                    verify: false
+            selenium2:
+                browser: chrome
+                wd_host: http://selenium_hub:4444/wd/hub
+            javascript_session: selenium2
+
+    suites:
+        default:
+            contexts:
+                - FeatureContext:
+                    kernel: '@kernel'

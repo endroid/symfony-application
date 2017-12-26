@@ -32,11 +32,11 @@ services:
         expose:
             - 6379
     selenium_hub:
-        image: selenium/hub:3.5.2
-        ports:
+        image: selenium/hub:3.8.1
+        expose:
             - 4444
     selenium_node_chrome:
-        image: selenium/node-chrome:3.5.2
+        image: selenium/node-chrome:3.8.1
         depends_on:
             - selenium_hub
         environment:
@@ -53,6 +53,7 @@ services:
             - ~/.gitconfig:/var/www/.gitconfig
             - ~/.gitignore_global:/var/www/.gitignore_global
             - ~/.ssh:/var/www/.ssh
+            - ~/.cache/yarn:/var/www/.cache/yarn
             - ~/.composer/cache:/var/www/.composer/cache
         depends_on:
             - elasticsearch

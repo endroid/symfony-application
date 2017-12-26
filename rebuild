@@ -76,6 +76,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
 
     # Add private repositories
     composer config repositories.play-bundle git git@github.com:endroid/EndroidPlayBundle.git
+    sed -i -e 's/;/+ [Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => ["all" => true]];/g' config/bundles.php
     sed -i -e 's/;/+ [Endroid\\Bundle\\PlayBundle\\EndroidPlayBundle::class => ["all" => true]];/g' config/bundles.php
     sed -i -e 's/;/+ [Endroid\\Guide\\Bundle\\GuideBundle\\EndroidGuideBundle::class => ["all" => true]];/g' config/bundles.php
 
@@ -130,9 +131,14 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
 
     # Development bundles
     composer require \
-        symfony/profiler-pack \
-        phpmetrics/phpmetrics \
+        behat/mink-extension \
+        behat/mink-goutte-driver \
+        behat/mink-selenium2-driver \
+        behat/symfony2-extension \
         friendsofphp/php-cs-fixer \
+        phpmetrics/phpmetrics \
+        symfony/debug-bundle \
+        symfony/profiler-pack \
         symfony/phpunit-bridge \
         --no-update --dev
 
@@ -142,6 +148,8 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     composer update -n
 
     ../overwrite
+
+    rm -rf features/demo.feature
 
     # Set up frontend
     (

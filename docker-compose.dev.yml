@@ -12,9 +12,6 @@ services:
     mariadb:
         ports:
             - 3306:3306
-    redis:
-        ports:
-            - 6379:6379
     php:
         environment:
             - ENVIRONMENT=dev
@@ -23,3 +20,9 @@ services:
             - GITHUB_OAUTH_TOKEN=${GITHUB_OAUTH_TOKEN}
         ports:
             - 8080:8080
+    redis:
+        ports:
+            - 6379:6379
+    selenium_hub:
+        ports:
+            - 4444:4444
