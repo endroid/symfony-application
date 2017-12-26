@@ -12,10 +12,13 @@ default:
             selenium2:
                 browser: chrome
                 wd_host: http://selenium_hub:4444/wd/hub
+                capabilities: { marionette: true }
             javascript_session: selenium2
 
     suites:
         default:
             contexts:
-                - FeatureContext:
-                    kernel: '@kernel'
+                - FeatureContext
+                - ApiFeatureContext:
+                      kernel: '@kernel'
+                      userManager: '@fos_user.user_manager'

@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * (c) Jeroen van den Enden <info@endroid.nl>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 use Behat\Behat\Tester\Exception\PendingException;
 use App\Entity\OAuth\Client;
 use Behat\Behat\Context\Context;
@@ -17,7 +24,7 @@ class ApiFeatureContext implements Context
     private $accessToken;
     private $response;
 
-    public function __construct(KernelInterface $kernel, UserManagerInterface $userManager, ClientManagerInterface $clientManager)
+    public function __construct(KernelInterface $kernel, UserManagerInterface $userManager, ClientManagerInterface $clientManager = null)
     {
         $this->kernel = $kernel;
         $this->userManager = $userManager;
