@@ -70,6 +70,7 @@ services:
         build: docker/nginx/
         volumes:
             - .:/var/www/html
+            - ~/.letsencrypt:/etc/letsencrypt
         depends_on:
             - php
         environment:
