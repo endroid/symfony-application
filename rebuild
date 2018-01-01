@@ -78,7 +78,6 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     composer config repositories.play-bundle git git@github.com:endroid/EndroidPlayBundle.git
     sed -i -e 's/;/+ [Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => ["all" => true]];/g' config/bundles.php
     sed -i -e 's/;/+ [Endroid\\Bundle\\PlayBundle\\EndroidPlayBundle::class => ["all" => true]];/g' config/bundles.php
-    sed -i -e 's/;/+ [Endroid\\Guide\\Bundle\\GuideBundle\\EndroidGuideBundle::class => ["all" => true]];/g' config/bundles.php
 
     # Use source when installing personal libraries
     sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
@@ -109,25 +108,36 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/calendar:dev-master \
         endroid/cm-sms:dev-master \
         endroid/cm-sms-bundle:dev-master \
+        endroid/data-sanitize:dev-master \
+        endroid/data-sanitize-bundle:dev-master \
         endroid/flusher:dev-master \
         endroid/flusher-bundle:dev-master \
+        endroid/form-bundle:dev-master \
+        endroid/google-api-bundle:dev-master \
         endroid/guide:dev-master \
+        endroid/guide-bundle:dev-master \
+        endroid/image-placeholder-bundle:dev-master \
         endroid/import:dev-master \
+        endroid/import-bundle:dev-master \
+        endroid/import-demo-bundle:dev-master \
         endroid/play-bundle:dev-master \
         endroid/prediction-io:dev-master \
+        endroid/priority-shuffle-random:dev-master \
         endroid/property-access:dev-master \
+        endroid/pusher-bundle:dev-master \
         endroid/qrcode:dev-master \
         endroid/qrcode-bundle:dev-master \
+        endroid/simple-excel:dev-master \
         endroid/soccer-calendar:dev-master \
         endroid/soccer-calendar-bundle:dev-master \
         endroid/soccer-data:dev-master \
         endroid/sudoku:dev-master \
+        endroid/sudoku-bundle:dev-master \
+        endroid/tile:dev-master \
+        endroid/tile-bundle:dev-master \
+        endroid/twitter:dev-master \
+        endroid/twitter-bundle:dev-master \
         --no-update
-
-        #endroid/data-sanitize:dev-master \
-        #endroid/pusher-bundle:dev-master \
-        #endroid/sudoku-bundle:dev-master \
-        #endroid/tile:dev-master \
 
     # Development bundles
     composer require \
