@@ -125,8 +125,8 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/priority-shuffle-random:dev-master \
         endroid/property-access:dev-master \
         endroid/pusher-bundle:dev-master \
-        endroid/qrcode:dev-master \
-        endroid/qrcode-bundle:dev-master \
+        endroid/qr-code:dev-master \
+        endroid/qr-code-bundle:dev-master \
         endroid/simple-excel:dev-master \
         endroid/soccer-calendar:dev-master \
         endroid/soccer-calendar-bundle:dev-master \
