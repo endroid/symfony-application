@@ -1,0 +1,9 @@
+parameters:
+    # Fallback for when variables are not available
+    # Avoids errors while warming up cache
+    env(GOOGLE_API_APPLICATION_NAME): ''
+    env(GOOGLE_API_API_KEY): ''
+
+endroid_google_api:
+    application_name: '%env(GOOGLE_API_APPLICATION_NAME)%'
+    api_key: '%env(GOOGLE_API_API_KEY)%'
