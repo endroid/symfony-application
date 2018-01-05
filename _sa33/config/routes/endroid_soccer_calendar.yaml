@@ -1,4 +1,0 @@
-EndroidSoccerCalendarBundle:
-    resource: "@EndroidSoccerCalendarBundle/Controller/"
-    type:     annotation
-    prefix:   /soccer-calendar
