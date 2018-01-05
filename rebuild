@@ -3,7 +3,7 @@
 # Always operate from script directory
 cd "$(dirname "$0")"
 
-readonly SYMFONY_VERSION=3.4
+readonly SYMFONY_VERSION=4.0
 readonly SHOW_COMMANDS=false
 
 set -e # Break on any error
@@ -86,9 +86,9 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     composer require \
         doctrine/doctrine-fixtures-bundle \
         friendsofsymfony/elastica-bundle \
-        friendsofsymfony/oauth-server-bundle \
+        friendsofsymfony/oauth-server-bundle:dev-master \
         friendsofsymfony/rest-bundle \
-        friendsofsymfony/user-bundle \
+        friendsofsymfony/user-bundle:dev-master \
         h4cc/wkhtmltopdf-amd64 \
         hwi/oauth-bundle \
         javiereguiluz/easyadmin-bundle \

@@ -8,8 +8,7 @@ cd "$(dirname "$0")"
     cd application
 
     # Fix for pending recipes
-    sed -i '/QrCode\\Bundle/d' config/bundles.php
-    sed -i '/CmSms\\Bundle/d' config/bundles.php
+    sed -i '/Import\\Bundle/d' config/bundles.php
 
     composer install
 
