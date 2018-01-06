@@ -97,6 +97,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         lexik/jwt-authentication-bundle \
         nelmio/api-doc-bundle \
         php-http/httplug-pack \
+        pusher/pusher-php-server \
         sonata-project/doctrine-orm-admin-bundle \
         symfony/swiftmailer-bundle \
         symfony/templating \
@@ -126,7 +127,6 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/prediction-io-demo-bundle:dev-master \
         endroid/priority-shuffle-random:dev-master \
         endroid/property-access:dev-master \
-        endroid/pusher-bundle:dev-master \
         endroid/qr-code:dev-master \
         endroid/qr-code-bundle:dev-master \
         endroid/simple-excel:dev-master \
@@ -138,7 +138,6 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/tile:dev-master \
         endroid/tile-bundle:dev-master \
         endroid/twitter:dev-master \
-        endroid/twitter-bundle:dev-master \
         --no-update
 
     # Development bundles

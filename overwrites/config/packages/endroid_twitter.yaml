@@ -1,5 +1,8 @@
-endroid_twitter:
-    consumer_key: '%env(TWITTER_CONSUMER_KEY)%'
-    consumer_secret: '%env(TWITTER_CONSUMER_SECRET)%'
-    access_token: '%env(TWITTER_ACCESS_TOKEN)%'
-    access_token_secret: '%env(TWITTER_ACCESS_TOKEN_SECRET)%'
+services:
+    Endroid\Twitter\Client:
+        public: true
+        arguments:
+            - '%env(TWITTER_CONSUMER_KEY)%'
+            - '%env(TWITTER_CONSUMER_SECRET)%'
+            - '%env(TWITTER_ACCESS_TOKEN)%'
+            - '%env(TWITTER_ACCESS_TOKEN_SECRET)%'

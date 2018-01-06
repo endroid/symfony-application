@@ -3,6 +3,8 @@
 # Always operate from script directory
 cd "$(dirname "$0")"
 
+set -e # Break on any error
+
 # Further build application
 (
     cd application
