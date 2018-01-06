@@ -77,7 +77,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     # Add private repositories
     composer config repositories.play-bundle git git@github.com:endroid/EndroidPlayBundle.git
     sed -i -e 's/;/+ [Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => ["all" => true]];/g' config/bundles.php
-    sed -i -e 's/;/+ [Endroid\\Bundle\\PlayBundle\\EndroidPlayBundle::class => ["all" => true]];/g' config/bundles.php
+    #sed -i -e 's/;/+ [Endroid\\Bundle\\PlayBundle\\EndroidPlayBundle::class => ["all" => true]];/g' config/bundles.php
 
     # Use source when installing personal libraries
     sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
@@ -89,6 +89,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         friendsofsymfony/oauth-server-bundle:dev-master \
         friendsofsymfony/rest-bundle \
         friendsofsymfony/user-bundle:dev-master \
+        google/apiclient \
         h4cc/wkhtmltopdf-amd64 \
         hwi/oauth-bundle \
         javiereguiluz/easyadmin-bundle \
@@ -114,7 +115,6 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/flusher:dev-master \
         endroid/flusher-bundle:dev-master \
         endroid/form-bundle:dev-master \
-        endroid/google-api-bundle:dev-master \
         endroid/guide:dev-master \
         endroid/guide-bundle:dev-master \
         endroid/image-placeholder-bundle:dev-master \
