@@ -7,6 +7,9 @@ endroid_guide:
             label: Sluipschutters
             type: npo
         -
+            label: Dit was het nieuws
+            type: npo
+        -
             label: Klikbeet
             type: npo
         -
