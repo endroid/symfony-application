@@ -121,6 +121,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/import:dev-master \
         endroid/import-bundle:dev-master \
         endroid/import-demo-bundle:dev-master \
+        endroid/pdf:dev-master \
         endroid/play-bundle:dev-master \
         endroid/prediction-io:dev-master \
         endroid/prediction-io-bundle:dev-master \

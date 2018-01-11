@@ -1,7 +1,0 @@
-services:
-    pdf.route_provider:
-        class: PdfBundle\Service\RouteProvider
-        calls:
-            - [ setContainer, [ '@service_container' ] ]
-        tags:
-            -  { name: route.provider }
