@@ -1,1 +1,12 @@
-PDF Cover
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include('pdf/css.html.twig') %}
+    </head>
+    <body class="cover">
+        <div class="overlay">
+            <h1>{{ title }}</h1>
+            <span class="date">{{ date }}</span>
+        </div>
+    </body>
+</html>

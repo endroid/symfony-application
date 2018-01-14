@@ -1,5 +1,0 @@
-services:
-    Google_Client:
-        class: Google_Client
-        calls:
-            - [setDeveloperKey, ['%env(GOOGLE_API_KEY)%']]

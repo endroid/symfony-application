@@ -27,6 +27,9 @@ final class CoverController
      */
     public function __invoke(): Response
     {
-        return new Response($this->templating->render('pdf/cover.html.twig'));
+        return new Response($this->templating->render('pdf/cover.html.twig', [
+            'title' => 'PDF Document',
+            'date' => strftime('%B %e, %Y', time()),
+        ]));
     }
 }
