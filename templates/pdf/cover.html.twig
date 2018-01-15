@@ -1,12 +1,39 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {% include('pdf/css.html.twig') %}
-    </head>
-    <body class="cover">
+{% extends 'pdf/base.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <style>
+        .cover {
+            background-image: url('data:image/png;base64,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');
+            background-size: 700px auto;
+            width: 100%;
+            height: 900px;
+            padding-top: 50px;
+        }
+        .cover .overlay {
+            padding: 25px 50px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+        }
+        .cover h1 {
+            font-size: 30px;
+            text-transform: uppercase;
+            line-height: 20px;
+            color: #fff;
+        }
+    </style>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="cover">
         <div class="overlay">
             <h1>{{ title }}</h1>
             <span class="date">{{ date }}</span>
         </div>
-    </body>
-</html>
+    </div>
+
+{% endblock %}

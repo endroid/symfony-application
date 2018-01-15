@@ -1,11 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    {% include('pdf/css.html.twig') %}
-    {% include('pdf/js.html.twig') %}
-</head>
-<body class="footer" onload="subst();">
-    <span class="title subsection"></span>
-    <span class="page"></span>
-</body>
-</html>
+{% extends 'pdf/base.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <style>
+        .footer {
+            height: 45px;
+            padding: 0 20px;
+            text-transform: uppercase;
+        }
+        .footer .title {
+            width: 100%;
+            position: absolute;
+            left: 20px;
+            top: 2px;
+            font-size: 12px;
+            color: #999;
+        }
+        .footer .page {
+            position: absolute;
+            right: 20px;
+            font-size: 15px;
+            color: #555;
+        }
+    </style>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="footer">
+        <span class="title subsection">&nbsp;</span>
+        <span class="page">&nbsp;</span>
+    </div>
+
+{% endblock %}

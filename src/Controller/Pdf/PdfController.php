@@ -35,8 +35,9 @@ final class PdfController
         $this->pdf->setFooter('pdf/footer.html.twig');
         $this->pdf->setContent(ContentController::class);
 
+        // Tweak margin and spacing
         $this->pdf->getSnappy()->setOptions([
-            'margin-top' => '20',
+            'margin-top' => '17',
             'margin-right' => '0',
             'margin-bottom' => '16',
             'margin-left' => '0',
