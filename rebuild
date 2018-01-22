@@ -161,6 +161,8 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
 
     ../overwrite
 
+    chmod +x /var/www/html/application/vendor/php-ai/php-ml/bin/libsvm/*
+
     rm -rf features/demo.feature
 
     # Set up frontend
