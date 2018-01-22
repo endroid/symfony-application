@@ -97,6 +97,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         knplabs/knp-snappy-bundle \
         lexik/jwt-authentication-bundle \
         nelmio/api-doc-bundle \
+        php-ai/php-ml \
         php-http/httplug-pack \
         pusher/pusher-php-server \
         sonata-project/doctrine-orm-admin-bundle \
