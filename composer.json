@@ -1,0 +1,5 @@
+{
+    "require": {
+        "jwhennessey/phpinsight": "^2.0"
+    }
+}
