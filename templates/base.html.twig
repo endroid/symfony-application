@@ -31,21 +31,21 @@
                             </li>
                             {#{% if is_granted('ROLE_ADMIN') %}#}
                                 {#<li class="nav-item">#}
-                                    {#<a class="nav-link" href="{{ path('endroid_guide_index') }}">Guide</a>#}
+                                    {#<a class="nav-link" href="{{ path('guide_index') }}">Guide</a>#}
                                 {#</li>#}
                             {#{% endif %}#}
                             {#<li class="nav-item">#}
-                                {#<a class="nav-link" href="{{ path('endroid_data_sanitize_merge_index') }}">Data Sanitize</a>#}
+                                {#<a class="nav-link" href="{{ path('data_sanitize_merge_index') }}">Data Sanitize</a>#}
                             {#</li>#}
                             {#<li class="nav-item">#}
-                                {#<a class="nav-link" href="{{ path('endroid_predictionio_recommendation_index') }}">Prediction IO</a>#}
+                                {#<a class="nav-link" href="{{ path('predictionio_recommendation_index') }}">Prediction IO</a>#}
                             {#</li>#}
                             {#<li class="nav-item">#}
                                 {#<a class="nav-link" href="{{ path('nelmio_api_doc.swagger_ui') }}">API</a>#}
                             {#</li>#}
                             {% if app.user %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ path('endroid_cm_sms_dashboard') }}">SMS Dashboard</a>
+                                    <a class="nav-link" href="{{ path('cm_sms_dashboard') }}">SMS Dashboard</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ path('fos_user_security_logout') }}">Log out</a>
