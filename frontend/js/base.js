@@ -1,4 +1,4 @@
-global.Popper = require('popper.js/dist/umd/popper');
+global.Popper = require('popper.js/dist/umd/popper'); // Used in Bootstrap 4 dropdowns, tooltips and popovers
 
 require('bootstrap/dist/css/bootstrap.css');
 require('bootstrap/dist/js/bootstrap.js');
