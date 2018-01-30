@@ -151,6 +151,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         behat/symfony2-extension \
         friendsofphp/php-cs-fixer \
         phpmetrics/phpmetrics \
+        phpstan/phpstan \
         symfony/debug-bundle \
         symfony/profiler-pack \
         symfony/phpunit-bridge \
