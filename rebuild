@@ -99,6 +99,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         nelmio/api-doc-bundle \
         php-ai/php-ml \
         php-http/httplug-pack \
+        predis/predis \
         pusher/pusher-php-server \
         sonata-project/doctrine-orm-admin-bundle \
         symfony/lock \
