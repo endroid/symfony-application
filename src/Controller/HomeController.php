@@ -9,9 +9,6 @@
 
 namespace App\Controller;
 
-use Endroid\Sudoku\Board\Board;
-use Endroid\Sudoku\Board\BoardBuilder;
-use Endroid\Sudoku\Solver;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
