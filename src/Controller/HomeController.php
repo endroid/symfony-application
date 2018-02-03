@@ -15,11 +15,20 @@ use Twig\Environment;
 
 final class HomeController
 {
+    private $templating;
+
+    public function __construct(Environment $templating)
+    {
+        $this->templating = $templating;
+    }
+
     /**
      * @Route("/", name="home")
      */
-    public function __invoke(Environment $twig): Response
+    public function __invoke(): Response
     {
+
+
 //        $platinumBlonde = Board::createFromString('
 //            000000012
 //            000000003
@@ -55,6 +64,6 @@ final class HomeController
 
 
 
-        return new Response($twig->render('home.html.twig'));
+        return new Response($this->templating->render('home.html.twig'));
     }
 }
