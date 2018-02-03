@@ -30,4 +30,15 @@ class User extends BaseUser implements UserInterface
      * @ORM\GeneratedValue(strategy="UUID")
      */
     protected $id;
+
+    public function getSuggest(): array
+    {
+        return [
+            'input' => [
+                $this->getUsername(),
+                $this->getEmail()
+            ],
+            'weight' => $this->hasRole('ROLE_SUPER_ADMIN') ? 1 : 0,
+        ];
+    }
 }
