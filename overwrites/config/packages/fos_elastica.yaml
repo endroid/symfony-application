@@ -24,6 +24,7 @@ fos_elastica:
                 user:
                     properties:
                         id: ~
+                        username: ~
                         suggest:
                             type: completion
                             analyzer: index_analyzer
