@@ -9,17 +9,14 @@
 
 namespace App\Security;
 
-use FOS\UserBundle\Model\UserInterface;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\Exception\AccountNotLinkedException;
 use HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider;
 use Symfony\Component\Security\Core\Exception\BadCredentialsException;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class UserProvider extends FOSUBUserProvider
 {
-    /**
-     * {@inheritdoc}
-     */
     public function loadUserByOAuthUserResponse(UserResponseInterface $response): UserInterface
     {
         try {
@@ -28,7 +25,7 @@ class UserProvider extends FOSUBUserProvider
             // Do nothing: we will try to link and load by email
         }
 
-        $userEmail = $response->getEmail();
+        $userEmail = (string) $response->getEmail();
         $user = $this->userManager->findUserByEmail($userEmail);
 
         if (!$user instanceof UserInterface) {

@@ -12,4 +12,5 @@ yarn add \
     react \
     react-dom \
     react-s-alert \
+    select2 \
     superagent

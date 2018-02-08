@@ -16,6 +16,11 @@ services:
     FOS\OAuthServerBundle\Entity\ClientManager: '@fos_oauth_server.client_manager.default'
     FOS\UserBundle\Model\UserManagerInterface: '@fos_user.user_manager.default'
 
+    App\Controller\Search\SuggestController:
+        public: true
+        arguments:
+            $searchable: '@fos_elastica.index.app.user'
+
     # Custom services
     App\Security\UserProvider:
         $properties: { google: googleId, github: githubId }

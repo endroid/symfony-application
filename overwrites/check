@@ -11,3 +11,4 @@ vendor/bin/simple-phpunit
 frontend/node_modules/.bin/psi endroid.nl --threshold=75
 php-cs-fixer fix src --rules=@Symfony
 php-cs-fixer fix vendor/endroid --rules=@Symfony
+vendor/bin/phpstan analyse src --level max

@@ -16,18 +16,27 @@ use Twig\Environment;
 
 final class ResultsController
 {
+    private $templating;
+
+    public function __construct(Environment $templating)
+    {
+        $this->templating = $templating;
+    }
+
     /**
-     * @Route("/search", name="search")
+     * @Route("/search/results", name="search_results")
      */
-    public function __invoke(Request $request, Environment $twig): Response
+    public function __invoke(Request $request): Response
     {
         $query = $request->query->get('query');
 
         $results = []; // Fetch from domain
 
-        return new Response($twig->render('search/results.html.twig', [
+        $response = new Response($this->templating->render('search/results.html.twig', [
             'query' => $query,
             'results' => $results,
         ]));
+
+        return $response;
     }
 }

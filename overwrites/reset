@@ -8,6 +8,8 @@ bin/console doctrine:schema:update --force
 
 bin/console doctrine:fixtures:load -n
 
+bin/console fos:elastica:populate
+
 # JWT
 make generate-jwt-keys
 
