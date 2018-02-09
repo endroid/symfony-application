@@ -110,6 +110,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
 
     # Personal libraries and bundles
     composer require \
+        endroid/bundle-test:dev-master \
         endroid/calendar:dev-master \
         endroid/cm-sms:dev-master \
         endroid/cm-sms-bundle:dev-master \
