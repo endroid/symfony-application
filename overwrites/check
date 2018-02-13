@@ -7,7 +7,7 @@ set -e # Break on any error
 
 #security-checker security:check
 #vendor/bin/behat
-vendor/bin/simple-phpunit --coverage-html public/coverage
+vendor/bin/simple-phpunit
 frontend/node_modules/.bin/psi endroid.nl --threshold=75
 php-cs-fixer fix src --rules=@Symfony
 php-cs-fixer fix vendor/endroid --rules=@Symfony
