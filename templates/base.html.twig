@@ -29,11 +29,11 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{ path('home') }}">Home <span class="sr-only">(current)</span></a>
                             </li>
-                            {#{% if is_granted('ROLE_ADMIN') %}#}
-                                {#<li class="nav-item">#}
-                                    {#<a class="nav-link" href="{{ path('guide_index') }}">Guide</a>#}
-                                {#</li>#}
-                            {#{% endif %}#}
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('guide_list') }}">Guide</a>
+                                </li>
+                            {% endif %}
                             {#<li class="nav-item">#}
                                 {#<a class="nav-link" href="{{ path('data_sanitize_merge_index') }}">Data Sanitize</a>#}
                             {#</li>#}
