@@ -72,4 +72,5 @@ security:
         - { path: ^/easy-admin/, role: ROLE_ADMIN }
         - { path: ^/sonata-admin/, role: ROLE_ADMIN }
         - { path: ^/api-doc/, role: ROLE_USER }
+        - { path: ^/guide/rss, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/guide/, role: ROLE_ADMIN }
