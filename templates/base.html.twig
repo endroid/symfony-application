@@ -40,12 +40,12 @@
                             {#<li class="nav-item">#}
                                 {#<a class="nav-link" href="{{ path('predictionio_recommendation_index') }}">Prediction IO</a>#}
                             {#</li>#}
-                            {#<li class="nav-item">#}
-                                {#<a class="nav-link" href="{{ path('nelmio_api_doc.swagger_ui') }}">API</a>#}
-                            {#</li>#}
                             {% if app.user %}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ path('cm_sms_dashboard') }}">SMS Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('nelmio_api_doc.swagger_ui') }}" target="_blank">API</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ path('fos_user_security_logout') }}">Log out</a>
