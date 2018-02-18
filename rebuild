@@ -121,6 +121,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/form-bundle:dev-master \
         endroid/guide:dev-master \
         endroid/guide-bundle:dev-master \
+        endroid/guidelines:dev-master \
         endroid/image-placeholder:dev-master \
         endroid/import:dev-master \
         endroid/import-bundle:dev-master \
