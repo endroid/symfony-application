@@ -88,7 +88,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         friendsofsymfony/elastica-bundle \
         friendsofsymfony/oauth-server-bundle:dev-master \
         friendsofsymfony/rest-bundle \
-        friendsofsymfony/user-bundle:dev-master \
+        friendsofsymfony/user-bundle \
         google/apiclient \
         h4cc/wkhtmltopdf-amd64 \
         hwi/oauth-bundle \
