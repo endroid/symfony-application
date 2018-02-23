@@ -51,3 +51,12 @@ endroid_guide:
         -
             label: Curb Your Enthusiasm
             type: epguides
+        -
+            label: Modern Family
+            type: epguides
+        -
+            label: Ozark
+            type: epguides
+        -
+            label: Westworld
+            type: epguides
