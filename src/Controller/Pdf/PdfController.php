@@ -29,21 +29,19 @@ final class PdfController
      */
     public function __invoke(): Response
     {
+        // Tweak margin and spacing
+        $this->pdf->setOptions([
+            'margin-top' => 17,
+            'margin-bottom' => 16,
+            'header-spacing' => 5,
+            'footer-spacing' => 5,
+        ]);
+
         $this->pdf->setCover(CoverController::class);
         $this->pdf->setTableOfContents('pdf/table_of_contents.xml.twig');
         $this->pdf->setHeader('pdf/header.html.twig');
         $this->pdf->setFooter('pdf/footer.html.twig');
         $this->pdf->setContent(ContentController::class);
-
-        // Tweak margin and spacing
-        $this->pdf->getSnappy()->setOptions([
-            'margin-top' => '17',
-            'margin-right' => '0',
-            'margin-bottom' => '16',
-            'margin-left' => '0',
-            'header-spacing' => '5',
-            'footer-spacing' => '5',
-        ]);
 
         return new InlinePdfResponse($this->pdf);
     }
