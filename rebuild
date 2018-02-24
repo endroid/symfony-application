@@ -85,6 +85,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     # Application bundles
     composer require \
         doctrine/doctrine-fixtures-bundle \
+        easycorp/easyadmin-bundle \
         friendsofsymfony/elastica-bundle \
         friendsofsymfony/oauth-server-bundle:dev-master \
         friendsofsymfony/rest-bundle \
@@ -92,7 +93,6 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         google/apiclient \
         h4cc/wkhtmltopdf-amd64 \
         hwi/oauth-bundle \
-        javiereguiluz/easyadmin-bundle \
         jms/serializer-bundle \
         knplabs/knp-snappy-bundle \
         lexik/jwt-authentication-bundle \
