@@ -11,7 +11,6 @@ namespace App\Controller\Pdf;
 
 use Endroid\Pdf\Pdf;
 use Endroid\Pdf\Response\InlinePdfResponse;
-use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -31,7 +30,7 @@ final class PdfController
     {
         // Tweak margin and spacing
         $this->pdf->setOptions([
-            'margin-top' => 17,
+            'margin-top' => 16,
             'margin-bottom' => 16,
             'header-spacing' => 5,
             'footer-spacing' => 5,
