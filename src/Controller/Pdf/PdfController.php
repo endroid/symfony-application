@@ -28,19 +28,17 @@ final class PdfController
      */
     public function __invoke(): Response
     {
-        // Tweak margin and spacing
+        $this->pdf->setCover(CoverController::class);
+        $this->pdf->setTableOfContents('pdf/table_of_contents.xml.twig');
+        $this->pdf->setHeader('pdf/header.html.twig');
+        $this->pdf->setFooter('pdf/footer.html.twig');
+        $this->pdf->setContent(ContentController::class);
         $this->pdf->setOptions([
             'margin-top' => 16,
             'margin-bottom' => 16,
             'header-spacing' => 5,
             'footer-spacing' => 5,
         ]);
-
-        $this->pdf->setCover(CoverController::class);
-        $this->pdf->setTableOfContents('pdf/table_of_contents.xml.twig');
-        $this->pdf->setHeader('pdf/header.html.twig');
-        $this->pdf->setFooter('pdf/footer.html.twig');
-        $this->pdf->setContent(ContentController::class);
 
         return new InlinePdfResponse($this->pdf);
     }
