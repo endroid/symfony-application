@@ -20,4 +20,17 @@ class FeatureContext extends MinkContext
 
         file_put_contents(__DIR__.'/../screenshots/'.date('U').'.png', $imageData);
     }
+
+    /**
+     * @Then /^I should see "([^"]*)" in the header "([^"]*)"$/
+     */
+    public function iShouldSeeInTheHeader(string $value, string $header): void
+    {
+        $header = strtolower($header);
+        $headers = $this->getSession()->getResponseHeaders();
+
+        if (!isset($headers[$header][0]) || strpos($headers[$header][0], $value) === false) {
+            throw new \Exception(sprintf('Did not see header '.$header.' with value '.$value, $header, $value));
+        }
+    }
 }

@@ -4,6 +4,6 @@ Feature: Generate PDF
   and retrieve a resource of the type PDF
 
   Scenario: Generate PDF
-    Given I am on "/pdf/"
+    Given I am on "/pdf"
     Then the response status code should be 200
     Then I should see "application/pdf" in the header "content-type"
