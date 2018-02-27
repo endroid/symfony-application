@@ -8,12 +8,27 @@
  */
 
 use Behat\Behat\Hook\Scope\AfterStepScope;
+use Behat\Mink\Driver\BrowserKitDriver;
+use Behat\Mink\Driver\Selenium2Driver;
 use Behat\MinkExtension\Context\RawMinkContext;
+use FOS\UserBundle\Model\UserManagerInterface;
+use Symfony\Component\BrowserKit\Cookie;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class FeatureContext extends RawMinkContext
 {
+    private $session;
+    private $userManager;
+
+    public function __construct(SessionInterface $session, UserManagerInterface $userManager)
+    {
+        $this->session = $session;
+        $this->userManager = $userManager;
+    }
+
     /**
      * @BeforeScenario
      */
@@ -26,6 +41,39 @@ class FeatureContext extends RawMinkContext
 
         if (!$process->isSuccessful()) {
             throw new ProcessFailedException($process);
+        }
+    }
+
+    /**
+     * @Given I am logged in as :email
+     */
+    public function iAmLoggedInAs(string $email): void
+    {
+        $firewallContext = 'main';
+        $sessionName = '_security_'.$firewallContext;
+
+        if (!$user = $this->userManager->findUserBy(['email' => $email])) {
+            throw new \Exception('User ' .$email.' cannot be found');
+        }
+
+        $token = new UsernamePasswordToken($user, null, $firewallContext, $user->getRoles());
+
+        $this->session->set($sessionName, serialize($token));
+        $this->session->save();
+
+        $driver = $this->getSession()->getDriver();
+        if ($driver instanceof BrowserKitDriver) {
+            $client = $driver->getClient();
+            $cookie = new Cookie($this->session->getName(), $this->session->getId());
+            $client->getCookieJar()->set($cookie);
+        } elseif ($driver instanceof Selenium2Driver) {
+            $this->visitPath('/');
+            $this->getSession()->setCookie(
+                $this->session->getName(),
+                $this->session->getId()
+            );
+        } else {
+            throw new \Exception('Unsupported Driver');
         }
     }
 
