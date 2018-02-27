@@ -7,5 +7,8 @@ if (!isset($_SERVER['APP_ENV'])) {
     if (!class_exists(Dotenv::class)) {
         throw new \RuntimeException('APP_ENV environment variable is not defined. You need to define environment variables for configuration or add "symfony/dotenv" as a Composer dependency to load variables from a .env file.');
     }
-    (new Dotenv())->load(__DIR__.'/../../application/.env');
+    (new Dotenv())->load(__DIR__.'/../../application/.env.test');
 }
+
+passthru('php "'.__DIR__.'/../../bin/console" cache:clear --env=test --no-warmup -q');
+passthru('php "'.__DIR__.'/../../bin/console" fos:elastica:populate --env=test -n -q');
