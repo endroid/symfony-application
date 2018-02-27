@@ -6,9 +6,9 @@ services:
     kibana:
         ports:
             - 5601:5601
-    mailcatcher:
+    mailhog:
         ports:
-            - 1080:1080
+            - 8025:8025
     mariadb:
         ports:
             - 3306:3306

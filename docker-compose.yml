@@ -8,8 +8,10 @@ services:
         image: kibana:5.6
         expose:
             - 5601
-    mailcatcher:
-        image: schickling/mailcatcher
+    mailhog:
+        image: mailhog/mailhog
+        expose:
+            - 8025
     mariadb:
         build: docker/mariadb/
         environment:
