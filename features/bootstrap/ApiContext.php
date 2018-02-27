@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 
-class ApiFeatureContext implements Context
+class ApiContext implements Context
 {
     private $kernel;
     private $userManager;
