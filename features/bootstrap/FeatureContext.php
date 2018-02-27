@@ -7,18 +7,50 @@
  * with this source code in the file LICENSE.
  */
 
-use Behat\MinkExtension\Context\MinkContext;
+use Behat\Behat\Hook\Scope\AfterStepScope;
+use Behat\MinkExtension\Context\RawMinkContext;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
-class FeatureContext extends MinkContext
+class FeatureContext extends RawMinkContext
 {
+    /**
+     * @BeforeScenario
+     */
+    public function loadFixtures()
+    {
+        $command = __DIR__.'/../../bin/console" doctrine:fixtures:load --env=test -n -q';
+
+        $process = new Process($command);
+        $process->run();
+
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
+    }
+
+    /**
+     * @AfterStep
+     */
+    public function takeScreenshotAfterFailedStep(AfterStepScope $event)
+    {
+        if (!$event->getTestResult()->isPassed()) {
+            $this->iMakeAScreenshot('-' . $event->getSuite()->getName() . '-' . $event->getStep()->getLine());
+        }
+    }
+
     /**
      * @Given /^I make a screenshot$/
      */
-    public function iMakeAScreenshot(): void
+    public function iMakeAScreenshot($title = 'screenshot'): void
     {
+        if (!$this->getSession()->getDriver() instanceof Selenium2Driver) {
+            return;
+        }
+
         $imageData = $this->getSession()->getScreenshot();
 
-        file_put_contents(__DIR__.'/../screenshots/'.date('U').'.png', $imageData);
+        file_put_contents(__DIR__.'/../screenshots/'.date('U').'-'.$subTitle.'.png', $imageData);
     }
 
     /**
