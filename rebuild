@@ -101,6 +101,8 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         php-http/httplug-pack \
         predis/predis \
         pusher/pusher-php-server \
+        rpkamp/mailhog-behat-extension \
+        rpkamp/mailhog-mink-behat-context \
         sonata-project/doctrine-orm-admin-bundle \
         symfony/lock \
         symfony/swiftmailer-bundle \
