@@ -12,13 +12,24 @@ default:
             selenium2:
                 browser: chrome
                 wd_host: http://selenium_hub:4444/wd/hub
-                capabilities: { marionette: true }
+                capabilities:
+                    marionette: true
+                    chrome:
+                        switches:
+                            - "start-fullscreen"
+                            - "start-maximized"
+                            - "no-sandbox"
             javascript_session: selenium2
+        rpkamp\Behat\MailhogExtension:
+            base_url: http://mailhog:1025
 
     suites:
         default:
             contexts:
-                - FeatureContext
-                - ApiFeatureContext:
+                - FeatureContext:
+                      session: '@session'
+                      userManager: '@fos_user.user_manager'
+                - ApiContext:
                       kernel: '@kernel'
                       userManager: '@fos_user.user_manager'
+                - rpkamp\Behat\Context\MinkAwareMailhogContext
