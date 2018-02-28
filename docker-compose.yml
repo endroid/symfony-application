@@ -11,6 +11,7 @@ services:
     mailhog:
         image: mailhog/mailhog
         expose:
+            - 1025
             - 8025
     mariadb:
         build: docker/mariadb/
