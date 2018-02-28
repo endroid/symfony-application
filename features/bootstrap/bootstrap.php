@@ -10,5 +10,7 @@ if (!isset($_SERVER['APP_ENV'])) {
     (new Dotenv())->load(__DIR__.'/../../application/.env.test');
 }
 
-passthru('php "'.__DIR__.'/../../bin/console" cache:clear --env=test --no-warmup -q');
-passthru('php "'.__DIR__.'/../../bin/console" fos:elastica:populate --env=test -n -q');
+passthru('php "'.__DIR__.'/../../application/bin/console" cache:clear --env=test --no-warmup -q');
+passthru('php "'.__DIR__.'/../../application/bin/console" doctrine:database:create --env=test --if-not-exists -n -q');
+passthru('php "'.__DIR__.'/../../application/bin/console" doctrine:schema:update --env=test --force -n -q');
+passthru('php "'.__DIR__.'/../../application/bin/console" fos:elastica:populate --env=test -n -q');
