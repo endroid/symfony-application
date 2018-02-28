@@ -3,8 +3,7 @@ Feature: Home
   As a web user
   I need to be able to reach home
 
-  @javascript
   Scenario: Visiting home
-    Given I am on "/"
+    And I am on "/"
     Then I should see "Home"
-    
+    And the response status code should be 200
