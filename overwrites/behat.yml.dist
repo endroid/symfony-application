@@ -21,15 +21,19 @@ default:
                             - "no-sandbox"
             javascript_session: selenium2
         rpkamp\Behat\MailhogExtension:
-            base_url: http://mailhog:1025
+            base_url: http://mailhog:8025
 
     suites:
         default:
             contexts:
-                - FeatureContext:
+                - DefaultFeatureContext
+                - DatabaseFeatureContext:
+                      kernel: '@kernel'
+                - UserFeatureContext:
                       session: '@session'
                       userManager: '@fos_user.user_manager'
-                - ApiContext:
+                - ApiFeatureContext:
                       kernel: '@kernel'
                       userManager: '@fos_user.user_manager'
                 - rpkamp\Behat\Context\MinkAwareMailhogContext
+                - rpkamp\Behat\MailhogExtension\Context\MailhogContext
