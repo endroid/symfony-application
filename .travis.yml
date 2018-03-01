@@ -6,23 +6,26 @@ services:
 env:
   global:
     - DOCKER_COMPOSE_VERSION=1.14.0
-    - CACHE_DIR=$HOME/.cache/docker
-    - CACHE_FILE_IMAGES=$CACHE_DIR/images.tar.gz
+    - DOCKER_DIR_CACHE=$HOME/.cache/docker
+    - DOCKER_FILE_IMAGES=$DOCKER_DIR_CACHE/images.tar.gz
 
 before_install:
+  - sudo /etc/init.d/mysql stop # Make sure port 3306 is not already occupied
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
   - cp overwrites/.env.test overwrites/.env
-  - if [ -f ${CACHE_FILE_IMAGES} ]; then gunzip -c ${CACHE_FILE_IMAGES} | docker load; fi
+  - if [ -f ${DOCKER_FILE_IMAGES} ]; then gunzip -c ${DOCKER_FILE_IMAGES} | docker load; fi
+
+install:
+  - mkdir -p $DOCKER_DIR_CACHE
 
 before_script:
-  - sudo /etc/init.d/mysql stop # Make sure port 3306 is not already occupied
 
 script:
   - sudo chmod 777 -R .
-  - docker-compose up -d >/dev/null
-  - docker-compose exec --user 1000 php /bin/sh ./rebuild
-  - docker-compose exec --user 1000 php /bin/sh ./application/check
-  - docker save $(docker images -q) | gzip > ${CACHE_FILE_IMAGES}
+#  - docker-compose up -d >/dev/null
+#  - docker-compose exec --user 1000 php /bin/sh ./rebuild
+#  - docker-compose exec --user 1000 php /bin/sh ./application/check
+  - docker save $(docker images -q) | gzip > ${DOCKER_FILE_IMAGES}
