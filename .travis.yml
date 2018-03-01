@@ -16,10 +16,12 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
   - cp overwrites/.env.test overwrites/.env
+  - ls ${DOCKER_DIR_CACHE}
   - if [ -f ${DOCKER_FILE_IMAGES} ]; then gunzip -c ${DOCKER_FILE_IMAGES} | docker load; fi
 
 install:
   - mkdir -p $DOCKER_DIR_CACHE
+  - ls ${DOCKER_DIR_CACHE}
 
 before_script:
 
