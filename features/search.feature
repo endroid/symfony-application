@@ -6,7 +6,6 @@ Feature: Search
   Background:
     Given I am on "/"
 
-  @javascript
   Scenario Outline:
     When I fill in "Search" with "<term>"
     And I press "Search"

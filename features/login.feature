@@ -3,29 +3,23 @@ Feature: Admin
   As a web user
   I need to be able to login
 
-  Scenario: EasyAdmin login
-    Given I am on "/easy-admin"
+  Background:
+    Given I am on "/login"
     And I fill in "Username" with "superadmin"
     And I fill in "Password" with "superadmin"
     And I press "Log in"
+
+  Scenario: Show easy admin
+    And I am on "/easy-admin/"
     Then I should see "EasyAdmin"
 
-  Scenario: Sonata Admin login
-    Given I am on "/sonata-admin"
-    And I fill in "Username" with "superadmin"
-    And I fill in "Password" with "superadmin"
-    And I press "Log in"
+  Scenario: Show Sonata Admin
+    And I am on "/sonata-admin/"
     Then I should see "Sonata Admin"
 
-  Scenario: Default login
-    Given I am on "/login"
-    And I fill in "Username" with "superadmin"
-    And I fill in "Password" with "superadmin"
-    And I press "Log in"
-    Then I should see "Log out"
-
-  Scenario: Incorrect login
-    Given I am on "/login"
+  Scenario:
+    And I follow "Log out"
+    And I am on "/login"
     And I fill in "Username" with "incorrect"
     And I fill in "Password" with "incorrect"
     And I press "Log in"

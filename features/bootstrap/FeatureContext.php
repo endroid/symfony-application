@@ -10,9 +10,34 @@
 use Behat\Behat\Hook\Scope\AfterStepScope;
 use Behat\Mink\Driver\Selenium2Driver;
 use Behat\MinkExtension\Context\MinkContext;
+use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
-class DefaultFeatureContext extends MinkContext
+class FeatureContext extends MinkContext
 {
+    private $kernel;
+
+    public function __construct(KernelInterface $kernel)
+    {
+        $this->kernel = $kernel;
+    }
+
+    /**
+     * @BeforeScenario
+     */
+    public function loadFixtures()
+    {
+        $command = $this->kernel->getProjectDir().'/bin/console doctrine:fixtures:load --env=test -n -q';
+
+        $process = new Process($command);
+        $process->run();
+
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
+    }
+
     /**
      * @AfterStep
      */
@@ -29,6 +54,7 @@ class DefaultFeatureContext extends MinkContext
     public function iMakeAScreenshot(string $title = 'screenshot'): void
     {
         if (!$this->getSession()->getDriver() instanceof Selenium2Driver) {
+            echo 'Use the Selenium2 driver to take a screenshot';
             return;
         }
 
@@ -40,14 +66,20 @@ class DefaultFeatureContext extends MinkContext
     /**
      * @Then /^I should see "([^"]*)" in the header "([^"]*)"$/
      */
-    public function iShouldSeeInTheHeader(string $value, string $header): void
+    public function iShouldSeeInTheHeader(string $content, string $header): void
     {
         $header = strtolower($header);
         $headers = $this->getSession()->getResponseHeaders();
 
-        if (!isset($headers[$header][0]) || strpos($headers[$header][0], $value) === false) {
-            throw new \Exception(sprintf('Did not see header '.$header.' with value '.$value, $header, $value));
+        foreach ($headers as $name => $values) {
+            foreach ((array) $values as $value) {
+                if (strpos($value, $content) !== false) {
+                    return;
+                }
+            }
         }
+
+        throw new \Exception(sprintf('Did not see header "%s" with content "%s"', $header, $content));
     }
 
     /**

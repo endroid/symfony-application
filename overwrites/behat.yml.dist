@@ -26,12 +26,8 @@ default:
     suites:
         default:
             contexts:
-                - DefaultFeatureContext
-                - DatabaseFeatureContext:
+                - FeatureContext:
                       kernel: '@kernel'
-                - UserFeatureContext:
-                      session: '@session'
-                      userManager: '@fos_user.user_manager'
                 - ApiFeatureContext:
                       kernel: '@kernel'
                       userManager: '@fos_user.user_manager'
