@@ -25,7 +25,7 @@ before_script:
 
 script:
   - sudo chmod 777 -R .
-#  - docker-compose up -d >/dev/null
+  - docker-compose up -d >/dev/null
 #  - docker-compose exec --user 1000 php /bin/sh ./rebuild
 #  - docker-compose exec --user 1000 php /bin/sh ./application/check
   - docker save $(docker images -q) | gzip > ${DOCKER_FILE_IMAGES}
