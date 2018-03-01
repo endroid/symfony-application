@@ -3,10 +3,6 @@ sudo: required
 services:
   - docker
 
-branches:
-  only:
-    - /^[0-9\.]+$/
-
 env:
   global:
     - DOCKER_COMPOSE_VERSION=1.14.0
