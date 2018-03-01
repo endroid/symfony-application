@@ -6,7 +6,7 @@ cd "$(dirname "$0")"
 set -e # Break on any error
 
 security-checker security:check
-vendor/bin/behat
+vendor/bin/behat --stop-on-failure
 vendor/bin/simple-phpunit
 frontend/node_modules/.bin/psi endroid.nl --threshold=75
 php-cs-fixer fix src --rules=@Symfony
