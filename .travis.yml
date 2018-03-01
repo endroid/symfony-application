@@ -15,7 +15,7 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
   - cp overwrites/.env.test overwrites/.env
-  - gunzip -c ${CACHE_FILE_IMAGES} | docker load
+  - if [ -f ${CACHE_FILE_IMAGES} ]; then gunzip -c ${CACHE_FILE_IMAGES} | docker load; fi
 
 before_script:
   - sudo /etc/init.d/mysql stop # Make sure port 3306 is not already occupied
