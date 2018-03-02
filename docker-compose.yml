@@ -1,11 +1,11 @@
 version: '3'
 services:
     elasticsearch:
-        image: elasticsearch:5.6-alpine
+        image: elasticsearch:5
         expose:
             - 9200
     kibana:
-        image: kibana:5.6
+        image: kibana:5
         expose:
             - 5601
     mailhog:
@@ -35,11 +35,11 @@ services:
         expose:
             - 6379
     selenium_hub:
-        image: selenium/hub:3.8.1
+        image: selenium/hub:3
         expose:
             - 4444
     selenium_node_chrome:
-        image: selenium/node-chrome:3.8.1
+        image: selenium/node-chrome:3
         depends_on:
             - selenium_hub
         environment:
