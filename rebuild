@@ -75,7 +75,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     composer config extra.symfony.allow-contrib true
 
     # Add private repositories
-    composer config repositories.play-bundle git git@github.com:endroid/EndroidPlayBundle.git
+    #composer config repositories.play-bundle git git@github.com:endroid/EndroidPlayBundle.git
     sed -i -e 's/;/+ [Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => ["all" => true]];/g' config/bundles.php
 
     # Use source when installing personal libraries
