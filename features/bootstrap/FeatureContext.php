@@ -83,7 +83,7 @@ class FeatureContext extends MinkContext
     }
 
     /**
-     * @Given /^I wait (\d+.\d+) seconds?$/
+     * @Given /^I wait (\d+(.\d+)?) seconds?$/
      */
     public function iWaitSeconds(float $seconds): void
     {

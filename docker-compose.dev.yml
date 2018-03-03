@@ -8,8 +8,7 @@ services:
             - 5601:5601
     mailhog:
         ports:
-            - 3025:3025
-            - 10025:10025
+            - 8025:8025
     mariadb:
         ports:
             - 3306:3306

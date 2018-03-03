@@ -6,7 +6,7 @@ Feature: Mail
   Scenario: Clicking mail link
     Given my inbox is empty
     And I am on "/mail/send"
-    And I wait 0.5 second
+    And I wait 0.1 second
     Then the response status code should be 200
     And I should see an email with subject "This is the subject"
 
