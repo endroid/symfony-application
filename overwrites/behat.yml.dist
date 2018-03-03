@@ -21,7 +21,7 @@ default:
                             - "no-sandbox"
             javascript_session: selenium2
         rpkamp\Behat\MailhogExtension:
-            base_url: http://mailhog:8025
+            base_url: http://mailhog:10025
 
     suites:
         default:
