@@ -6,6 +6,8 @@ cd "$(dirname "$0")"
 readonly SYMFONY_VERSION=4.0
 readonly SHOW_COMMANDS=false
 
+[ "$1" = "public" ] ; PRIVATE=$?
+
 set -e # Break on any error
 
 if [ $SHOW_COMMANDS = true ]; then
@@ -75,7 +77,6 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     composer config extra.symfony.allow-contrib true
 
     # Add private repositories
-    #composer config repositories.play-bundle git git@github.com:endroid/EndroidPlayBundle.git
     sed -i -e 's/;/+ [Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => ["all" => true]];/g' config/bundles.php
 
     # Use source when installing personal libraries
@@ -146,7 +147,10 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/twitter:dev-master \
         --no-update
 
-        # endroid/play-bundle:dev-master \
+    if [ $PRIVATE = 1 ]; then
+        composer config repositories.play-bundle git git@github.com:endroid/EndroidPlayBundle.git
+        composer require endroid/play-bundle:dev-master --no-update
+    fi
 
     # Development bundles
     composer require \
@@ -164,10 +168,18 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
 
     ../overwrite
 
+    if [ $PRIVATE = 0 ]; then
+        rm config/routes/endroid_play.yaml
+    fi
+
     # Update to the latest possible versions
     composer update -n
 
     ../overwrite
+
+    if [ $PRIVATE = 0 ]; then
+        rm config/routes/endroid_play.yaml
+    fi
 
     chmod +x /var/www/html/application/vendor/php-ai/php-ml/bin/libsvm/*
 
