@@ -4,6 +4,9 @@ endroid_guide:
 #            label: LuckyTV
 #            type: luckytv
         -
+            label: De Raadkamer
+            type: sbs6
+        -
             label: Sluipschutters
             type: npo
         -
