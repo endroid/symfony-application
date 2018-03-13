@@ -20,6 +20,7 @@ services:
             - GITHUB_OAUTH_TOKEN=${GITHUB_OAUTH_TOKEN}
         ports:
             - 8080:8080
+            - 9090:9090
     redis:
         ports:
             - 6379:6379
