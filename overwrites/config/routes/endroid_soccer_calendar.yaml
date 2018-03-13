@@ -1,3 +1,4 @@
 endroid_soccer_calendar:
-    resource: "@EndroidSoccerCalendarBundle/Resources/config/routes.yaml"
+    resource: "@EndroidSoccerCalendarBundle/Controller/"
+    type: annotation
     prefix: /soccer-calendar
