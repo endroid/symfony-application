@@ -1,5 +1,4 @@
 imports:
-    - { resource: services_no_autowire.yaml }
     - { resource: services_default.yaml }
 
 parameters:
