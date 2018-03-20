@@ -118,6 +118,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/cm-sms-bundle:dev-master \
         endroid/data-sanitize:dev-master \
         endroid/data-sanitize-bundle:dev-master \
+        endroid/data-sanitize-demo-bundle:dev-master \
         endroid/flusher:dev-master \
         endroid/flusher-bundle:dev-master \
         endroid/form-bundle:dev-master \
