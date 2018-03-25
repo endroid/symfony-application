@@ -5,4 +5,5 @@ services:
         public: false
 
     Endroid\Pdf\Pdf: ~
+    Endroid\Pdf\Factory\AssetFactory: ~
     Endroid\Pdf\Twig\Extension\EmbedExtension: ~
