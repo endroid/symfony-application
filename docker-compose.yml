@@ -16,7 +16,7 @@ services:
     mariadb:
         build: docker/mariadb/
         environment:
-            MYSQL_ROOT_PASSWORD: root
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
             MYSQL_DATABASE: application
         volumes:
             - ./docker/mariadb/data:/var/lib/mysql
