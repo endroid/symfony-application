@@ -1,4 +1,4 @@
-endroid_bundle_test:
-    resource: "@TestBundle/Controller/"
-    type: annotation
-    prefix: /bundle-test
+#endroid_bundle_test:
+#    resource: "@TestBundle/Controller/"
+#    type: annotation
+#    prefix: /bundle-test
