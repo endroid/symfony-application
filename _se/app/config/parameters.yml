@@ -20,8 +20,6 @@ parameters:
     mailer_auth_mode: null
     secret: ThisTokenIsNotSoSecretChangeIt
     google_analytics_trackers: null
-    mongodb_host: mongodb
-    mongodb_database: application
     elasticsearch_host: elasticsearch
     elasticsearch_index: application
     redis_host: redis

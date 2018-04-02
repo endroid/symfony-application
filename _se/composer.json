@@ -12,9 +12,6 @@
         "files": [ "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php" ]
     },
     "require": {
-        "doctrine/mongodb-odm": "^1.0",
-        "doctrine/mongodb-odm-bundle": "^3.0",
-        "alcaeus/mongo-php-adapter": "^1.1",
         "javiereguiluz/easyadmin-bundle": "^1.0",
         "doctrine/doctrine-migrations-bundle": "^1.2",
         "doctrine/doctrine-fixtures-bundle": "^2.3",

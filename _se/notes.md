@@ -17,7 +17,6 @@
 * Word generator bundle (or ExportBundle / implementation example): o.b.v. werkzaamheden Nauta TRS
 * OAuth client name validation werkend maken in sonata
 * Uploader + image field bij nieuws
-* SF3: use ext-mongodb (watching)
 * Elasticsearch: update > 1.5.2 (watching)
 * Elasticsearch: gebruik index en array result i.p.v. finder
 * Gebruiken configureTabMenu in sonata admin voor meertaligheid

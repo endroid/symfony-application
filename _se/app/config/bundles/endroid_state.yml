@@ -1,5 +1,0 @@
-state:
-    task:
-        definition:
-            classes:
-              - Endroid\TaskBundle\Entity\Task
