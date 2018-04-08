@@ -75,6 +75,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
 
     # Allow auto configuration for user contributed bundles
     composer config extra.symfony.allow-contrib true
+    composer config extra.endroid.project-type symfony
 
     # Add private repositories
     sed -i -e 's/;/+ [Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => ["all" => true]];/g' config/bundles.php
@@ -112,12 +113,14 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
 
     # Personal libraries and bundles
     composer require \
+        endroid/asset:dev-master \
         endroid/calendar:dev-master \
         endroid/cm-sms:dev-master \
         endroid/cm-sms-bundle:dev-master \
         endroid/data-sanitize:dev-master \
         endroid/data-sanitize-bundle:dev-master \
         endroid/data-sanitize-demo-bundle:dev-master \
+        endroid/embed:dev-master \
         endroid/flusher:dev-master \
         endroid/flusher-bundle:dev-master \
         endroid/form-bundle:dev-master \
@@ -128,6 +131,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         endroid/import:dev-master \
         endroid/import-bundle:dev-master \
         endroid/import-demo-bundle:dev-master \
+        endroid/installer:dev-master \
         endroid/pdf:dev-master \
         endroid/prediction-io:dev-master \
         endroid/prediction-io-bundle:dev-master \
