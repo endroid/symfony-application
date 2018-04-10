@@ -75,7 +75,6 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
 
     # Allow auto configuration for user contributed bundles
     composer config extra.symfony.allow-contrib true
-    composer config extra.endroid.project-type symfony
 
     # Add private repositories
     sed -i -e 's/;/+ [Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => ["all" => true]];/g' config/bundles.php
