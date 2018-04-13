@@ -1,4 +1,0 @@
-play:
-    resource: "@EndroidPlayBundle/Controller/"
-    type: annotation
-    prefix: /play

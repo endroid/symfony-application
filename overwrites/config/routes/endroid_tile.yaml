@@ -1,4 +1,0 @@
-endroid_tile:
-    resource: "@EndroidTileBundle/Controller/"
-    type: annotation
-    prefix: /tile
