@@ -52,7 +52,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
 
     # Symlink directories
     ln -s ../features features
-    ln -s ../frontend frontend
+    ln -s ../assets assets
     ln -s ../templates templates
     ln -s ../translations translations
 
@@ -188,9 +188,9 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
 
     rm -rf features/demo.feature
 
-    # Set up frontend
+    # Set up assets
     (
-        cd frontend
+        cd assets
         ./rebuild
     )
 )

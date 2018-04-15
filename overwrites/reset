@@ -21,6 +21,6 @@ make generate-jwt-keys
 vendor/bin/phpmetrics --report-html=public/metrics .
 
 (
-    cd ../frontend
+    cd ../assets
     yarn build
 )
