@@ -1,27 +1,6 @@
-# Guidelines
-
-## IDE
-
-* Use the most recent version
-* Fix all notices or disable notices you will never act upon
-* Install all necessary dictionaries (also Dutch in my case)
-
 ## Programming
 
-* Use meaningful names even if they tend to be long
-    * Repeat part of the namespace to avoid naming everything the same
-        * I.e. use Loader/CssLoader instead of Loader/Css
-        * Avoids naming conflicts (i.e. Entity/Css and Repository/Css)
-        * Makes development easier and code more readable
-* Use meaningful namespaces where possible
-    * Avoid putting everything in one namespace like Service or Helper
-    * Instead think of what it should be named
-    * Follow community and framework general practices
-        * Put events in Event and exceptions in Exception
-* Inject services only via the constructor when they are required
-    * Avoid optional services where possible
-        * These require checks at all places where the service is used
-        * Instead require and use a Null... object
+
 * Put required entity properties in the constructor
 * Entities and models only maintain state
     * Operations on the state are performed by other objects
@@ -40,21 +19,9 @@
     * Store deltas in a separate table
     * Save date created, updated and deleted (in case of soft delete)
     * Take care of relations (foreign keys) when using soft delete
-* Never expose internals
-    * Avoid constructions like $task->getTags()->addTag(...)
-        * Requires changes in multiple locations when changed
-    * Instead of an ArrayCollection return an array containing the items
-* Only extend a class when the new class is semantically a subclass
-    * Do not use extend to simply reuse functionality
-        * You could still use traits for shared functionality
-* Always program against interfaces when creating reusable code
-    * When you create an abstract class you should still use an interface
-* Reduce nesting as much as possible
-    * When checking for a condition: negate the condition and break
-    * Create multiple methods when you have too many for loops
-* Never store data serialized
-    * Great performance overhead when filtering on parts of that data
-    
+
+
+
 ## Symfony
 
 * Use an asset packer when possible

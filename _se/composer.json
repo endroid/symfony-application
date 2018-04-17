@@ -17,8 +17,6 @@
         "doctrine/doctrine-fixtures-bundle": "^2.3",
         "fzaninotto/faker": "^1.6",
         "predis/predis": "^1.1",
-        "friendsofsymfony/elastica-bundle": "5.0.x-dev",
-        "friendsofsymfony/user-bundle": "^2.0",
         "hwi/oauth-bundle": "^0.5",
         "friendsofsymfony/rest-bundle": "^2.1",
         "nelmio/api-doc-bundle": "^2.13",
