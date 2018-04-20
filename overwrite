@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-# Always operate from script directory
-cd "$(dirname "$0")"
-
-# Make sure changes are incorporated so cache can be cleared by update below
-cp -a overwrites/. application
