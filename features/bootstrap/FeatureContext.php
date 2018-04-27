@@ -37,4 +37,56 @@ class FeatureContext extends MinkContext
             throw new ProcessFailedException($process);
         }
     }
+
+    /**
+     * @AfterStep
+     */
+    public function takeScreenshotAfterFailedStep(AfterStepScope $event)
+    {
+        if (!$event->getTestResult()->isPassed()) {
+            $this->iMakeAScreenshot('-' . $event->getSuite()->getName() . '-' . $event->getStep()->getLine());
+        }
+    }
+
+    /**
+     * @Given /^I make a screenshot$/
+     */
+    public function iMakeAScreenshot(string $title = 'screenshot'): void
+    {
+        if (!$this->getSession()->getDriver() instanceof Selenium2Driver) {
+            echo 'Use the Selenium2 driver to take a screenshot';
+            return;
+        }
+
+        $imageData = $this->getSession()->getScreenshot();
+
+        file_put_contents(__DIR__.'/../screenshots/'.date('U').'-'.$title.'.png', $imageData);
+    }
+
+    /**
+     * @Then /^I should see "([^"]*)" in the header "([^"]*)"$/
+     */
+    public function iShouldSeeInTheHeader(string $content, string $header): void
+    {
+        $header = strtolower($header);
+        $headers = $this->getSession()->getResponseHeaders();
+
+        foreach ($headers as $name => $values) {
+            foreach ((array) $values as $value) {
+                if (strpos($value, $content) !== false) {
+                    return;
+                }
+            }
+        }
+
+        throw new \Exception(sprintf('Did not see header "%s" with content "%s"', $header, $content));
+    }
+
+    /**
+     * @Given /^I wait (\d+(.\d+)?) seconds?$/
+     */
+    public function iWaitSeconds(float $seconds): void
+    {
+        usleep($seconds * 1000000);
+    }
 }
