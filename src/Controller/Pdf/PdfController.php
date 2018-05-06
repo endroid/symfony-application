@@ -14,7 +14,7 @@ use Endroid\Pdf\Response\InlinePdfResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class PdfController
+class PdfController
 {
     private $pdfBuilder;
 

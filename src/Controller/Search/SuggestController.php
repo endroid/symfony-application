@@ -18,7 +18,7 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 
-final class SuggestController
+class SuggestController
 {
     private $searchable;
     private $templating;
