@@ -16,19 +16,12 @@ use Symfony\Component\Process\Process;
 
 class FeatureContext extends MinkContext
 {
-    private $kernel;
-
-    public function __construct(KernelInterface $kernel)
-    {
-        $this->kernel = $kernel;
-    }
-
     /**
      * @BeforeScenario
      */
     public function loadFixtures()
     {
-        $command = $this->kernel->getProjectDir().'/bin/console doctrine:fixtures:load --env=test -n -q';
+        $command = 'bin/console doctrine:fixtures:load --env=test -n -q';
 
         $process = new Process($command);
         $process->run();
