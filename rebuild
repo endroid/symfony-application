@@ -87,6 +87,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         doctrine/doctrine-migrations-bundle \
         doctrine/doctrine-fixtures-bundle \
         easycorp/easyadmin-bundle \
+        friendsofsymfony/ckeditor-bundle \
         friendsofsymfony/elastica-bundle \
         friendsofsymfony/oauth-server-bundle \
         friendsofsymfony/rest-bundle \
