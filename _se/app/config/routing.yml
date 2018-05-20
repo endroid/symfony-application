@@ -7,13 +7,6 @@ api:
     prefix: /api
     options: { i18n: false }
 
-
-scrum_calendar:
-    resource: "@EndroidScrumCalendarBundle/Controller/"
-    type: annotation
-    prefix: /scrum-calendar
-
-
 dashboard:
     resource: "@EndroidDashboardBundle/Controller/"
     type: annotation

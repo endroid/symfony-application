@@ -8,7 +8,6 @@
 * WSSE Bundle maken of bestaande gebruiken
 * Use Roboto font
 * OAuth: manage clients like in knp university screencast
-* Docker gulp + cache busting
 * Uitzoeken of functionele tests gemakkelijker kunnen voor SF bundles (check kernelawarecontext)
 * Functionele tests over bundles gelijktrekken
 * User login: redirect admin / front end / api afhankelijk van type user: verschil tussen hasRole / isGranted?
