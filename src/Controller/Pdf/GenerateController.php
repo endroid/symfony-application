@@ -9,8 +9,6 @@
 
 namespace App\Controller\Pdf;
 
-use Endroid\Asset\CacheAsset;
-use Endroid\Asset\Factory\AssetFactory;
 use Endroid\Pdf\Builder\PdfBuilder;
 use Endroid\Pdf\Response\InlinePdfResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,12 +17,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class GenerateController
 {
     private $pdfBuilder;
-    private $assetFactory;
 
-    public function __construct(PdfBuilder $pdfBuilder, AssetFactory $assetFactory)
+    public function __construct(PdfBuilder $pdfBuilder)
     {
         $this->pdfBuilder = $pdfBuilder;
-        $this->assetFactory = $assetFactory;
     }
 
     /**
@@ -34,12 +30,12 @@ class GenerateController
     {
         $this->pdfBuilder
             ->setCover([
-                'cache_key' => 'cover',
                 'controller' => CoverController::class,
+                'cache_key' => 'cover',
             ])
             ->setTableOfContents([
+                'file' => 'table_of_contents.xml',
                 'cache_key' => 'toc',
-                'template' => 'pdf/table_of_contents.xml.twig',
             ])
             ->setHeader([
                 'template' => 'pdf/header.html.twig',
