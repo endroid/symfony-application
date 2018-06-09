@@ -56,7 +56,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     ln -s ../templates templates
     ln -s ../translations translations
 
-    cp config/services.yaml config/services_default.yaml
+    cp config/services.yaml config/services.yaml.backup
 
     (
         cd vendor
@@ -106,6 +106,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         rpkamp/mailhog-mink-behat-context \
         sonata-project/doctrine-orm-admin-bundle \
         symfony/lock \
+        symfony/messenger \
         symfony/serializer \
         symfony/swiftmailer-bundle \
         symfony/templating \
