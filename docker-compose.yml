@@ -30,6 +30,13 @@ services:
 #        ports:
 #            - 7070:7070
 #            - 8000:8000
+    rabbitmq:
+        image: rabbitmq:3.7.5-management
+        environment:
+            - RABBITMQ_DEFAULT_USER=root
+            - RABBITMQ_DEFAULT_PASS=root
+        expose:
+            - 15672
     redis:
         image: redis:3
         expose:
@@ -62,6 +69,7 @@ services:
             - elasticsearch
             - mariadb
 #            - prediction_io
+            - rabbitmq
             - redis
             - selenium_hub
         dns:
