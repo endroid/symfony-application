@@ -1,0 +1,7 @@
+framework:
+    messenger:
+        default_bus: messenger.bus.command
+        buses:
+            messenger.bus.command: ~
+            messenger.bus.query: ~
+            messenger.bus.event: ~
