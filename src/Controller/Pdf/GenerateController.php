@@ -34,7 +34,7 @@ class GenerateController
                 'cache_key' => 'cover',
             ])
             ->setTableOfContents([
-                'file' => 'table_of_contents.xml',
+                'template' => 'pdf/table_of_contents.xml.twig',
                 'cache_key' => 'toc',
             ])
             ->setHeader([
