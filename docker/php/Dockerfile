@@ -1,6 +1,6 @@
 FROM php:7-fpm
 
-RUN apt-get update && apt-get install -y wget vim nano git gnupg bash-completion zlib1g-dev libicu-dev g++ libssl-dev libxml2-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libsasl2-dev libcurl4-openssl-dev pkg-config libxrender1 libfontconfig1 --fix-missing
+RUN apt-get update && apt-get install -y wget vim nano git gnupg bash-completion iputils-ping zlib1g-dev libicu-dev g++ libssl-dev libxml2-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libsasl2-dev libcurl4-openssl-dev pkg-config libxrender1 libfontconfig1 --fix-missing
 
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
