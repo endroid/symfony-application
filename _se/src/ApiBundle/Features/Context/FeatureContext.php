@@ -4,7 +4,6 @@ namespace ApiBundle\Features\Context;
 
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelDictionary;
-use OAuthBundle\Command\CreateClientCommand;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 

@@ -7,14 +7,12 @@
 * Error page: 404 + 500
 * WSSE Bundle maken of bestaande gebruiken
 * Use Roboto font
-* OAuth: manage clients like in knp university screencast
 * Uitzoeken of functionele tests gemakkelijker kunnen voor SF bundles (check kernelawarecontext)
 * Functionele tests over bundles gelijktrekken
 * User login: redirect admin / front end / api afhankelijk van type user: verschil tussen hasRole / isGranted?
 * Translations: overal keys i.p.v. vertaalde labels
 * Open Graph: decent implementation
 * Word generator bundle (or ExportBundle / implementation example): o.b.v. werkzaamheden Nauta TRS
-* OAuth client name validation werkend maken in sonata
 * Uploader + image field bij nieuws
 * Elasticsearch: update > 1.5.2 (watching)
 * Elasticsearch: gebruik index en array result i.p.v. finder

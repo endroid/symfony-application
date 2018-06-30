@@ -32,7 +32,6 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    FOS\OAuthServerBundle\Entity\ClientManager: '@fos_oauth_server.client_manager.default'
     FOS\UserBundle\Model\UserManagerInterface: '@fos_user.user_manager.default'
 
     App\Message\Command\Handler\:
@@ -58,13 +57,3 @@ services:
     admin.model_manager:
         class: App\Admin\ModelManager
         arguments: ['@doctrine']
-
-    fos_oauth_server.storage.default:
-        class: App\Security\OAuth\TokenStorage
-        arguments:
-            - '@fos_oauth_server.client_manager'
-            - '@fos_oauth_server.access_token_manager'
-            - '@fos_oauth_server.refresh_token_manager'
-            - '@fos_oauth_server.auth_code_manager'
-            - '@fos_user.user_provider.username'
-            - '@security.encoder_factory'

@@ -9,6 +9,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Traits\OAuthGithubTrait;
 use App\Traits\OAuthGoogleTrait;
 use FOS\UserBundle\Model\User as BaseUser;
@@ -18,6 +19,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
+ * @ApiResource
  */
 class User extends BaseUser implements UserInterface
 {

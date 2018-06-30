@@ -7,10 +7,7 @@
  * with this source code in the file LICENSE.
  */
 
-use Behat\Behat\Tester\Exception\PendingException;
-use App\Entity\OAuth\Client;
 use Behat\Behat\Context\Context;
-use FOS\OAuthServerBundle\Model\ClientManagerInterface;
 use FOS\UserBundle\Model\UserManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,40 +17,13 @@ class ApiFeatureContext implements Context
 {
     private $kernel;
     private $userManager;
-    private $clientManager;
     private $accessToken;
     private $response;
 
-    public function __construct(KernelInterface $kernel, UserManagerInterface $userManager, ClientManagerInterface $clientManager = null)
+    public function __construct(KernelInterface $kernel, UserManagerInterface $userManager)
     {
         $this->kernel = $kernel;
         $this->userManager = $userManager;
-        $this->clientManager = $clientManager;
-    }
-
-    /**
-     * @Given I retrieve an OAuth token for :username
-     */
-    public function iRetrieveAnOauthTokenFor(string $username): void
-    {
-        $user = $this->userManager->findUserByUsername($username);
-
-        /** @var Client $client */
-        $client = $this->clientManager->findClientBy(['user' => $user]);
-
-        $response = $this->kernel->handle(Request::create('/oauth/v2/token', 'GET', [
-            'grant_type' => 'client_credentials',
-            'client_id' => $client->getId().'_'.$client->getRandomId(),
-            'client_secret' => $client->getSecret()
-        ]));
-
-        $json = json_decode($response->getContent());
-
-        if (!$json || !$json->access_token) {
-            throw new \Exception('No valid token returned');
-        }
-
-        $this->accessToken = $json->access_token;
     }
 
     /**

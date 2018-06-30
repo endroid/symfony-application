@@ -23,25 +23,6 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        api_oauth:
-            pattern: ^/api/.*
-            fos_oauth: true
-            stateless: true # do not store user information between requests
-            anonymous: true # allow anonymous access (i.e. for public GET calls)
-            context: api
-
-#        oauth_token:
-#            pattern: ^/oauth/v2/token
-#            security: false
-
-#        oauth_authorize:
-#            pattern: ^/oauth/v2/auth
-#            form_login:
-#                 provider: fos_userbundle
-#                 check_path: /oauth/v2/auth/login_check
-#                 login_path: /oauth/v2/auth/login
-#            anonymous: true
-
         main:
             pattern: ^/
             form_login:
@@ -83,7 +64,5 @@ security:
         - { path: ^/elfinder, role: ROLE_USER }
 #        - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
 #        - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-#        - { path: ^/oauth-login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-#        - { path: ^/oauth-connect, role: IS_AUTHENTICATED_ANONYMOUSLY }
 #        - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
 #        - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }

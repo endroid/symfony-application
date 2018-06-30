@@ -11,23 +11,13 @@ namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-use OAuthBundle\Model\OAuthUserInterface;
-use OAuthBundle\Model\OAuthUserTrait;
-use WsseBundle\Model\WsseUserInterface;
-use WsseBundle\Model\WsseUserTrait;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
  */
-class User extends BaseUser implements WsseUserInterface, OAuthUserInterface
+class User extends BaseUser
 {
-    use OAuthUserTrait {
-        OAuthUserTrait::__construct as protected __oAuthUserTraitConstruct;
-    }
-
-    use WsseUserTrait;
-
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -63,16 +53,6 @@ class User extends BaseUser implements WsseUserInterface, OAuthUserInterface
      * )
      */
     protected $groups;
-
-    /**
-     * Constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-
-        $this->__oAuthUserTraitConstruct();
-    }
 
     /**
      * Get id.

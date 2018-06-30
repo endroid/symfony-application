@@ -16,19 +16,11 @@ trait OAuthGoogleTrait
      */
     protected $googleId;
 
-    /**
-     * @return string
-     */
-    public function getGoogleId(): string
+    public function getGoogleId(): ?string
     {
         return $this->googleId;
     }
 
-    /**
-     * @param string $googleId
-     *
-     * @return self
-     */
     public function setGoogleId(string $googleId): self
     {
         $this->googleId = $googleId;

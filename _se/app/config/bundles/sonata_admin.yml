@@ -18,9 +18,6 @@ sonata_admin:
         endroid_behavior.admin.extension.traversable:
             implements:
                 - Endroid\Bundle\BehaviorBundle\Model\TraversableInterface
-        oauth.admin.extension.user:
-            implements:
-                - OAuthBundle\Model\OAuthUserInterface
         wsse.admin.extension.user:
             implements:
                 - WsseBundle\Model\WsseUserInterface

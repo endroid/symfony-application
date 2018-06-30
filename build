@@ -3,16 +3,9 @@
 # Always operate from script directory
 cd "$(dirname "$0")"
 
-readonly SYMFONY_VERSION=4.0
-readonly SHOW_COMMANDS=false
-
 [ "$1" = "public" ] ; PRIVATE=$?
 
 set -e # Break on any error
-
-if [ $SHOW_COMMANDS = true ]; then
-    set -o xtrace
-fi
 
 if [ ! -f docker/nginx/nginx.conf ]; then
     cp docker/nginx/nginx.conf.dist docker/nginx/nginx.conf
@@ -39,10 +32,8 @@ fi
 
 rm -rf application
 
-readonly SYMFONY_VERSION_MAJOR=^$SYMFONY_VERSION
-
 # Create new project from skeleton and build parts
-composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s beta
+composer create-project symfony/website-skeleton application -s beta --no-install
 
 # Further build application
 (
@@ -51,8 +42,8 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     composer config minimum-stability beta
 
     # Symlink directories
-    ln -s ../features features
     ln -s ../assets assets
+    ln -s ../features features
     ln -s ../templates templates
     ln -s ../translations translations
 
@@ -84,20 +75,17 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
 
     # Application bundles
     composer require \
+        api \
         doctrine/doctrine-migrations-bundle \
         doctrine/doctrine-fixtures-bundle \
         easycorp/easyadmin-bundle \
         friendsofsymfony/ckeditor-bundle \
         friendsofsymfony/elastica-bundle \
-        friendsofsymfony/oauth-server-bundle \
-        friendsofsymfony/rest-bundle \
         friendsofsymfony/user-bundle \
         google/apiclient \
         h4cc/wkhtmltopdf-amd64 \
         hwi/oauth-bundle \
         knplabs/knp-snappy-bundle \
-        lexik/jwt-authentication-bundle \
-        nelmio/api-doc-bundle \
         php-ai/php-ml \
         php-http/httplug-pack \
         predis/predis \
@@ -111,6 +99,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         symfony/swiftmailer-bundle \
         symfony/templating \
         symfony/web-link \
+        webonyx/graphql-php \
         --no-update
 
     # Personal libraries and bundles
@@ -166,10 +155,6 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
         behat/symfony2-extension \
         friendsofphp/php-cs-fixer \
         phpmetrics/phpmetrics \
-        phpstan/phpstan \
-        symfony/debug-bundle \
-        symfony/profiler-pack \
-        symfony/phpunit-bridge \
         --no-update --dev
 
     cp -a ../overwrites/. .
@@ -180,8 +165,6 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
 
     # Update to the latest possible versions
     composer update -n
-
-    cp -a ../overwrites/. .
 
     if [ $PRIVATE = 0 ]; then
         rm config/routes/endroid_play.yaml
@@ -194,7 +177,7 @@ composer create-project symfony/skeleton:$SYMFONY_VERSION_MAJOR application -s b
     # Set up assets
     (
         cd assets
-        ./rebuild
+        ./build
     )
 )
 

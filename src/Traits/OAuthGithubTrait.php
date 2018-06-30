@@ -16,19 +16,11 @@ trait OAuthGithubTrait
      */
     protected $githubId;
 
-    /**
-     * @return string
-     */
-    public function getGithubId(): string
+    public function getGithubId(): ?string
     {
         return $this->githubId;
     }
 
-    /**
-     * @param string $githubId
-     *
-     * @return self
-     */
     public function setGithubId(string $githubId): self
     {
         $this->githubId = $githubId;
