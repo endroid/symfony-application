@@ -1,0 +1,11 @@
+git reset --hard
+OUTPUT=`git pull`
+
+cd "$(dirname "$0")"
+
+if [ "$OUTPUT"=="Already up-to-date." ]; then
+    exit 0
+fi
+
+./deploy
+
