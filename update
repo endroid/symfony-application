@@ -12,5 +12,5 @@ if [ "$OUTPUT"=="Already up-to-date." ]; then
     exit 0
 fi
 
-echo "Changes detected: deploying"
+echo "Changes detected: deploying!"
 ./deploy
