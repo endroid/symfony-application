@@ -4,4 +4,4 @@
 
 git pull
 
-./rebuild
+./build

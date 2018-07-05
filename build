@@ -47,15 +47,15 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
     ln -s ../templates templates
     ln -s ../translations translations
 
-    cp config/services.yaml config/services.yaml.backup
-
     (
+        mkdir vendor
         cd vendor
         ln -s ../../vendor/endroid endroid
     )
 
     # Kernel does not work in symlink path so symlink src directories
     (
+        mkdir src
         cd src
         for directory in `find ../../src/* -maxdepth 0 -type d`
         do
@@ -68,14 +68,14 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
     composer config extra.symfony.allow-contrib true
 
     # Add private repositories
-    sed -i -e 's/;/+ [Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => ["all" => true]];/g' config/bundles.php
+#    sed -i -e 's/;/+ [Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => ["all" => true]];/g' config/bundles.php
 
     # Use source when installing personal libraries
     sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
 
     # Application bundles
     composer require \
-        api \
+        api-platform/api-pack \
         doctrine/doctrine-migrations-bundle \
         doctrine/doctrine-fixtures-bundle \
         easycorp/easyadmin-bundle \
@@ -124,9 +124,6 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
         endroid/import-demo-bundle:dev-master \
         endroid/installer:dev-master \
         endroid/pdf:dev-master \
-        endroid/prediction-io:dev-master \
-        endroid/prediction-io-bundle:dev-master \
-        endroid/prediction-io-demo-bundle:dev-master \
         endroid/priority-shuffle-random:dev-master \
         endroid/property-access:dev-master \
         endroid/qr-code:dev-master \
@@ -141,6 +138,11 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
         endroid/tile-bundle:dev-master \
         endroid/twitter:dev-master \
         --no-update
+
+
+#        endroid/prediction-io:dev-master \
+#        endroid/prediction-io-bundle:dev-master \
+#        endroid/prediction-io-demo-bundle:dev-master \
 
     if [ $PRIVATE = 1 ]; then
         composer config repositories.play-bundle git git@github.com:endroid/EndroidPlayBundle.git
