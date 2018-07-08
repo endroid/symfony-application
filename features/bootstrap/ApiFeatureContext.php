@@ -8,91 +8,49 @@
  */
 
 use Behat\Behat\Context\Context;
+use Behat\Behat\Hook\Scope\BeforeScenarioScope;
+use Behatch\Context\RestContext;
 use FOS\UserBundle\Model\UserManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\KernelInterface;
+use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTManager;
 
 class ApiFeatureContext implements Context
 {
-    private $kernel;
+    private $restContext;
     private $userManager;
-    private $accessToken;
-    private $response;
+    private $tokenManager;
 
-    public function __construct(KernelInterface $kernel, UserManagerInterface $userManager)
+    public function __construct(UserManagerInterface $userManager, JWTManager $tokenManager)
     {
-        $this->kernel = $kernel;
         $this->userManager = $userManager;
+        $this->tokenManager = $tokenManager;
     }
 
     /**
-     * @Given I retrieve a JWT token with username :username and password :password
+     * @BeforeScenario
+     * @login
      */
-    public function iRetrieveAJwtTokenFor(string $username, string $password): void
+    public function gatherContexts(BeforeScenarioScope $scope)
     {
-        $response = $this->kernel->handle(Request::create('/api/login_check', 'POST', [
-            '_username' => $username,
-            '_password' => $password
-        ]));
 
-        $json = json_decode($response->getContent());
+        $this->restContext = $scope->getEnvironment()->getContext(RestContext::class);
 
-        if (!$json || !$json->token) {
-            throw new \Exception('No valid token returned');
-        }
+        $user = $this->userManager->findUserByUsername('superadmin');
+        $token = $this->tokenManager->create($user);
 
-        $this->accessToken = $json->token;
+        echo $token;
+
+        $this->restContext->iAddHeaderEqualTo('Authorization', "Bearer $token");
     }
 
     /**
-     * @Given I use an invalid access token
+     * @Given I retrieve a JWT token for user :username
      */
-    public function iUseAnInvalidAccessToken(): void
+    public function iRetrieveAJwtTokenForUser(string $username): void
     {
-        $this->accessToken = 'invalid_access_token';
-    }
+        $user = $this->userManager->findUserByUsername($username);
+        $token = $this->tokenManager->create($user);
+        $this->restContext->iAddHeaderEqualTo('Authorization', "Bearer $token");
 
-    /**
-     * @Given I perform a search call
-     */
-    public function iPerformASearchCall(): void
-    {
-        $query = 'search_query';
-
-        $request = Request::create('/api/search', 'GET', ['query' => $query]);
-        $request->headers->set('Authorization', 'Bearer '.$this->accessToken);
-        $this->response = $this->kernel->handle($request);
-    }
-
-    /**
-     * @Then I should see the search results
-     */
-    public function iShouldSeeTheSearchResults(): void
-    {
-        $json = json_decode($this->response->getContent());
-
-        if (!$json || !$json->query || !is_array($json->results)) {
-            throw new \Exception('No valid response returned');
-        }
-    }
-
-    /**
-     * @Then I should see an error message
-     */
-    public function iShouldNotSeeAnErrorMessage(): void
-    {
-        $content = $this->response->getContent();
-        $json = json_decode($content);
-
-        if (!$json) {
-            throw new \Exception('No valid response returned');
-        }
-
-        $isErrorMessage = stripos($content, 'invalid') !== false;
-
-        if (!$isErrorMessage) {
-            throw new \Exception('Response does not contain an error message');
-        }
+//        dump($token);
     }
 }
