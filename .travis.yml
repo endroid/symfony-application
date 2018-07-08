@@ -23,4 +23,4 @@ script:
   - sudo chmod 777 -R .
   - docker-compose up -d >/dev/null
   - docker-compose exec --user 1000 php /bin/sh ./build public
-  - docker-compose exec --user 1000 php /bin/sh ./application/test
+  - docker-compose exec --user 1000 php /bin/sh cd application && bin/test
