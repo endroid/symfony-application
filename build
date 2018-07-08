@@ -39,6 +39,10 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
 (
     cd application
 
+    # Allow auto configuration for user contributed bundles
+    composer config extra.symfony.allow-contrib true
+
+    # Also install beta packages
     composer config minimum-stability beta
 
     # Symlink directories
@@ -47,15 +51,15 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
     ln -s ../templates templates
     ln -s ../translations translations
 
+    composer install -n
+
     (
-        mkdir vendor
         cd vendor
         ln -s ../../vendor/endroid endroid
     )
 
     # Kernel does not work in symlink path so symlink src directories
     (
-        mkdir src
         cd src
         for directory in `find ../../src/* -maxdepth 0 -type d`
         do
@@ -63,12 +67,6 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
             ln -s $directory `basename $directory`
         done
     )
-
-    # Allow auto configuration for user contributed bundles
-    composer config extra.symfony.allow-contrib true
-
-    # Add private repositories
-#    sed -i -e 's/;/+ [Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => ["all" => true]];/g' config/bundles.php
 
     # Use source when installing personal libraries
     sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
@@ -83,22 +81,16 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
         friendsofsymfony/elastica-bundle \
         friendsofsymfony/user-bundle \
         google/apiclient \
-        h4cc/wkhtmltopdf-amd64 \
         hwi/oauth-bundle \
         knplabs/knp-snappy-bundle \
+        lexik/jwt-authentication-bundle \
         php-ai/php-ml \
         php-http/httplug-pack \
         predis/predis \
         pusher/pusher-php-server \
-        rpkamp/mailhog-behat-extension \
-        rpkamp/mailhog-mink-behat-context \
         sonata-project/doctrine-orm-admin-bundle \
         symfony/lock \
         symfony/messenger \
-        symfony/serializer \
-        symfony/swiftmailer-bundle \
-        symfony/templating \
-        symfony/web-link \
         webonyx/graphql-php \
         --no-update
 
@@ -114,7 +106,6 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
         endroid/embed:dev-master \
         endroid/flusher:dev-master \
         endroid/flusher-bundle:dev-master \
-        endroid/form-bundle:dev-master \
         endroid/guide:dev-master \
         endroid/guide-bundle:dev-master \
         endroid/guidelines:dev-master \
@@ -139,7 +130,7 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
         endroid/twitter:dev-master \
         --no-update
 
-
+#        endroid/form-bundle:dev-master \
 #        endroid/prediction-io:dev-master \
 #        endroid/prediction-io-bundle:dev-master \
 #        endroid/prediction-io-demo-bundle:dev-master \
@@ -157,6 +148,8 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
         behat/symfony2-extension \
         friendsofphp/php-cs-fixer \
         phpmetrics/phpmetrics \
+        rpkamp/mailhog-behat-extension \
+        rpkamp/mailhog-mink-behat-context \
         --no-update --dev
 
     cp -a ../overwrites/. .

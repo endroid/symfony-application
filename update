@@ -9,10 +9,13 @@ git reset --hard
 sed -i -e 's/localhost/endroid.nl/g' docker/nginx/nginx.conf
 OUTPUT=`git pull`
 
+echo $OUTPUT > log
+
 if [ "$OUTPUT" == "Already up-to-date." ] ; then
     exit 0
 fi
 
 echo "Changes detected: deploying!"
+echo "Deploying" >> log
 ./deploy
 
