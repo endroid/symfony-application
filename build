@@ -146,6 +146,7 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
         behat/mink-goutte-driver \
         behat/mink-selenium2-driver \
         behat/symfony2-extension \
+        behatch/contexts \
         friendsofphp/php-cs-fixer \
         phpmetrics/phpmetrics \
         rpkamp/mailhog-behat-extension \
