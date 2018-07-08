@@ -12,30 +12,29 @@ security:
 
     providers:
         fos_userbundle:
-            id: fos_user.user_provider.username_email
+            id: fos_user.user_provider.username
 
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
         login:
-            pattern:  ^/api/login
+            pattern: ^/api/login
             stateless: true
             anonymous: true
-            form_login:
+            provider: fos_userbundle
+            json_login:
                 check_path: /api/login_check
+                username_path: email
+                password_path: password
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
-                require_previous_session: false
 
-#        api:
-#            pattern: ^/api/
-#            stateless: true
-#            anonymous: true
-#            guard:
-#                authenticators:
-#                    - lexik_jwt_authentication.jwt_token_authenticator
+        api:
+            pattern: ^/api/
+            provider: fos_userbundle
+            stateless: true
+            anonymous: true
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
 
         main:
             pattern: ^/
@@ -53,6 +52,10 @@ security:
                 failure_path: /login
                 oauth_user_provider:
                     service: App\Security\UserProvider
+
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
 
     access_control:
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
