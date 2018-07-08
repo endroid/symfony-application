@@ -21,7 +21,7 @@ class FeatureContext extends MinkContext
      */
     public function loadFixtures()
     {
-        $command = 'bin/console doctrine:fixtures:load --env=test -n -q';
+        $command = 'bin/console doctrine:fixtures:load --purge-with-truncate --env=test -n -q';
 
         $process = new Process($command);
         $process->run();
