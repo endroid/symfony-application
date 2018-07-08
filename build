@@ -155,15 +155,11 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
     cp -a ../overwrites/. .
 
     if [ $PRIVATE = 0 ]; then
-        rm config/routes/endroid_play.yaml
+        rm -rf config/routes/endroid_play.yaml
     fi
 
     # Update to the latest possible versions
     composer update -n
-
-    if [ $PRIVATE = 0 ]; then
-        rm config/routes/endroid_play.yaml
-    fi
 
     chmod +x /var/www/html/application/vendor/php-ai/php-ml/bin/libsvm/*
 

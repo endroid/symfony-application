@@ -6,7 +6,6 @@ services:
 cache:
   directories:
     - $HOME/.cache/yarn
-    - $HOME/.composer/cache
 
 env:
   - DOCKER_COMPOSE_VERSION=1.14.0
