@@ -27,19 +27,10 @@ class ApiFeatureContext implements Context
 
     /**
      * @BeforeScenario
-     * @login
      */
     public function gatherContexts(BeforeScenarioScope $scope)
     {
-
         $this->restContext = $scope->getEnvironment()->getContext(RestContext::class);
-
-        $user = $this->userManager->findUserByUsername('superadmin');
-        $token = $this->tokenManager->create($user);
-
-        echo $token;
-
-        $this->restContext->iAddHeaderEqualTo('Authorization', "Bearer $token");
     }
 
     /**
@@ -50,7 +41,13 @@ class ApiFeatureContext implements Context
         $user = $this->userManager->findUserByUsername($username);
         $token = $this->tokenManager->create($user);
         $this->restContext->iAddHeaderEqualTo('Authorization', "Bearer $token");
+    }
 
-//        dump($token);
+    /**
+     * @Given I use JWT token :token
+     */
+    public function iUseJwtToken(string $token): void
+    {
+        $this->restContext->iAddHeaderEqualTo('Authorization', "Bearer $token");
     }
 }

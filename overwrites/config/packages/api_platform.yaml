@@ -6,3 +6,8 @@ api_platform:
              apiKey:
                 name: Authorization
                 type: header
+    formats:
+        json:
+            mime_types: ['application/json']
+        html:
+            mime_types: ['text/html']
