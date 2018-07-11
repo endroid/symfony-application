@@ -136,7 +136,7 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
 #        endroid/prediction-io-demo-bundle:dev-master \
 
     if [ $PRIVATE = 1 ]; then
-        composer config repositories.play-bundle git git@github.com:endroid/EndroidPlayBundle.git
+        composer config repositories.play-bundle vcs git@github.com:endroid/EndroidPlayBundle.git
         composer require endroid/play-bundle:dev-master --no-update
     fi
 
