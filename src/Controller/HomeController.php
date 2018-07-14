@@ -9,22 +9,17 @@
 
 namespace App\Controller;
 
-use FOS\UserBundle\Model\UserManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Twig\Environment;
 
 class HomeController
 {
-    private $session;
     private $templating;
 
-    public function __construct(SessionInterface $session, Environment $templating)
+    public function __construct(Environment $templating)
     {
-        $this->session = $session;
         $this->templating = $templating;
     }
 
