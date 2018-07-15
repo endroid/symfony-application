@@ -45,14 +45,16 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
     # Also install beta packages
     composer config minimum-stability beta
 
+    # Allow SF new structure detection
+    mkdir config config/packages public src
+
     # Symlink directories
     ln -s ../assets assets
     ln -s ../features features
     ln -s ../templates templates
     ln -s ../translations translations
 
-    composer install -n
-
+    mkdir vendor
     (
         cd vendor
         ln -s ../../vendor/endroid endroid
@@ -92,10 +94,6 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
         symfony/lock \
         symfony/messenger \
         webonyx/graphql-php \
-        --no-update
-
-    # Personal libraries and bundles
-    composer require \
         endroid/asset:dev-master \
         endroid/calendar:dev-master \
         endroid/cm-sms:dev-master \
