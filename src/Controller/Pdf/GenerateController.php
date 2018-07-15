@@ -9,6 +9,7 @@
 
 namespace App\Controller\Pdf;
 
+use App\Controller\SvgController;
 use Endroid\Pdf\Builder\PdfBuilder;
 use Endroid\Pdf\Response\InlinePdfResponse;
 use Symfony\Component\HttpFoundation\Response;
