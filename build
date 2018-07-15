@@ -70,6 +70,9 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
         done
     )
 
+    # Allow fixtures in production environment
+    sed -i -e 's/;/+ [Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => ["all" => true]];/g' config/bundles.php
+
     # Use source when installing personal libraries
     sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
 
