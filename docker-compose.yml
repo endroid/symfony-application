@@ -58,6 +58,7 @@ services:
         build: docker/php/
         environment:
             - ENVIRONMENT=prod
+            - GITHUB_OAUTH_TOKEN=${GITHUB_OAUTH_TOKEN}
         volumes:
             - .:/var/www/html
             - ~/.gitconfig:/var/www/.gitconfig
