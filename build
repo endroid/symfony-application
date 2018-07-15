@@ -161,7 +161,7 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
     composer update -n
 
     # Allow fixtures in production environment
-    sed -i -e 's/;/+ [Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => ["all" => true]];/g' config/bundles.php
+    sed -i -e 's/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => \[\x27dev\x27 => true, \x27test\x27 => true\],/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => \[\x27all\x27 => true\],/g' config/bundles.php
 
     chmod +x /var/www/html/application/vendor/php-ai/php-ml/bin/libsvm/*
 
