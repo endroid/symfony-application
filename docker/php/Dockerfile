@@ -23,7 +23,7 @@ RUN chmod a+x /usr/local/bin/security-checker
 RUN curl -LsS https://github.com/sensiolabs-de/deprecation-detector/releases/download/0.1.0-alpha4/deprecation-detector.phar -o /usr/local/bin/deprecation-detector
 RUN chmod a+x /usr/local/bin/deprecation-detector
 
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update && apt-get install -y nodejs --fix-missing
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
