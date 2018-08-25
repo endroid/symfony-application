@@ -32,6 +32,9 @@ fi
 
 rm -rf application
 
+# Install to latest version of Composer
+composer self-update --snapshot
+
 # Create new project from skeleton and build parts
 composer create-project symfony/website-skeleton application -s beta --no-install
 
