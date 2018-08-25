@@ -18,7 +18,6 @@ RUN curl -LsS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 RUN chmod a+x /usr/local/bin/composer
 RUN chown 1000 /usr/local/bin/composer
-RUN chown -R 1000 /var/www/.composer
 
 # CS Fixer
 RUN curl -LsS http://get.sensiolabs.org/php-cs-fixer.phar -o /usr/local/bin/php-cs-fixer
