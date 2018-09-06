@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y wget vim nano git gnupg bash-completion
 
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
-RUN docker-php-ext-install bcmath ftp gd iconv intl mbstring opcache pcntl pdo pdo_mysql soap zip
+RUN docker-php-ext-install bcmath ftp gd iconv intl mbstring opcache pcntl pdo pdo_mysql soap xls zip
 
 RUN curl -LsS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
@@ -23,7 +23,7 @@ RUN chmod a+x /usr/local/bin/security-checker
 RUN curl -LsS https://github.com/sensiolabs-de/deprecation-detector/releases/download/0.1.0-alpha4/deprecation-detector.phar -o /usr/local/bin/deprecation-detector
 RUN chmod a+x /usr/local/bin/deprecation-detector
 
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update && apt-get install -y nodejs --fix-missing
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
