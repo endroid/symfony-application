@@ -32,6 +32,9 @@ fi
 
 rm -rf application
 
+# Install to latest version of Composer
+composer self-update --snapshot
+
 # Create new project from skeleton and build parts
 composer create-project symfony/website-skeleton application -s beta --no-install
 
@@ -158,7 +161,7 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
     fi
 
     # Update to the latest possible versions
-    composer update -n
+    COMPOSER_MEMORY_LIMIT=-1 composer update -n
 
     # Allow fixtures in production environment
     sed -i -e 's/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => \[\x27dev\x27 => true, \x27test\x27 => true\],/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => \[\x27all\x27 => true\],/g' config/bundles.php
