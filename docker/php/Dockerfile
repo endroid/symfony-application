@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y wget vim nano gnupg bash-completion ipu
 
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
-RUN docker-php-ext-install bcmath ftp gd iconv intl mbstring opcache pcntl pdo pdo_mysql soap xls zip
+RUN docker-php-ext-install bcmath ftp gd iconv intl mbstring opcache pcntl pdo pdo_mysql soap xsl zip
 
 # Custom PHP settings
 ADD application.ini /usr/local/etc/php/conf.d/application.ini
