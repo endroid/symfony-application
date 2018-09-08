@@ -1,14 +1,14 @@
 version: '3'
 services:
-    elasticsearch:
-        ports:
-            - 9200:9200
-    kibana:
-        ports:
-            - 5601:5601
-    mailhog:
-        ports:
-            - 8025:8025
+#    elasticsearch:
+#        ports:
+#            - 9200:9200
+#    kibana:
+#        ports:
+#            - 5601:5601
+#    mailhog:
+#        ports:
+#            - 8025:8025
     mariadb:
         ports:
             - 3306:3306
@@ -21,12 +21,12 @@ services:
         ports:
             - 8080:8080
             - 9090:9090
-    rabbitmq:
-        ports:
-            - 15672:15672
+#    rabbitmq:
+#        ports:
+#            - 15672:15672
     redis:
         ports:
             - 6379:6379
-    selenium_hub:
-        ports:
-            - 4444:4444
+#    selenium_hub:
+#        ports:
+#            - 4444:4444
