@@ -32,7 +32,7 @@ RUN curl -LsS http://get.sensiolabs.org/security-checker.phar -o /usr/local/bin/
 RUN chmod a+x /usr/local/bin/security-checker
 
 # Node
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
 RUN apt-get update && apt-get install -y nodejs --fix-missing
 
 # Yarn
