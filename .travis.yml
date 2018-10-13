@@ -1,0 +1,23 @@
+language: php
+
+services:
+  - mariadb
+  - elasticsearch
+
+php:
+  - 7.2
+  - nightly
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: nightly
+
+before_install:
+  - composer self-update
+
+script:
+  - bin/build
+
+notifications:
+  email: info@endroid.nl
