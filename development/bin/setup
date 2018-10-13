@@ -9,7 +9,3 @@ bin/console fos:elastica:populate -n --env=$ENV
 bin/console ckeditor:install -n --env=$ENV
 bin/console assets:install --symlink --env=$ENV
 make generate-jwt-keys
-
-if [ ! -z ${CI} ]; then
-    bin/console server:run 0.0.0.0:9090 -q &
-fi

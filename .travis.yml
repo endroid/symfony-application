@@ -1,8 +1,10 @@
 language: php
 
 services:
-  - mariadb
   - elasticsearch
+
+addons:
+  mariadb: 10.3
 
 php:
   - 7.2
@@ -18,7 +20,11 @@ before_install:
   - composer self-update
 
 script:
+  - cp development/.env.travis development/.env
   - bin/build
+  - cd symfony-start
+  - bin/console server:run 0.0.0.0:9090 -q &
+  - bin/test
 
 notifications:
   email: info@endroid.nl
