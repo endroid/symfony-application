@@ -23,6 +23,7 @@ script:
   - cp development/.env.travis development/.env
   - bin/build
   - cd symfony-start
+  - bin/setup test
   - bin/console server:run 0.0.0.0:9090 -q &
   - bin/test
 

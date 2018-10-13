@@ -1,4 +1,3 @@
-### jwt ###
 ifndef APP_ENV
 	include .env
 endif
@@ -14,4 +13,3 @@ endif
 	openssl rsa -passin pass:${JWT_PASSPHRASE} -pubout -in ${JWT_SECRET_KEY} -out ${JWT_PUBLIC_KEY}
 	@echo "\033[32mRSA key pair successfully generated\033[39m"
 ###< lexik/jwt-authentication-bundle ###
-### end ###
