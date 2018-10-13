@@ -14,7 +14,7 @@ matrix:
     - php: nightly
 
 before_install:
-  - which composer
+  - echo $COMPOSER_BIN_DIR
   - composer self-update
 
 script:
