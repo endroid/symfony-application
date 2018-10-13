@@ -107,6 +107,7 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
         endroid/embed:dev-master \
         endroid/flusher:dev-master \
         endroid/flusher-bundle:dev-master \
+        endroid/form-bundle:dev-master \
         endroid/guide:dev-master \
         endroid/guide-bundle:dev-master \
         endroid/guidelines:dev-master \
@@ -126,15 +127,11 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
         endroid/soccer-data:dev-master \
         endroid/sudoku:dev-master \
         endroid/sudoku-bundle:dev-master \
+        endroid/teleporter:dev-master \
         endroid/tile:dev-master \
         endroid/tile-bundle:dev-master \
         endroid/twitter:dev-master \
         --no-update
-
-#        endroid/form-bundle:dev-master \
-#        endroid/prediction-io:dev-master \
-#        endroid/prediction-io-bundle:dev-master \
-#        endroid/prediction-io-demo-bundle:dev-master \
 
     if [ $PRIVATE = 1 ]; then
         composer config repositories.play-bundle vcs git@github.com:endroid/EndroidPlayBundle.git

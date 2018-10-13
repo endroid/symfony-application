@@ -1,18 +1,18 @@
 version: '3'
 services:
-#    elasticsearch:
-#        image: elasticsearch:5
-#        expose:
-#            - 9200
-#    kibana:
-#        image: kibana:5
-#        expose:
-#            - 5601
-#    mailhog:
-#        image: mailhog/mailhog
-#        expose:
-#            - 1025
-#            - 8025
+    elasticsearch:
+        image: elasticsearch:5
+        expose:
+            - 9200
+    kibana:
+        image: kibana:5
+        expose:
+            - 5601
+    mailhog:
+        image: mailhog/mailhog
+        expose:
+            - 1025
+            - 8025
     mariadb:
         build: docker/mariadb/
         environment:
@@ -22,38 +22,10 @@ services:
             - ./docker/mariadb/data:/var/lib/mysql
         expose:
             - 3306
-#    prediction_io:
-#        build: docker/prediction-io
-#        tty: true
-#        volumes:
-#          - ./docker/prediction-io:/docker
-#        ports:
-#            - 7070:7070
-#            - 8000:8000
-#    rabbitmq:
-#        image: rabbitmq:3.7.5-management
-#        environment:
-#            - RABBITMQ_DEFAULT_USER=root
-#            - RABBITMQ_DEFAULT_PASS=root
-#        expose:
-#            - 15672
     redis:
         image: redis:3
         expose:
             - 6379
-#    selenium_hub:
-#        image: selenium/hub:3
-#        expose:
-#            - 4444
-#    selenium_node_chrome:
-#        image: selenium/node-chrome:3
-#        depends_on:
-#            - selenium_hub
-#        environment:
-#            - HUB_PORT_4444_TCP_ADDR=selenium_hub
-#            - HUB_PORT_4444_TCP_PORT=4444
-#        expose:
-#            - 5555
     php:
         build: docker/php/
         environment:
@@ -67,12 +39,9 @@ services:
             - ~/.cache/yarn:/var/www/.cache/yarn
             - ~/.composer/cache:/var/www/.composer/cache
         depends_on:
-#            - elasticsearch
+            - elasticsearch
             - mariadb
-#            - prediction_io
-#            - rabbitmq
             - redis
-#            - selenium_hub
         dns:
             - 8.8.8.8
             - 8.8.4.4

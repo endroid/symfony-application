@@ -1,0 +1,34 @@
+default:
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                bootstrap: features/bootstrap/bootstrap.php
+                class: App\Kernel
+        Behat\MinkExtension:
+            base_url: https://nginx/test.php
+            goutte:
+                guzzle_parameters:
+                    verify: false
+            selenium2:
+                browser: chrome
+                wd_host: http://selenium_hub:4444/wd/hub
+                capabilities:
+                    marionette: true
+                    chrome:
+                        switches:
+                            - "start-fullscreen"
+                            - "start-maximized"
+                            - "no-sandbox"
+            javascript_session: selenium2
+        rpkamp\Behat\MailhogExtension:
+            base_url: http://mailhog:8025
+
+    suites:
+        default:
+            contexts:
+                - FeatureContext
+                - ApiFeatureContext:
+                      kernel: '@kernel'
+                      userManager: '@fos_user.user_manager'
+                - rpkamp\Behat\Context\MinkAwareMailhogContext
+                - rpkamp\Behat\MailhogExtension\Context\MailhogContext
