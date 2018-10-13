@@ -14,7 +14,7 @@ matrix:
     - php: nightly
 
 before_install:
-  - echo $COMPOSER_BIN_DIR
+  - phpenv config-add travis.php.ini
   - composer self-update
 
 script:
