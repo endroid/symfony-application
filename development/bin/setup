@@ -2,7 +2,7 @@
 
 ENV=${1:-dev}
 
-php -d memory_limit=-1 /usr/local/bin/composer install --prefer-dist --no-interaction --no-progress
+composer install --prefer-dist --no-interaction --no-progress
 bin/console doctrine:database:create --if-not-exists --env=$ENV
 bin/console doctrine:migrations:migrate -n --env=$ENV
 bin/console fos:elastica:populate -n --env=$ENV
