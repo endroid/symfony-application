@@ -84,6 +84,10 @@ composer update --prefer-dist --no-interaction --no-progress
 
 rm -rf features/demo.feature
 
+if [ ! -z ${CI} ]; then
+    cp .env.travis .env
+fi
+
 bin/console doctrine:database:drop --if-exists --force --env=test
 bin/console doctrine:database:create --env=test
 bin/console doctrine:migrations:diff --env=test
