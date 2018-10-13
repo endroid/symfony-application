@@ -14,7 +14,9 @@ php:
 matrix:
   fast_finish: true
   allow_failures:
-    - php: nightly
+    - php:
+      - 7.3
+      - nightly
 
 before_install:
   - phpenv config-add travis.php.ini
