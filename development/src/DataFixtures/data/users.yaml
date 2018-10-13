@@ -1,0 +1,7 @@
+users:
+    user_admin:
+        username: 'admin'
+        password: 'admin'
+        email: 'admin@endroid.nl'
+        groups: ['group_admin']
+        roles: [ROLE_ADMIN]

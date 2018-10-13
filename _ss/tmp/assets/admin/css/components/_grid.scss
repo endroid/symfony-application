@@ -1,0 +1,40 @@
+$grid: '.grid-body';
+$gridHeader: '.grid-header';
+$gridCalculator: '.grid-calc';
+
+#{$grid} {
+	margin: 0 auto;
+	padding-top: ($space-l * 2);
+	max-width: 1580px;
+	width: 95%;
+
+	&.grid-calc {
+		max-width: 1600px;
+		width: 90%;
+	}
+
+	@media print {
+		padding: 0;
+		width: 100%;
+		max-width: auto;
+	}
+}
+
+#{$gridHeader} {
+	padding-top: 0;
+	width: 95%;
+	margin: 0 auto;
+
+	@media print {
+		display: none;
+	}
+
+	.cell {
+		padding: 0;
+	}
+
+	.knijff-logo {
+		width: 176px;
+		padding-top: 35px;
+	}
+}

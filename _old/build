@@ -78,59 +78,8 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
 
     # Application bundles
     composer require \
-        api-platform/api-pack \
-        doctrine/doctrine-migrations-bundle \
-        doctrine/doctrine-fixtures-bundle \
-        easycorp/easyadmin-bundle \
-        friendsofsymfony/ckeditor-bundle \
-        friendsofsymfony/elastica-bundle \
-        friendsofsymfony/user-bundle \
         google/apiclient \
-        hwi/oauth-bundle \
-        knplabs/knp-snappy-bundle \
-        lexik/jwt-authentication-bundle \
-        php-ai/php-ml \
         php-http/httplug-pack \
-        predis/predis \
-        pusher/pusher-php-server \
-        sonata-project/doctrine-orm-admin-bundle \
-        symfony/lock \
-        symfony/messenger \
-        webonyx/graphql-php \
-        endroid/asset:dev-master \
-        endroid/calendar:dev-master \
-        endroid/cm-sms:dev-master \
-        endroid/cm-sms-bundle:dev-master \
-        endroid/data-sanitize:dev-master \
-        endroid/data-sanitize-bundle:dev-master \
-        endroid/data-sanitize-demo-bundle:dev-master \
-        endroid/embed:dev-master \
-        endroid/flusher:dev-master \
-        endroid/flusher-bundle:dev-master \
-        endroid/form-bundle:dev-master \
-        endroid/guide:dev-master \
-        endroid/guide-bundle:dev-master \
-        endroid/guidelines:dev-master \
-        endroid/image-placeholder:dev-master \
-        endroid/import:dev-master \
-        endroid/import-bundle:dev-master \
-        endroid/import-demo-bundle:dev-master \
-        endroid/installer:dev-master \
-        endroid/pdf:dev-master \
-        endroid/priority-shuffle-random:dev-master \
-        endroid/property-access:dev-master \
-        endroid/qr-code:dev-master \
-        endroid/qr-code-bundle:dev-master \
-        endroid/simple-excel:dev-master \
-        endroid/soccer-calendar:dev-master \
-        endroid/soccer-calendar-bundle:dev-master \
-        endroid/soccer-data:dev-master \
-        endroid/sudoku:dev-master \
-        endroid/sudoku-bundle:dev-master \
-        endroid/teleporter:dev-master \
-        endroid/tile:dev-master \
-        endroid/tile-bundle:dev-master \
-        endroid/twitter:dev-master \
         --no-update
 
     if [ $PRIVATE = 1 ]; then

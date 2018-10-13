@@ -1,0 +1,91 @@
+// top right menu
+
+.main-header {
+	margin-left: 280px;
+}
+
+.navbar-static-top {
+	width: 92%;
+	margin: 0 auto !important;
+}
+
+.navbar-custom-menu {
+	li.dropdown > a {
+		padding-top: 30px !important;
+		padding-bottom: 11px !important;
+		color: $tertiary-color !important;
+		font-size: 1.7rem !important;
+		font-weight: bold;
+		background: none !important;
+		transition: all .2s ease;
+
+		&:hover {
+			color: $primary-color !important;
+		}
+	}
+
+	li.dropdown {
+		.dropdown-menu {
+			a {
+				margin: 0 !important;
+			}
+		}
+	}
+
+	.user-menu {
+		margin-right: -16px;
+
+		img {
+			width: 36px !important;
+			height: 36px !important;
+			margin-top: -7px !important;
+		}
+	}
+}
+
+.breadcrumb {
+	padding-top: 10px !important;
+	margin-left: -11px !important;
+
+	a {
+		background: none !important;
+	}
+
+	li {
+		opacity: 0.3;
+		font-size: 1.7rem !important;
+
+		&:hover {
+			opacity: 1;
+		}
+
+		a {
+			color: $tertiary-color !important;
+			padding-left: 3px !important;
+			padding-right: 3px !important;
+
+			&:hover {
+				color: $primary-color !important;
+			}
+		}
+
+		&.active {
+			opacity: 1;
+
+			span {
+				color: $tertiary-color !important;
+				padding-left: 3px !important;
+				padding-right: 3px !important;
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+.sidebar-toggle {
+	display: none;
+}
+
+input[type="text"] {
+	border-radius: 3px !important;
+}

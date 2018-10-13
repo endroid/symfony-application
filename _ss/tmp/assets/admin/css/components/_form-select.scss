@@ -1,0 +1,43 @@
+$module: '.form__elem-select';
+
+#{$module} {
+	margin-bottom: $space-m;
+	padding-top: $space-s;
+	position: relative;
+
+	&.field-active {
+		select {
+			color: $black;
+		}
+	}
+
+	select {
+		display: block;
+		padding: 7px 0 7px;
+		font-size: $font-size;
+		font-family: $font-base;
+		outline: none;
+		color: $grey;
+		height: auto!important;
+		border: none;
+		border-radius: 0;
+		border-bottom: 1px solid $grey;
+
+		&:focus {
+			outline: none;
+			box-shadow: none!important;
+		}
+
+		option:checked {
+			font-weight: 600;
+		}
+
+		option {
+			color: $black;
+		}
+
+		option:first-child {
+			display: none;
+		}
+	}
+}

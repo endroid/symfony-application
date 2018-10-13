@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+ENV=${1:-dev}
+
+php -d memory_limit=-1 /usr/local/bin/composer install --prefer-dist --no-interaction --no-progress
+bin/console doctrine:database:create --if-not-exists --env=$ENV
+bin/console doctrine:migrations:migrate -n --env=$ENV
+bin/console fos:elastica:populate -n --env=$ENV
+bin/console ckeditor:install -n --env=$ENV
+bin/console assets:install --symlink --env=$ENV
+make generate-jwt-keys
+
+if [ ! -z ${CI} ]; then
+    bin/console server:run 0.0.0.0:9090 -q &
+fi

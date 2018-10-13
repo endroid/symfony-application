@@ -1,0 +1,101 @@
+{% extends "SonataAdminBundle::standard_layout.html.twig" %}
+
+{% block body_attributes %}class="sonata-bc sidebar-mini skin-blue fixed"{% endblock %}
+
+{% block logo %}
+    {#{{ asset('bundles/app/logo_nwa.png') }}#}
+    {% if admin_pool is defined %}
+        {% spaceless %}
+            <a class="logo" href="{{ path('sonata_admin_dashboard') }}">
+                {% if 'single_image' == admin_pool.getOption('title_mode') or 'both' == admin_pool.getOption('title_mode') %}
+                    <img style="max-width: 100px;" src="{{ asset(admin_pool.titlelogo) }}" alt="{{ admin_pool.title }}" />
+                {% endif %}
+                {% if 'single_text' == admin_pool.getOption('title_mode') or 'both' == admin_pool.getOption('title_mode') %}
+                    <span>{{ admin_pool.title | raw }}</span>
+                {% endif %}
+            </a>
+        {% endspaceless %}
+    {% endif %}
+{% endblock %}
+
+{% block sonata_top_nav_menu %}
+    <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-plus-square fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                {% include admin_pool.getTemplate('add_block') %}
+            </li>
+            <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="https://placeimg.com/160/160/tech" class="user-image" alt="User Image">
+                    <span class="hidden-xs">{{ app.user.username }}</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <!-- User image -->
+                    <li class="user-header">
+                        <img src="https://placeimg.com/160/160/tech" class="img-circle" alt="User Image">
+                        <p>
+                            {{ app.user.username }}
+                            <small>Member since {{ 'now' | date('d M Y') }}</small>
+                        </p>
+                    </li>
+                    {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+                    <li class="user-body">
+                        <div class="col-xs-12 text-center">
+                            <a href="{{ path('sonata_admin_dashboard', {'_switch_user': '_exit'}) }}">Exit impersonation</a>
+                        </div>
+                    </li>
+                    {% endif %}
+                    <!-- Menu Footer-->
+                    <li class="user-footer">
+                        <div class="pull-left">
+                            <a href="{{ path('fos_user_profile_show') }}" class="btn btn-default btn-flat">Profile</a>
+                        </div>
+                        <div class="pull-right">
+                            <a href="{{ url('fos_user_security_logout') }}" class="btn btn-default btn-flat"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block side_bar_after_nav %}
+
+    {% if is_granted('ROLE_USER_CALCULATOR') %}
+
+        <ul class="sidebar-menu">
+            <li class="first">
+                <a href="{{ path('calculator_service_select') }}"><i class="fa fa-calculator" aria-hidden="true"></i> Naar de calculator</a>
+            </li>
+        </ul>
+
+    {% endif %}
+
+{% endblock %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('admin.css', 'admin') }}">
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script src="{{ asset('admin.js', 'admin') }}"></script>
+    <script type="text/javascript">
+        $('document').ready(function() {
+			if (window.location.href.indexOf("price-pricedefinition") != -1) {
+				document.body.classList.add('sidebar-collapse');
+			}
+        })
+    </script>
+
+{% endblock %}

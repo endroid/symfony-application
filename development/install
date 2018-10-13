@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+
+set -e # Break on any error
+
+composer config extra.symfony.allow-contrib true
+
+COMPOSER_MEMORY_LIMIT=-1 composer require \
+    api-platform/api-pack \
+    doctrine/doctrine-fixtures-bundle \
+    doctrine/doctrine-migrations-bundle \
+    easycorp/easyadmin-bundle \
+    endroid/asset:dev-master \
+    endroid/calendar:dev-master \
+    endroid/cm-sms:dev-master \
+    endroid/cm-sms-bundle:dev-master \
+    endroid/data-sanitize:dev-master \
+    endroid/data-sanitize-bundle:dev-master \
+    endroid/data-sanitize-demo-bundle:dev-master \
+    endroid/embed:dev-master \
+    endroid/flusher:dev-master \
+    endroid/flusher-bundle:dev-master \
+    endroid/form-bundle:dev-master \
+    endroid/guide:dev-master \
+    endroid/guide-bundle:dev-master \
+    endroid/guidelines:dev-master \
+    endroid/image-placeholder:dev-master \
+    endroid/import:dev-master \
+    endroid/import-bundle:dev-master \
+    endroid/import-demo-bundle:dev-master \
+    endroid/installer:dev-master \
+    endroid/pdf:dev-master \
+    endroid/priority-shuffle-random:dev-master \
+    endroid/property-access:dev-master \
+    endroid/qr-code:dev-master \
+    endroid/qr-code-bundle:dev-master \
+    endroid/simple-excel:dev-master \
+    endroid/soccer-calendar:dev-master \
+    endroid/soccer-calendar-bundle:dev-master \
+    endroid/soccer-data:dev-master \
+    endroid/sudoku:dev-master \
+    endroid/sudoku-bundle:dev-master \
+    endroid/teleporter:dev-master \
+    endroid/tile:dev-master \
+    endroid/tile-bundle:dev-master \
+    endroid/twitter:dev-master \
+    friendsofsymfony/ckeditor-bundle \
+    friendsofsymfony/elastica-bundle \
+    friendsofsymfony/user-bundle \
+    helios-ag/fm-elfinder-bundle \
+    hwi/oauth-bundle \
+    knplabs/knp-snappy-bundle \
+    lexik/jwt-authentication-bundle \
+    nelmio/cors-bundle \
+    nelmio/security-bundle \
+    php-ai/php-ml \
+    php-http/httplug-bundle \
+    predis/predis \
+    pusher/pusher-php-server \
+    ruflin/elastica \
+    sensiolabs/security-checker \
+    snc/redis-bundle \
+    sonata-project/doctrine-orm-admin-bundle \
+    symfony/dotenv \
+    symfony/lock \
+    symfony/messenger \
+    symfony/monolog-bundle \
+    symfony/templating \
+    webonyx/graphql-php \
+    --no-update
+
+COMPOSER_MEMORY_LIMIT=-1 composer require \
+    behat/mink-extension \
+    behat/mink-goutte-driver \
+    behat/mink-selenium2-driver \
+    behat/symfony2-extension \
+    behatch/contexts \
+    friendsofphp/php-cs-fixer \
+    phpmetrics/phpmetrics \
+    rpkamp/mailhog-behat-extension \
+    rpkamp/mailhog-mink-behat-context \
+    --no-update --dev
+
+php -d memory_limit=-1 /usr/local/bin/composer update --prefer-dist --no-interaction --no-progress
+
+rm -rf features/demo.feature
+
+bin/console doctrine:database:drop --if-exists --force --env=test
+bin/console doctrine:database:create --env=test
+bin/console doctrine:migrations:diff --env=test
+
+bin/setup test
+bin/test

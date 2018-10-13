@@ -1,0 +1,38 @@
+{% extends "SonataDoctrineORMAdminBundle:Form:form_admin_fields.html.twig" %}
+
+{% block elfinder_widget %}
+    <div class="attachment-block clearfix">
+        {% if instance == 'default_form' %}
+            <img data-type="elfinder-link-field" id="image_{{ id }}" class="img-responsive attachment-img pad {% if not value %}hidden{% endif %}" src="{{ value }}" />
+        {% endif %}
+        <div class="attachment-pushed">
+            <label for="{{ id }}">Image path:</label>
+            <div class="input-group">
+                <input type="text" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %} data-type="elfinder-input-field" />
+                <span class="input-group-btn">
+                  <label for="{{ id }}" class="btn btn-info btn-flat">Select file</label>
+                </span>
+            </div>
+            <a href="#" data-type="elfinder-link-field" id="link_{{ id }}" class="{% if not value %}hidden{% endif %}">Remove file</a>
+        </div>
+    </div>
+
+    {% if enable and instance is defined %}
+        <script>
+            $('[data-type="elfinder-input-field"][id="{{ id }}"]').on("click",function() {
+                var childWin = window.open("{{path('elfinder', {'instance': instance, 'homeFolder': homeFolder })}}?id={{ id }}", "popupWindow", "height=450, width=900");
+            });
+            function setValue(value, element_id) {
+                $('input[data-type="elfinder-input-field"]' + (element_id ? '[id="'+ element_id +'"]': '')).val(value).change();
+                $('a[data-type="elfinder-link-field"][id="link_{{ id }}"]').show();
+                $('img[data-type="elfinder-link-field"][id="image_{{ id }}"]').removeClass('hidden').attr('src', value);
+            }
+            $('a[data-type="elfinder-link-field"][id="link_{{ id }}"]').click(function(event) {
+                $('input[data-type="elfinder-input-field"][id="{{ id }}"]').val('');
+                $('a[data-type="elfinder-link-field"][id="link_{{ id }}"]').hide();
+                $('img[data-type="elfinder-link-field"][id="image_{{ id }}"]').addClass('hidden');
+                event.preventDefault();
+            });
+        </script>
+    {% endif %}
+{% endblock %}

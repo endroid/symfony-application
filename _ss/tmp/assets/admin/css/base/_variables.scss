@@ -1,0 +1,79 @@
+/* stylelint-disable value-list-comma-newline-after, indentation, max-line-length */
+
+$base-path: '';
+$font-path: '#{$base-path}/fonts';
+$img-path: '#{$base-path}/img';
+$icon-path: '#{$img-path}/icons';
+
+// Fonts
+// ------------------------------------------------------------
+
+
+
+$font-base:						'Source Sans Pro', sans-serif;
+$font-heading:					$font-base;
+
+
+$font-size-xs:					1rem; //16px
+$font-size:						1.188rem; //19px -> base
+$font-size-s:					1.375rem; //22px
+$font-size-m:					1.5rem; //24px
+$font-size-l:					2.063rem; //33px
+$font-size-xl:					3.5rem; //56px
+$font-size-xxl:					4.375rem; //70px
+$font-size-print:				10px;
+
+// Breakpoints
+// ------------------------------------------------------------
+$breakpoints:					(
+									'mobile': 55rem, //880px
+									'medium': 80rem //1300px
+								);
+
+
+// Flexbox grid (override defaults)
+// ------------------------------------------------------------
+$ezpz-grid-default-wrap:		'wrap';
+$ezpz-grid-type: 				'fractions';
+
+$ezpz-grid-align:				false;
+$ezpz-grid-wrap:				false;
+$ezpz-cell-order:				false;
+$ezpz-cell-offset:				false;
+$ezpz-cell-align:				false;
+$ezpz-gutter-collapse:			false;
+$ezpz-fractions: (1:2), (1:3), (2:3), (1:4), (3:4), (2:5), (3:5);
+
+$ezpz-breakpoints:				$breakpoints;
+
+
+// Spacing
+// ------------------------------------------------------------
+$space-xs:						0.5rem;
+$space-s:						0.75rem;
+$space-m:						2rem;
+$space-l:						4rem;
+
+
+// Colors
+// ------------------------------------------------------------
+
+$primary-color:					#5881C0;
+$primary-color-dark:			#2D5DA1;
+$secondary-color:				#f6EB16;
+$tertiary-color:				#191E23;
+$admin-color: 					#1E2A36;
+
+
+$white:							#FFF;
+$black:							#000;
+$grey:							#6F7881;
+$error:							#ff6A00;
+$error-light: 					#ffb28b;
+
+
+// Other
+// ------------------------------------------------------------
+
+$radius:						4px;
+$z-indices:						10 20 30 40 50 70 80 90; // Default z-indices (also see functions)

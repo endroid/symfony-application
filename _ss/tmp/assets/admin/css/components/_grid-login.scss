@@ -1,0 +1,33 @@
+$module: '.grid-login';
+
+#{$module} {
+	align-items: center;
+
+	&__cell {
+		h1 {
+			margin: 0;
+			font-weight: bold;
+		}
+
+		.grid & {
+			padding: 0 $space-m;
+
+			.login-image {
+				width: 100%;
+			}
+		}
+	}
+
+	&__title {
+		max-width: 350px;
+	}
+
+	&__password {
+		float: left;
+
+		a {
+			color: $white;
+			text-decoration: underline;
+		}
+	}
+}

@@ -1,0 +1,11 @@
+{
+    "require": {
+        "symfony/console": "^4.1",
+        "symfony/finder": "^4.1",
+        "symfony/filesystem": "^4.1",
+        "symfony/expression-language": "^4.1"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.1"
+    }
+}

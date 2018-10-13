@@ -1,0 +1,51 @@
+// Credit: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+* {
+	&,
+	&::before,
+	&::after {
+		box-sizing: inherit;
+	}
+}
+
+* ::selection {
+	background-color: $primary-color;
+	color: $white;
+}
+
+// Fixes bug on MS touch/tablet
+@-ms-viewport { /* stylelint-disable-line */
+	width: device-width;
+}
+
+.hidden {
+	display: none!important;
+}
+
+body {
+	// Fix scrollbars: http://msdn.microsoft.com/en-us/library/ie/hh771902(v=vs.85).aspx
+	-ms-overflow-style: scrollbar;
+
+	font-family: $font-base;
+	font-size: $font-size;
+	color: $white;
+
+	text-decoration-skip: ink;
+
+	background-color: $tertiary-color;
+	
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.main-container {
+	position: relative;
+	height: 100vh;
+}
+
+.cell {
+	@media print {
+		margin: 0;
+		padding: 0;
+	}
+}

@@ -1,0 +1,65 @@
+$module: '.form__elem-submit';
+
+#{$module} {
+	display: inline-block;
+	position: relative;
+	border: none;
+	padding: 12px 18px;
+	color: $white;
+	background-color: $primary-color;
+	border-radius: $radius;
+	font-size: $font-size;
+	cursor: pointer;
+	transition: all .1s ease;
+	font-weight: 600;
+	font-family: $font-base;
+	line-height: 1.1;
+
+	@media print {
+		display: none;
+	}
+
+	@include hocus {
+		background-color: $primary-color-dark;
+		outline: none;
+	}
+
+	&--back {
+		background-color: $admin-color;
+
+		@include hocus {
+			background-color: rgba($admin-color, 0.6);
+			text-decoration: none;
+			color: $white;
+
+			.form__elem-submit--arrow {
+				filter: grayscale(100%) brightness(5);
+			}
+		}
+	}
+
+	&--input {
+		//background-image: url('../web/images/arrow-white-right.svg');
+		background-size: 20px;
+		background-repeat: no-repeat;
+		background-position: right 10px center;
+		padding-right: $space-xs * 5;
+	}
+
+	&--arrow {
+		position: absolute;
+		right: $space-s;
+		transform: rotate(90deg) translateX(-50%);
+		top: 50%;
+
+		&-back {
+			position: relative;
+			display: inline-block;
+			transform: rotate(-90deg);
+			margin-left: $space-s;
+			vertical-align: middle;
+			margin-top: -3px;
+			line-height: 1.15;
+		}
+	}
+}

@@ -1,0 +1,23 @@
+admin:
+    menu:
+        user: 'Users'
+
+    general:
+        label: 'General'
+
+    user:
+        label: 'Users'
+        username: 'User name'
+        email: 'Email address'
+        enabled: 'Enabled'
+        administration: 'Administration'
+
+    group:
+        label: 'Groups'
+        name: 'Name'
+
+User List: 'User List'
+User Create: 'User Create'
+
+Group List: 'Group List'
+Group Create: 'Group Create'

@@ -1,0 +1,69 @@
+$module: '.total';
+
+#{$module} {
+	position: relative;
+	display: block;
+
+	&__item {
+		font-size: $font-size-m;
+		display: flex;
+
+		@media print {
+			font-size: $font-size-print;
+		}
+
+		&-title {
+			position: relative;
+			color: $primary-color;
+			display: block;
+			font-size: $font-size-s * 0.8;
+			line-height: 1;
+			flex: 1 0 50%;
+			top: 0.25rem;
+
+			@media print {
+				font-size: $font-size-print;
+				color: $black;
+			}
+		}
+
+		&-value {
+			font-size: 1.7rem;
+			line-height: 1;
+			flex: 1 0 50%;
+			font-size: 1.4rem;
+
+			@media print {
+				font-size: $font-size-print;
+				color: $black;
+			}
+		}
+
+		&--total {
+			font-size: $font-size;
+
+			@media print {
+				font-size: $font-size-print;
+			}
+		}
+	}
+
+	hr {
+		margin: 0.75rem 0;
+	}
+}
+
+$module: '.cell__total';
+
+#{$module} {
+	padding: $space-s*1.5 $space-s*2;
+	background: $admin-color;
+	border-radius: $radius;
+	margin-top: 0.2rem;
+	margin-bottom: 1rem;
+
+	@media print {
+		border: 0;
+		padding: 0;
+	}
+}

@@ -1,0 +1,93 @@
+// nav bar default
+
+.content-header {
+	.navbar-default {
+		background: none !important;
+		border: none !important;
+
+		.container-fluid {
+			padding: 0 !important;
+
+			.navbar-brand {
+				font-size: 45px;
+				font-weight: bolder;
+				color: $tertiary-color;
+			}
+		}
+
+		.navbar-btn {
+			font-size: 16px !important;
+			border: none !important;
+			background: #e6e8ec !important;
+			color: #757c88 !important;
+			padding: 7px 10px !important;
+
+			&:first-child {
+				margin-left: 10px !important;
+			}
+
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+
+			&:hover {
+				border: none !important;
+			}
+
+			&.active {
+				background: $white !important;
+				box-shadow: 0 1px 2px 0 rgba(32,44,40,0.10), 0 2px 6px 0 rgba(26,30,33,0.05);
+				border-radius: 3px !important;
+				border: none !important;
+				color: $primary-color !important;
+			}
+		}
+
+		&.stuck {
+			width: auto !important;
+			float: right;
+			right: 4.5%;
+			padding-right: 19px;
+			top: 84px !important;
+			border-radius: 3px !important;
+			margin-left: 0px !important;
+			background: $primary-color !important;
+
+			.dropdown-toggle {
+				margin-bottom: 10px !important;
+			}
+
+			.navbar-brand {
+				display: none !important;
+			}
+
+			li a {
+				background: rgba(255,255,255,0.1)!important;
+				color: white !important;
+
+				&:hover {
+					background: rgba(255,255,255,0.2)!important;
+				}
+			}
+
+			.navbar-btn {
+				background: rgba(255,255,255,0.2)!important;
+				color: $white !important;
+
+				&.active {
+					background: $white !important;
+					color: $primary-color !important;
+				}
+			}
+		}
+	}
+}
+
+h1 {
+	font-size: 45px !important;
+	font-weight: bolder;
+	color: $tertiary-color;
+}
+
+.icheckbox_square-blue {
+	border-radius: 3px;
+}

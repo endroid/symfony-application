@@ -1,0 +1,56 @@
+.main-container {
+	h1 {
+		font-size: $font-size-xxl;
+
+		@media print {
+			font-size: $font-size-s;
+		}
+	}
+
+	h2 {
+		font-size: $font-size-xl;
+
+		@media print {
+			font-size: $font-size;
+		}
+	}
+
+	h3 {
+		font-size: $font-size-l;
+
+		@media print {
+			font-size: $font-size;
+		}
+	}
+
+	h4 {
+		font-size: $font-size-m;
+
+		@media print {
+			font-size: $font-size;
+		}
+	}
+
+	h5 {
+		font-size: $font-size-s;
+
+		@media print {
+			font-size: $font-size;
+		}
+	}
+
+	p {
+		@media print {
+			font-size: 7px;
+			color: #000;
+		}
+	}
+
+	h1, h2, h3, h4, h5, p {
+		&.text {
+			&--bold {
+				font-weight: 800;
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+$module: '.form__elem-searchbar';
+
+#{$module} {
+	margin-top: $space-m;
+	position: relative;
+
+	input {
+		padding: $space-s;
+		font-size: $font-size;
+		font-family: $font-base;
+		//background-image: url('../web/images/search.svg');
+		background-size: 25px;
+		background-repeat: no-repeat;
+		background-position: right 10px center;
+
+		&::-ms-clear {
+			display: none;
+		}
+
+
+		&::placeholder {
+			color: rgba($grey, 0.5);
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: none!important;
+		}
+	}
+}

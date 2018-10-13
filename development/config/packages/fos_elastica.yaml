@@ -1,0 +1,21 @@
+fos_elastica:
+    clients:
+        default: { host: '%env(ELASTICSEARCH_HOST)%', port: 9200 }
+    indexes:
+        app:
+            client: default
+            settings:
+                index:
+                    number_of_replicas: 0
+            types:
+                example:
+                    properties:
+                        name: ~
+                    persistence:
+                        driver: orm
+                        model: App\Entity\Example
+                        provider: ~
+                        finder: ~
+                        listener: ~
+                        elastica_to_model_transformer:
+                            ignore_missing: true

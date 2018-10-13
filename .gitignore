@@ -1,0 +1,5 @@
+/.env
+/development/.env
+/development/behat.yml
+/symfony-start/
+/vendor/

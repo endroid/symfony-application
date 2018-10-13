@@ -1,0 +1,11 @@
+examples:
+    example_1:
+        name: 'Example 1'
+    example_2:
+        name: 'Example 2'
+    example_3:
+        name: 'Example 3'
+    example_4:
+        name: 'Example 4'
+    example_5:
+        name: 'Example 5'

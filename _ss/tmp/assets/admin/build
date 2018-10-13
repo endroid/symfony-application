@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "$0")"
+
+yarn add \
+    @symfony/webpack-encore \
+    babel-preset-react \
+    sass-loader \
+    node-sass \
+    --dev
+
+yarn add \
+    bootstrap \
+    ezpz-grid \
+    flatpickr \
+    font-awesome \
+    jquery \
+    object-fit-images \
+    popper.js \
+    fuse.js
+
+yarn encore production

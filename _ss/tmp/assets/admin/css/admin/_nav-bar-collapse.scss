@@ -1,0 +1,65 @@
+// nav bar collapse
+.navbar-collapse {
+	padding-right: 0 !important;
+	
+	.btn-group {
+		display: none !important;
+	}
+
+	a {
+		background: $white !important;
+		border-radius: 3px !important;
+		padding-top: 9px !important;
+		padding-bottom: 9px !important;
+		margin-top: 10px !important;
+		margin-right: 10px !important;
+		margin-left: 10px !important;
+
+		&.sonata-action-element, &.sonata-ba-action {
+			margin-top: 0 !important;
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+	}
+
+	.navbar-nav {
+		> li > a {
+			margin-top: 10px !important;
+			margin-right: 0px !important;
+			margin-left: 15px !important;
+
+			&.sonata-action-element {
+				margin-top: 10px !important;
+				margin-right: 0px !important;
+				margin-left: 15px !important;
+			}
+		}
+	}
+
+	.navbar-right {
+		&:last-child {
+			li {
+				&:last-child {
+					margin-right: 0 !important;
+				}
+			}
+		}
+	}
+}
+
+.alert {
+	border: none !important;
+}
+
+h2.page-header {
+	font-size: 33px;
+	font-weight: bold;
+}
+
+.radio {
+	label.required {
+		&::after {
+			display: none !important;
+		}
+	}
+}

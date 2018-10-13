@@ -1,0 +1,24 @@
+default:
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                bootstrap: features/bootstrap/bootstrap.php
+                class: App\Kernel
+        Behat\MinkExtension:
+            base_url: http://0.0.0.0:9090/test.php
+            goutte:
+                guzzle_parameters:
+                    verify: false
+        Behatch\Extension: ~
+
+    suites:
+        default:
+            contexts:
+                - FeatureContext
+                - Behatch\Context\DebugContext
+                - Behatch\Context\TableContext
+                - Behatch\Context\JsonContext
+                - Behatch\Context\RestContext
+                - JwtFeatureContext:
+                      userManager: '@fos_user.user_manager'
+                      tokenManager: '@lexik_jwt_authentication.jwt_manager'

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+echo Running all tests ...
+
+bin/test-behat
+bin/test-phpunit
