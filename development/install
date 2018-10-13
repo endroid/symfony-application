@@ -4,7 +4,7 @@ set -e # Break on any error
 
 composer config extra.symfony.allow-contrib true
 
-COMPOSER_MEMORY_LIMIT=-1 composer require \
+composer require \
     api-platform/api-pack \
     doctrine/doctrine-fixtures-bundle \
     doctrine/doctrine-migrations-bundle \
@@ -68,7 +68,7 @@ COMPOSER_MEMORY_LIMIT=-1 composer require \
     webonyx/graphql-php \
     --no-update
 
-COMPOSER_MEMORY_LIMIT=-1 composer require \
+composer require \
     behat/mink-extension \
     behat/mink-goutte-driver \
     behat/mink-selenium2-driver \
@@ -80,7 +80,7 @@ COMPOSER_MEMORY_LIMIT=-1 composer require \
     rpkamp/mailhog-mink-behat-context \
     --no-update --dev
 
-php -d memory_limit=-1 /usr/local/bin/composer update --prefer-dist --no-interaction --no-progress
+composer update --prefer-dist --no-interaction --no-progress
 
 rm -rf features/demo.feature
 
