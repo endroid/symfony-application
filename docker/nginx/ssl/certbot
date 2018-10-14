@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ $DOMAIN != "localhost" ]; then
+    sed -i -e 's/server_name.*/server_name '"$DOMAIN"';/g' /var/www/html/docker/nginx/nginx.conf
+    nginx -s reload
+    certbot --nginx -d $DOMAIN --non-interactive --agree-tos --email info@$DOMAIN
+fi

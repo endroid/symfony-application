@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+openssl genrsa -des3 -out symfony.key -passout pass:symfony 2048
+openssl req -x509 -new -nodes -key symfony.key -sha256 -days 20000 -out symfony.pem -passin pass:symfony -subj "/C=US/CN=localhost"
+
+openssl req -new -sha256 -nodes -out server.csr -newkey rsa:2048 -keyout server.key -config server.csr.cnf
+openssl x509 -req -in server.csr -CA symfony.pem -CAkey symfony.key -CAcreateserial -out server.crt -days 20000 -sha256 -extfile v3.ext -passin pass:symfony
+openssl x509 -in symfony.pem -inform PEM -out symfony.crt
