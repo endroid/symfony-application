@@ -8,12 +8,6 @@ addons:
 
 php:
   - 7.2
-  - nightly
-
-matrix:
-  fast_finish: true
-  allow_failures:
-    - php: nightly
 
 before_install:
   - phpenv config-add travis.php.ini
