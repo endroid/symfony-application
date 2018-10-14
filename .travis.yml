@@ -12,6 +12,7 @@ php:
 before_install:
   - phpenv config-add travis.php.ini
   - composer self-update
+  - composer install --prefer-dist --no-interaction --no-progress
 
 script:
   - cp development/.env.travis development/.env
