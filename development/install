@@ -7,6 +7,10 @@ composer config extra.symfony.allow-contrib true
 # Use source when installing personal libraries
 sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
 
+### play ###
+composer config repositories.play-bundle vcs git@github.com:endroid/EndroidPlayBundle.git
+### end ###
+
 composer require \
     api-platform/api-pack \
     doctrine/doctrine-fixtures-bundle \
@@ -32,6 +36,9 @@ composer require \
     endroid/import-demo-bundle:dev-master \
     endroid/installer:dev-master \
     endroid/pdf:dev-master \
+    ### play ###
+    endroid/play-bundle:dev-master \
+    ### end ###
     endroid/priority-shuffle-random:dev-master \
     endroid/property-access:dev-master \
     endroid/qr-code:dev-master \

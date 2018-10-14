@@ -8,5 +8,8 @@
     ],
     "require": {
         "endroid/teleporter": "^1.0"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.1"
     }
 }
