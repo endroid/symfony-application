@@ -2,8 +2,8 @@ version: '3'
 services:
     elasticsearch:
         image: elasticsearch:5
-        expose:
-            - 9200
+        ports:
+            - 9200:9200
     mailhog:
         image: mailhog/mailhog
         expose:
