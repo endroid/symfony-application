@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-./stop
-
-git pull
-
-./build

@@ -7,10 +7,6 @@ cd "$(dirname "$0")"
 
 set -e # Break on any error
 
-if [ ! -f docker/nginx/nginx.conf ]; then
-    cp docker/nginx/nginx.conf.dist docker/nginx/nginx.conf
-fi
-
 if [ ! -f .env ]; then
     cp .env.dist .env
 fi
@@ -48,22 +44,11 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
         php-http/httplug-pack \
         --no-update
 
-    if [ $PRIVATE = 1 ]; then
-        composer config repositories.play-bundle vcs git@github.com:endroid/EndroidPlayBundle.git
-        composer require endroid/play-bundle:dev-master --no-update
-    fi
+
 
     # Development bundles
     composer require \
-        behat/mink-extension \
-        behat/mink-goutte-driver \
-        behat/mink-selenium2-driver \
-        behat/symfony2-extension \
-        behatch/contexts \
-        friendsofphp/php-cs-fixer \
         phpmetrics/phpmetrics \
-        rpkamp/mailhog-behat-extension \
-        rpkamp/mailhog-mink-behat-context \
         --no-update --dev
 
     cp -a ../overwrites/. .
@@ -75,8 +60,6 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
     # Update to the latest possible versions
     COMPOSER_MEMORY_LIMIT=-1 composer update -n
 
-    # Allow fixtures in production environment
-    sed -i -e 's/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => \[\x27dev\x27 => true, \x27test\x27 => true\],/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => \[\x27all\x27 => true\],/g' config/bundles.php
 
     chmod +x /var/www/html/application/vendor/php-ai/php-ml/bin/libsvm/*
 

@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+if [ ! -f development/.env ]; then
+    echo "Please create a .env file for production before deploying"
+    exit 1
+fi
+
+./stop
+
+git reset --hard
+git pull
+sed -i -e 's/localhost/endroid.nl/g' docker/nginx/nginx.conf
+
+./run
+
+docker-compose exec nginx docker/nginx/ssl/certbot
+docker-compose exec --user 1000 php /bin/bash "bin/build"
+docker-compose exec --user 1000 php /bin/bash "cd symfony-start && bin/setup prod"
