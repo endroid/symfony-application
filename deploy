@@ -17,6 +17,6 @@ docker-compose up -d
 
 docker-compose exec mariadb mysql -proot -Bse "DROP DATABASE application"
 docker-compose exec nginx docker/nginx/ssl/certbot
-docker-compose exec --user 1000 php bin/build
+docker-compose exec --user 1000 php /bin/sh build
 docker-compose exec --user 1000 php /bin/bash -c "cd symfony-start && bin/setup prod"
 docker-compose exec --user 1000 php /bin/bash -c "cd symfony-start && bin/console doctrine:fixtures:load -n"
