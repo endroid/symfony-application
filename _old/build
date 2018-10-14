@@ -42,40 +42,6 @@ composer create-project symfony/website-skeleton application -s beta --no-instal
 (
     cd application
 
-    # Allow auto configuration for user contributed bundles
-    composer config extra.symfony.allow-contrib true
-
-    # Also install beta packages
-    composer config minimum-stability beta
-
-    # Allow SF new structure detection
-    mkdir config config/packages public src
-
-    # Symlink directories
-    ln -s ../assets assets
-    ln -s ../features features
-    ln -s ../templates templates
-    ln -s ../translations translations
-
-    mkdir vendor
-    (
-        cd vendor
-        ln -s ../../vendor/endroid endroid
-    )
-
-    # Kernel does not work in symlink path so symlink src directories
-    (
-        cd src
-        for directory in `find ../../src/* -maxdepth 0 -type d`
-        do
-            rm -rf `basename $directory`
-            ln -s $directory `basename $directory`
-        done
-    )
-
-    # Use source when installing personal libraries
-    sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
-
     # Application bundles
     composer require \
         google/apiclient \

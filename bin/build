@@ -7,10 +7,7 @@ rm -rf symfony-start
 # Always start from website skeleton
 composer create-project symfony/website-skeleton symfony-start -s beta --no-install
 
-# Use source when installing personal libraries
-sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g symfony-start/composer.json
-
-cp -r development/. symfony-start
+vendor/bin/teleport development symfony-start $@
 
 (
     cd symfony-start/vendor

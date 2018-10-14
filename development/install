@@ -4,6 +4,9 @@ set -e # Break on any error
 
 composer config extra.symfony.allow-contrib true
 
+# Use source when installing personal libraries
+sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
+
 composer require \
     api-platform/api-pack \
     doctrine/doctrine-fixtures-bundle \
