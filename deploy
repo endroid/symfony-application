@@ -6,12 +6,14 @@ if [ ! -f development/.env ]; then
 fi
 
 ./stop
+echo y | docker-compose rm
 
 git reset --hard
 git pull
 sed -i -e 's/localhost/endroid.nl/g' docker/nginx/nginx.conf
 
-./run
+docker-compose build
+docker-compose up -d
 
 docker-compose exec nginx docker/nginx/ssl/certbot
 docker-compose exec --user 1000 php /bin/bash "bin/build"
