@@ -12,7 +12,7 @@ git reset --hard
 git pull
 sed -i -e 's/localhost/endroid.nl/g' docker/nginx/nginx.conf
 
-docker-compose build
+docker-compose build play
 docker-compose up -d
 
 docker-compose exec mariadb mysql -proot -Bse "DROP DATABASE application"
