@@ -53,16 +53,16 @@
         },
         {
             "name": "endroid/teleporter",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/endroid/teleporter.git",
-                "reference": "6b39a54c02e51bf49ea8a7c26cf958d98a845a27"
+                "reference": "cb1885def6d9f001328356978bd3189bc3d06ea9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/endroid/teleporter/zipball/6b39a54c02e51bf49ea8a7c26cf958d98a845a27",
-                "reference": "6b39a54c02e51bf49ea8a7c26cf958d98a845a27",
+                "url": "https://api.github.com/repos/endroid/teleporter/zipball/cb1885def6d9f001328356978bd3189bc3d06ea9",
+                "reference": "cb1885def6d9f001328356978bd3189bc3d06ea9",
                 "shasum": ""
             },
             "require": {
@@ -110,7 +110,7 @@
                 "filter",
                 "teleporter"
             ],
-            "time": "2018-10-14T08:42:33+00:00"
+            "time": "2018-10-16T21:11:07+00:00"
         },
         {
             "name": "psr/cache",
