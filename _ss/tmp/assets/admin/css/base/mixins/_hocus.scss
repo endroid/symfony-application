@@ -1,8 +1,0 @@
-// Use `@include hocus { ... }` to do both hover and focus
-
-@mixin hocus {
-	&:hover,
-	&:focus {
-		@content;
-	}
-}
