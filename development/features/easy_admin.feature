@@ -1,4 +1,4 @@
-Feature: Sonata Admin
+Feature: Easy Admin
 
   Background:
     Given I am on "/login"
@@ -6,11 +6,12 @@ Feature: Sonata Admin
     And I fill in "_password" with "admin"
     And I press "_submit"
 
-  Scenario: Sonata Admin
-    And I should see "Users"
-    And I should see "Groups"
+  Scenario: Easy Admin
+    When I am on "/easy-admin"
+    And I should see "Add Example"
 
   Scenario: Not logged in
     When I am on "/logout"
-    And I am on "/admin/dashboard"
+    And I am on "/easy-admin"
     Then I should see "Log in"
+    
