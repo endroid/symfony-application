@@ -1,9 +1,8 @@
 {% extends "SonataAdminBundle::standard_layout.html.twig" %}
 
-{% block body_attributes %}class="sonata-bc sidebar-mini skin-blue fixed"{% endblock %}
+{% block body_attributes %}class="sonata-bc sidebar-mini skin-black fixed"{% endblock %}
 
 {% block logo %}
-    {#{{ asset('bundles/app/logo_nwa.png') }}#}
     {% if admin_pool is defined %}
         {% spaceless %}
             <a class="logo" href="{{ path('sonata_admin_dashboard') }}">
@@ -33,7 +32,6 @@
                     <span class="hidden-xs">{{ app.user.username }}</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <!-- User image -->
                     <li class="user-header">
                         <img src="https://placeimg.com/160/160/tech" class="img-circle" alt="User Image">
                         <p>
@@ -42,13 +40,12 @@
                         </p>
                     </li>
                     {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
-                    <li class="user-body">
-                        <div class="col-xs-12 text-center">
-                            <a href="{{ path('sonata_admin_dashboard', {'_switch_user': '_exit'}) }}">Exit impersonation</a>
-                        </div>
-                    </li>
+                        <li class="user-body">
+                            <div class="col-xs-12 text-center">
+                                <a href="{{ path('sonata_admin_dashboard', {'_switch_user': '_exit'}) }}">Exit impersonation</a>
+                            </div>
+                        </li>
                     {% endif %}
-                    <!-- Menu Footer-->
                     <li class="user-footer">
                         <div class="pull-left">
                             <a href="{{ path('fos_user_profile_show') }}" class="btn btn-default btn-flat">Profile</a>
@@ -63,39 +60,4 @@
     </div>
 {% endblock %}
 
-{% block side_bar_after_nav %}
-
-    {% if is_granted('ROLE_USER_CALCULATOR') %}
-
-        <ul class="sidebar-menu">
-            <li class="first">
-                <a href="{{ path('calculator_service_select') }}"><i class="fa fa-calculator" aria-hidden="true"></i> Naar de calculator</a>
-            </li>
-        </ul>
-
-    {% endif %}
-
-{% endblock %}
-
-{% block stylesheets %}
-
-    {{ parent() }}
-
-    <link rel="stylesheet" href="{{ asset('admin.css', 'admin') }}">
-
-{% endblock %}
-
-{% block javascripts %}
-
-    {{ parent() }}
-
-    <script src="{{ asset('admin.js', 'admin') }}"></script>
-    <script type="text/javascript">
-        $('document').ready(function() {
-			if (window.location.href.indexOf("price-pricedefinition") != -1) {
-				document.body.classList.add('sidebar-collapse');
-			}
-        })
-    </script>
-
-{% endblock %}
+{% block side_bar_after_nav %}{% endblock %}
