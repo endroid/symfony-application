@@ -1,0 +1,12 @@
+easy_admin:
+    site_name: Symfony Start
+    design:
+        color_scheme: 'dark'
+    entities:
+        Example:
+            label: Examples
+            class: App\Entity\Example
+            list:
+                fields:
+                    - { property: 'id', label: 'ID'}
+                    - { property: 'name', label: 'Name'}

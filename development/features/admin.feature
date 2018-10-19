@@ -6,5 +6,10 @@ Feature: Admin
     And I fill in "_password" with "admin"
     And I press "_submit"
 
-  Scenario: Dashboard
+  Scenario: Sonata Admin
     And I should see "Users"
+    And I should see "Groups"
+
+  Scenario: Easy Admin
+    When I am on "/easy-admin"
+    And I should see "Add Example"
