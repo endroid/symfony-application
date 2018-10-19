@@ -1,9 +1,0 @@
-api_news:
-    resource:     "NewsBundle\\Controller\\ArticleApiController"
-    type:         rest
-    name_prefix:  api_
-
-api_tasks:
-    resource:     "TaskBundle\\Controller\\TaskApiController"
-    type:         rest
-    name_prefix:  api_
