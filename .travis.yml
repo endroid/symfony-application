@@ -12,7 +12,6 @@ php:
 before_install:
   - echo "memory_limit = -1" > travis.php.ini
   - phpenv config-add travis.php.ini
-  - composer self-update
   - composer install --prefer-dist --no-interaction --no-progress
 
 script:
