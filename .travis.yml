@@ -15,6 +15,9 @@ matrix:
     - php: 7.3
 
 before_install:
+  - wget -O mailhog https://github.com/mailhog/MailHog/releases/download/v1.0.0/MailHog_linux_amd64
+  - chmod +x mailhog
+  - (./mailhog -api-bind-addr 0.0.0.0:8025 -ui-bind-addr 0.0.0.0:8025 -smtp-bind-addr 0.0.0.0:1025 &) > /dev/null 2>&1
   - echo "memory_limit = -1" > travis.php.ini
   - phpenv config-add travis.php.ini
   - composer install --prefer-dist --no-interaction --no-progress
