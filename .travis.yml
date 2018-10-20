@@ -8,6 +8,11 @@ addons:
 
 php:
   - 7.2
+  - 7.3
+
+matrix:
+  allow_failures:
+    - php: 7.3
 
 before_install:
   - echo "memory_limit = -1" > travis.php.ini
