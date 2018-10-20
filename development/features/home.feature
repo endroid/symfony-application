@@ -2,4 +2,4 @@ Feature: Home
 
   Scenario: Home
     Given I am on "/"
-    And I should see "Symfony installation successful!"
+    And the response status code should be 200
