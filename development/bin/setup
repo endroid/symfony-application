@@ -6,6 +6,6 @@ composer install --prefer-dist --no-interaction --no-progress
 bin/console doctrine:database:create --if-not-exists --env=$ENV
 bin/console doctrine:migrations:migrate -n --env=$ENV
 bin/console fos:elastica:populate -n --env=$ENV
-bin/console ckeditor:install -n --env=$ENV
+bin/console ckeditor:install --clear=skip -n --env=$ENV
 bin/console assets:install --symlink --env=$ENV
 make generate-jwt-keys
