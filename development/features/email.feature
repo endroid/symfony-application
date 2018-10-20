@@ -5,12 +5,12 @@ Feature: Mail
 
   Scenario: Clicking mail link
     Given my inbox is empty
-    And I am on "/mail/send"
-    And I wait 0.1 second
-    Then the response status code should be 200
-    And I should see an email with subject "This is the subject"
+    And I am on "/example/email"
+    Then I should see "Example email sent"
+    And the response status code should be 200
+    And I should see an email with subject "Example email"
 
   Scenario:
     When I click the link "Call To Action" in the last received email
     Then the response status code should be 200
-    Then I should see "Mail clicked"
+    Then I should see "Welcome!"
