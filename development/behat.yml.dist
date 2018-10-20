@@ -9,6 +9,8 @@ default:
             goutte:
                 guzzle_parameters:
                     verify: false
+        rpkamp\Behat\MailhogExtension:
+            base_url: http://mailhog:8025
         Behatch\Extension: ~
 
     suites:
@@ -22,3 +24,5 @@ default:
                 - JwtFeatureContext:
                       userManager: '@fos_user.user_manager'
                       tokenManager: '@lexik_jwt_authentication.jwt_manager'
+                - rpkamp\Behat\Context\MinkAwareMailhogContext
+                - rpkamp\Behat\MailhogExtension\Context\MailhogContext
