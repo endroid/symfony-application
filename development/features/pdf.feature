@@ -6,4 +6,4 @@ Feature: Generate PDF
   Scenario: Generate PDF
     Given I am on "/pdf"
     Then the response status code should be 200
-    Then I should see "application/pdf" in the header "content-type"
+    Then the header "content-type" should be equal to "application/pdf;charset=utf-8"

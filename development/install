@@ -67,7 +67,6 @@ composer require \
     predis/predis \
     pusher/pusher-php-server \
     ruflin/elastica \
-    sensiolabs/security-checker \
     snc/redis-bundle \
     sonata-project/doctrine-orm-admin-bundle \
     symfony/dotenv \
@@ -87,6 +86,7 @@ composer require \
     phpmetrics/phpmetrics \
     rpkamp/mailhog-behat-extension \
     rpkamp/mailhog-mink-behat-context \
+    sensiolabs/security-checker \
     --no-update --dev
 
 composer update --prefer-dist --no-interaction --no-progress

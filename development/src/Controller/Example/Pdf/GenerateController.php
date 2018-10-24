@@ -7,9 +7,8 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Controller\Pdf;
+namespace App\Controller\Example\Pdf;
 
-use App\Controller\SvgController;
 use Endroid\Pdf\Builder\PdfBuilder;
 use Endroid\Pdf\Response\InlinePdfResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,15 +34,15 @@ class GenerateController
                 'cache_key' => 'cover',
             ])
             ->setTableOfContents([
-                'template' => 'pdf/table_of_contents.xml.twig',
+                'template' => 'example/pdf/table_of_contents.xml.twig',
                 'cache_key' => 'toc',
             ])
             ->setHeader([
-                'template' => 'pdf/header.html.twig',
+                'template' => 'example/pdf/header.html.twig',
                 'cache_key' => 'header',
             ])
             ->setFooter([
-                'template' => 'pdf/footer.html.twig',
+                'template' => 'example/pdf/footer.html.twig',
                 'cache_key' => 'footer',
             ])
             ->setContent([
