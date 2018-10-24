@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37be6e7b1ff6b0e5f56261ba9fc1f3ec",
+    "content-hash": "16b318db90fbed5a32db35dd778432e0",
     "packages": [
         {
             "name": "endroid/installer",
@@ -53,16 +53,16 @@
         },
         {
             "name": "endroid/teleporter",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/endroid/teleporter.git",
-                "reference": "24434b04499caa27ad0f644c3b4885a514bf0845"
+                "reference": "4b96979bce7548d66fc05e7c1c8b5ad05ef6f389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/endroid/teleporter/zipball/24434b04499caa27ad0f644c3b4885a514bf0845",
-                "reference": "24434b04499caa27ad0f644c3b4885a514bf0845",
+                "url": "https://api.github.com/repos/endroid/teleporter/zipball/4b96979bce7548d66fc05e7c1c8b5ad05ef6f389",
+                "reference": "4b96979bce7548d66fc05e7c1c8b5ad05ef6f389",
                 "shasum": ""
             },
             "require": {
@@ -111,7 +111,7 @@
                 "filter",
                 "teleporter"
             ],
-            "time": "2018-10-24T22:41:27+00:00"
+            "time": "2018-10-24T23:02:56+00:00"
         },
         {
             "name": "psr/cache",
