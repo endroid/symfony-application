@@ -10,7 +10,12 @@ default:
                 guzzle_parameters:
                     verify: false
         rpkamp\Behat\MailhogExtension:
+            ### travis ###
+            base_url: http://localhost:8025
+            ### end ###
+            ### !travis ###
             base_url: http://mailhog:8025
+            ### end ###
         Behatch\Extension: ~
 
     suites:
