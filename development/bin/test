@@ -2,7 +2,7 @@
 
 echo Running all tests ...
 
-bin/security-checker security:check
+bin/console security:check
 
 bin/test-behat
 bin/test-phpunit
