@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "097ec604faad5b57467fbc87fc789625",
+    "content-hash": "37be6e7b1ff6b0e5f56261ba9fc1f3ec",
     "packages": [
         {
             "name": "endroid/installer",
@@ -53,16 +53,16 @@
         },
         {
             "name": "endroid/teleporter",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/endroid/teleporter.git",
-                "reference": "cb1885def6d9f001328356978bd3189bc3d06ea9"
+                "reference": "24434b04499caa27ad0f644c3b4885a514bf0845"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/endroid/teleporter/zipball/cb1885def6d9f001328356978bd3189bc3d06ea9",
-                "reference": "cb1885def6d9f001328356978bd3189bc3d06ea9",
+                "url": "https://api.github.com/repos/endroid/teleporter/zipball/24434b04499caa27ad0f644c3b4885a514bf0845",
+                "reference": "24434b04499caa27ad0f644c3b4885a514bf0845",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,8 @@
                 "symfony/console": "^4.1",
                 "symfony/expression-language": "^4.1",
                 "symfony/filesystem": "^4.1",
-                "symfony/finder": "^4.1"
+                "symfony/finder": "^4.1",
+                "twig/twig": "^2.5"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.7|^6.0",
@@ -110,7 +111,7 @@
                 "filter",
                 "teleporter"
             ],
-            "time": "2018-10-16T21:11:07+00:00"
+            "time": "2018-10-24T22:41:27+00:00"
         },
         {
             "name": "psr/cache",
@@ -655,6 +656,73 @@
                 "shim"
             ],
             "time": "2018-08-06T14:22:27+00:00"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "6a5f676b77a90823c2d4eaf76137b771adf31323"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/6a5f676b77a90823c2d4eaf76137b771adf31323",
+                "reference": "6a5f676b77a90823c2d4eaf76137b771adf31323",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "symfony/polyfill-ctype": "^1.8",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "psr/container": "^1.0",
+                "symfony/debug": "^2.7",
+                "symfony/phpunit-bridge": "^3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                },
+                "psr-4": {
+                    "Twig\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
+                },
+                {
+                    "name": "Twig Team",
+                    "homepage": "https://twig.symfony.com/contributors",
+                    "role": "Contributors"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "https://twig.symfony.com",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2018-07-13T07:18:09+00:00"
         }
     ],
     "packages-dev": [
