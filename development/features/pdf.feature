@@ -4,6 +4,6 @@ Feature: Generate PDF
   and retrieve a resource of the type PDF
 
   Scenario: Generate PDF
-    Given I am on "/pdf"
+    Given I am on "/pdfs"
     Then the response status code should be 200
-    Then the header "content-type" should be equal to "application/pdf;charset=utff-8"
+    Then the header "content-type" should be equal to "application/pdf;charset=utf-8"

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 echo Running Behat tests ...
 
 vendor/bin/behat --tags '~@wdio-e2e&&~@wip'
