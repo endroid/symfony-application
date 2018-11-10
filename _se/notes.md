@@ -2,9 +2,6 @@
 
 ## General
 
-* Webpack 
-* PDF Reader
-* Error page: 404 + 500
 * WSSE Bundle maken of bestaande gebruiken
 * Use Roboto font
 * Uitzoeken of functionele tests gemakkelijker kunnen voor SF bundles (check kernelawarecontext)
@@ -19,22 +16,6 @@
 * Gebruiken configureTabMenu in sonata admin voor meertaligheid
 * Sonata Admin Extensions: "uses" toepassen: https://sonata-project.org/bundles/admin/master/doc/reference/extensions.html ipv interface
 * Library voor orderedinterface etc. (verplaatsen behaviors naar aparte bundles?)
-* Docker: werkend maken entrypoint / github token
-* Docker: build en cache bust via container
-
-## Calendar
-
-* Ical writer (check existing code): en bundle voor voetbalkalenders
-* Unit tests ical reader met opgeslagen ical file
-
-## Prediction IO
-
-* Proof of concept: task, user, rate, match i.c.m. docker container
-
-## Priority Shuffle Random
-
-* Genereert soms nog reeksen met 2x dezelfde waarde achter elkaar
-* Betere documentatie
 
 ## Simple Excel
 
@@ -47,16 +28,6 @@ Conventions:
 * Bij tussenstap altijd naar representatie met meeste opties
   bijv. phpexcel ondersteunt wel cell coloring, array niet
 * Auto wiring: a => b en b => c, dus a => c is mogelijk
-
-## Systeem voor beheer taken
-
-* Deadline
-  * Wat doen na deadline
-* Blocking
-* Volgende taken (lijst)
-* Uren per dag
-
-
 
 
 
