@@ -97,5 +97,6 @@ bin/console doctrine:database:drop --if-exists --force
 bin/console doctrine:database:create
 bin/console doctrine:migrations:diff
 
-# Allow fixtures in production environment
+# Allow fixtures in production environment and server commands in test environment
 sed -i -e 's/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => \[\x27dev\x27 => true, \x27test\x27 => true\],/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => \[\x27all\x27 => true\],/g' config/bundles.php
+sed -i -e 's/Symfony\\Bundle\\WebServerBundle\\WebServerBundle::class => \[\x27dev\x27 => true\],/Symfony\\Bundle\\WebServerBundle\\WebServerBundle::class => \[\x27all\x27 => true\],/g' config/bundles.php
