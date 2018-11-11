@@ -29,4 +29,5 @@ script:
   - bin/test
 
 notifications:
-  email: info@endroid.nl
+  email:
+    - info@endroid.nl
