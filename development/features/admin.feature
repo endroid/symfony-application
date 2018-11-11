@@ -7,7 +7,6 @@ Feature: Sonata Admin
     And I press "_submit"
 
   Scenario: Sonata Admin
-    And print last response
     And I should see "Users"
     And I should see "Groups"
 
