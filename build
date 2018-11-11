@@ -16,5 +16,7 @@ vendor/bin/teleport development symfony-start $@
 
 (
     cd symfony-start
-    ./install
+    bin/create
+    bin/setup
+    bin/test
 )
