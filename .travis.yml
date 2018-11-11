@@ -1,8 +1,5 @@
 language: php
 
-env:
-  - APP_ENV=test
-
 services:
   - elasticsearch
 
