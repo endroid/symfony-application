@@ -12,32 +12,8 @@ class FeatureContext extends MinkContext
      */
     public static function reset()
     {
-        self::resetFixtures();
-        self::resetElasticsearch();
-    }
-
-    private static function resetFixtures()
-    {
-        $command = 'bin/console doctrine:fixtures:load --env=test --purge-with-truncate -n -q';
-
-        $process = new Process($command);
-        $process->run();
-
-        if (!$process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
-    }
-
-    private static function resetElasticsearch()
-    {
-        $command = 'bin/console fos:elastica:populate --env=test -n -q';
-
-        $process = new Process($command);
-        $process->run();
-
-        if (!$process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
+        passthru('bin/console doctrine:fixtures:load --purge-with-truncate -n -q');
+        passthru('bin/console fos:elastica:populate -n -q');
     }
 
     /**

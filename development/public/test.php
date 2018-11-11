@@ -1,14 +1,12 @@
 <?php
 
-use Symfony\Component\Dotenv\Dotenv;
-
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+use App\Kernel;
+
 require __DIR__.'/../vendor/autoload.php';
 
-$dotEnv = new Dotenv();
-$dotEnv->load(__DIR__.'/../.env');
-$dotEnv->populate(['APP_ENV' => 'test', 'APP_DEBUG' => true]);
+Kernel::bootstrapEnv('test');
 
 require __DIR__.'/index.php';
