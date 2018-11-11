@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 use App\Kernel;
 
-Kernel::bootstrapEnv();
+Kernel::bootstrapEnv('test');
 
 passthru('bin/console doctrine:database:create --if-not-exists -q');
 passthru('bin/console doctrine:migrations:migrate -n -q');
