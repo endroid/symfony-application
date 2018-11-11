@@ -1,5 +1,8 @@
 language: php
 
+env:
+  - APP_ENV=test
+
 services:
   - elasticsearch
 
@@ -24,8 +27,6 @@ before_install:
 script:
   - ./build travis
   - cd symfony-start
-  - cat .env
-  - cat .env.test
   - bin/setup
   - bin/console server:run 0.0.0.0:9090 -q &
   - bin/test
