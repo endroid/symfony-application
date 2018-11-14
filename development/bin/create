@@ -23,6 +23,7 @@ composer require \
     endroid/data-sanitize:dev-master \
     endroid/data-sanitize-bundle:dev-master \
     endroid/data-sanitize-demo-bundle:dev-master \
+    endroid/documenter:dev-master \
     endroid/embed:dev-master \
     endroid/flusher:dev-master \
     endroid/flusher-bundle:dev-master \
@@ -89,7 +90,7 @@ composer require \
     sensiolabs/security-checker \
     --no-update --dev
 
-composer update --prefer-dist --no-interaction --no-progress
+composer update --no-interaction --no-progress
 
 rm -rf features/demo.feature
 
