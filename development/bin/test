@@ -6,5 +6,5 @@ echo Running all tests ...
 
 bin/console security:check
 
-bin/test-behat
 bin/test-phpunit
+bin/test-behat
