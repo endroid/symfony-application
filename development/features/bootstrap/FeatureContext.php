@@ -1,8 +1,6 @@
 <?php
 
 use Behat\MinkExtension\Context\MinkContext;
-use Symfony\Component\Process\Exception\ProcessFailedException;
-use Symfony\Component\Process\Process;
 
 class FeatureContext extends MinkContext
 {
@@ -12,6 +10,8 @@ class FeatureContext extends MinkContext
      */
     public static function reset()
     {
+        passthru('bin/console doctrine:database:create --if-not-exists -q');
+        passthru('bin/console doctrine:migrations:migrate -n -q');
         passthru('bin/console doctrine:fixtures:load --purge-with-truncate -n -q');
         passthru('bin/console fos:elastica:populate -n -q');
     }
