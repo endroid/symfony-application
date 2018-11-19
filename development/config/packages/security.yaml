@@ -10,7 +10,7 @@ security:
 
     providers:
         fos_userbundle:
-            id: fos_user.user_provider.username_email
+            id: App\Security\UserProvider
 
     firewalls:
         dev:
@@ -23,6 +23,7 @@ security:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
                 default_target_path: /admin/dashboard
+                always_use_default_target_path: true
             logout: true
             anonymous: true
             oauth:
@@ -30,8 +31,8 @@ security:
                     google: /login/check-google
                     github: /login/check-github
                 login_path: /login
-                failure_path: /login
                 use_forward: false
+                failure_path: /login
                 oauth_user_provider:
                     service: App\Security\UserProvider
 
