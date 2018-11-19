@@ -10,7 +10,22 @@
         <title>{% block title %}{% endblock %}</title>
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="{{ path('home') }}">Symfony Application</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExample01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('fos_user_security_login') }}">Log in</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {% endblock %}
+        {% block content %}{% endblock %}
         {% if app.request.hasPreviousSession %}
             {% for type, messages in app.session.flashbag.all() %}
                 {% for message in messages %}
