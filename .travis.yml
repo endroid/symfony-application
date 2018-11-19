@@ -2,6 +2,7 @@ language: php
 
 services:
   - elasticsearch
+  - redis-server
 
 addons:
   mariadb: 10.3
