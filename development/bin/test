@@ -4,5 +4,7 @@ set -e
 
 echo Running all tests ...
 
+vendor/bin/phpstan analyse src --level=5 --no-progress
+
 bin/test-phpunit
 bin/test-behat

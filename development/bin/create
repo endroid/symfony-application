@@ -85,6 +85,7 @@ composer require \
     behat/symfony2-extension \
     behatch/contexts \
     phpmetrics/phpmetrics \
+    phpstan/phpstan \
     rpkamp/mailhog-behat-extension \
     rpkamp/mailhog-mink-behat-context \
     sensiolabs/security-checker \
