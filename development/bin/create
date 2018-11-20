@@ -90,6 +90,9 @@ composer require \
     sensiolabs/security-checker \
     --no-update --dev
 
+# Clear redis caches except sessions
+sed -i 's/"cache:clear": "symfony-cmd",/"cache:clear": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-metadata": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-results": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-query": "symfony-cmd",/' composer.json
+
 composer update --no-interaction --no-progress
 
 rm -rf features/demo.feature
