@@ -19,10 +19,6 @@ RUN mv composer.phar /usr/local/bin/composer
 RUN chmod a+x /usr/local/bin/composer
 RUN chown 1000 /usr/local/bin/composer
 
-# CS Fixer
-RUN curl -LsS http://get.sensiolabs.org/php-cs-fixer.phar -o /usr/local/bin/php-cs-fixer
-RUN chmod a+x /usr/local/bin/php-cs-fixer
-
 # Node
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update && apt-get install -y nodejs --fix-missing
