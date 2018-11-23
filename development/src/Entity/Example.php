@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Message\Example\CreateExample;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Uuid;
 
@@ -30,16 +29,6 @@ class Example
     {
         $this->id = Uuid::fromString($id);
         $this->name = $name;
-    }
-
-    public static function createFromMessage(CreateExample $createExample)
-    {
-        $self = new self(
-            $createExample->getId(),
-            $createExample->getName()
-        );
-
-        return $self;
     }
 
     public function getId()
