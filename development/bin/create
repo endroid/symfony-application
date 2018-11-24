@@ -91,9 +91,6 @@ composer require \
     sensiolabs/security-checker \
     --no-update --dev
 
-# Clear redis caches except sessions
-sed -i 's/"cache:clear": "symfony-cmd",/"cache:clear": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-metadata": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-results": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-query": "symfony-cmd",/' composer.json
-
 composer update --no-interaction --no-progress
 
 rm -rf features/demo.feature
@@ -108,3 +105,7 @@ sed -i -e 's/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => 
 sed -i -e 's/Symfony\\Bundle\\WebServerBundle\\WebServerBundle::class => \[\x27dev\x27 => true\],/Symfony\\Bundle\\WebServerBundle\\WebServerBundle::class => \[\x27all\x27 => true\],/g' config/bundles.php
 
 vendor/bin/php-cs-fixer fix src
+vendor/bin/php-cs-fixer fix vendor/endroid
+
+# Clear redis caches except sessions
+sed -i 's/"cache:clear": "symfony-cmd",/"cache:clear": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-metadata": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-results": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-query": "symfony-cmd",/' composer.json
