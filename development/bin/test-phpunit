@@ -4,4 +4,4 @@ set -e
 
 echo Running PHPUnit tests ...
 
-bin/phpunit
+phpdbg -qrr -d memory_limit=-1 bin/phpunit --coverage-html tests/coverage
