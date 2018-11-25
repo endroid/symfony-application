@@ -12,7 +12,7 @@ class FeatureContext extends MinkContext
     {
         passthru('bin/console doctrine:database:create --if-not-exists -q');
         passthru('bin/console doctrine:migrations:migrate -n -q');
-        passthru('bin/console doctrine:fixtures:load --purge-with-truncate -n -q');
+        passthru('bin/console doctrine:fixtures:load --append --purge-with-truncate -n -q');
         passthru('bin/console fos:elastica:populate -n -q');
     }
 
