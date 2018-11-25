@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e # Break on any error
+set -e
 
 composer config extra.symfony.allow-contrib true
 
