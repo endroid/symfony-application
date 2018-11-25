@@ -13,7 +13,7 @@ composer config repositories.play-bundle vcs git@github.com:endroid/EndroidPlayB
 
 composer require \
     api-platform/api-pack \
-    doctrine/doctrine-fixtures-bundle \
+    doctrine/doctrine-fixtures-bundle:3.0.2 \
     doctrine/doctrine-migrations-bundle \
     easycorp/easyadmin-bundle \
     endroid/asset:dev-master \
