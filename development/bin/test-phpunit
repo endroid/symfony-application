@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-set -e
-
-echo Running PHPUnit tests ...
-
-phpdbg -qrr -d memory_limit=-1 bin/phpunit --coverage-html tests/coverage
