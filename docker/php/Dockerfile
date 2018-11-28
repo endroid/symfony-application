@@ -4,11 +4,11 @@ FROM php:7-fpm
 RUN usermod -u 1000 www-data
 RUN chown -R 1000 /var/www/
 
-RUN apt-get update && apt-get install -y git unzip wget vim nano gnupg bash-completion iputils-ping zlib1g-dev libicu-dev g++ libssl-dev libxml2-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libsasl2-dev libcurl4-openssl-dev pkg-config libxrender1 libfontconfig1 --fix-missing
+RUN apt-get update && apt-get install -y git unzip wget vim nano gnupg bash-completion iputils-ping libxslt-dev zlib1g-dev libicu-dev g++ libssl-dev libxml2-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libsasl2-dev libcurl4-openssl-dev pkg-config libxrender1 libfontconfig1 --fix-missing
 
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
-RUN docker-php-ext-install bcmath ftp gd iconv intl mbstring opcache pcntl pdo pdo_mysql soap zip
+RUN docker-php-ext-install bcmath ftp gd iconv intl mbstring opcache pcntl pdo pdo_mysql soap xsl zip
 
 # Custom PHP settings
 ADD application.ini /usr/local/etc/php/conf.d/application.ini
