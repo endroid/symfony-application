@@ -1,4 +1,5 @@
 /.env
+/composer.lock
 /development/behat.yml
 /symfony-start/
 /vendor/
