@@ -107,7 +107,5 @@ sed -i -e 's/Symfony\\Bundle\\WebServerBundle\\WebServerBundle::class => \[\x27d
 sed -i 's/"cache:clear": "symfony-cmd",/"cache:clear": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-metadata": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-result": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-query": "symfony-cmd",/' composer.json
 
 bin/pre-commit
-bin/setup
-bin/test
 
 vendor/bin/php-cs-fixer fix vendor/endroid
