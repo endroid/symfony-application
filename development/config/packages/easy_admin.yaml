@@ -1,7 +1,7 @@
 easy_admin:
     site_name: Symfony Start
     design:
-        color_scheme: 'dark'
+        brand_color: '#222f5b'
     entities:
         Example:
             label: Examples
