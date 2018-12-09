@@ -14,7 +14,7 @@ class LoadGroupData extends Fixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        $data = Yaml::parse(file_get_contents(__DIR__.'/data/user_groups.yaml'));
+        $data = Yaml::parse((string) file_get_contents(__DIR__.'/data/user_groups.yaml'));
 
         foreach ($data['user_groups'] as $key => $item) {
             $group = new Group($item['name'], $item['roles']);

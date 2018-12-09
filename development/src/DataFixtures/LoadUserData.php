@@ -21,7 +21,7 @@ class LoadUserData extends Fixture implements OrderedFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        $data = Yaml::parse(file_get_contents(__DIR__.'/data/users.yaml'));
+        $data = Yaml::parse((string) file_get_contents(__DIR__.'/data/users.yaml'));
 
         foreach ($data['users'] as $key => $item) {
             $user = $this->userManager->createUser();

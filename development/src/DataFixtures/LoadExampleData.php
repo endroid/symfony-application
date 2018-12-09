@@ -14,7 +14,7 @@ class LoadExampleData extends Fixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        $data = Yaml::parse(file_get_contents(__DIR__.'/data/examples.yaml'));
+        $data = Yaml::parse((string) file_get_contents(__DIR__.'/data/examples.yaml'));
 
         foreach ($data['examples'] as $key => $item) {
             $example = new Example($item['id'], $item['name']);
