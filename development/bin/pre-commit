@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-set -e
-
-vendor/bin/php-cs-fixer fix src --diff
-vendor/bin/phpstan analyse src --level=5 --no-progress

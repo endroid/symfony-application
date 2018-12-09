@@ -1,0 +1,21 @@
+parameters:
+    ascii: ~
+    tasks:
+        phpcsfixer2:
+            config: .php_cs
+            metadata: { priority: 5 }
+        phpstan:
+            configuration: phpstan.neon
+            metadata: { priority: 4 }
+        phpmd:
+            whitelist_patterns:
+                - src
+            exclude:
+                - src/Migrations
+            ruleset:
+                - unusedcode
+            metadata: { priority: 3 }
+        phpunitbridge:
+            metadata: { priority: 2 }
+        behat:
+            metadata: { priority: 1 }
