@@ -3,7 +3,7 @@
 set -e
 
 echo Running static analysis ...
-vendor/bin/phpstan analyse src --level=5 --no-progress
+vendor/bin/phpstan analyse src --level=max --no-progress
 
 echo Running unit tests ...
 phpdbg -qrr -d memory_limit=-1 bin/phpunit --coverage-html tests/coverage
