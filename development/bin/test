@@ -4,6 +4,3 @@ set -e
 
 echo Running GrumPHP ...
 vendor/bin/grumphp run
-
-echo Running unit tests ...
-phpdbg -qrr -d memory_limit=-1 bin/phpunit --coverage-html tests/coverage
