@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
@@ -21,7 +20,7 @@ class HomeController
     /**
      * @Route("/", name="home")
      */
-    public function __invoke(Request $request): Response
+    public function __invoke(): Response
     {
         return new Response($this->templating->render('home.html.twig'));
     }
