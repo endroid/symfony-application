@@ -95,6 +95,8 @@ composer require \
     rpkamp/mailhog-mink-behat-context \
     --no-update --dev
 
+which composer
+
 php -d memory_limit=-1 `which composer` update --no-interaction --no-progress
 
 rm -rf features/demo.feature
