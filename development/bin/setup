@@ -6,6 +6,6 @@ composer install --prefer-dist --no-interaction --no-progress
 bin/console doctrine:database:create --if-not-exists
 bin/console doctrine:migrations:migrate -n
 bin/console fos:elastica:populate -n
-bin/console ckeditor:install --clear=skip -n
+bin/console ckeditor:install --no-progress-bar --clear=skip -n
 bin/console assets:install --symlink
 make generate-jwt-keys
