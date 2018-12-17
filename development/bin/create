@@ -4,6 +4,9 @@ set -e
 
 git init
 
+wget https://getcomposer.org/installer -O composer-setup.php
+php composer-setup.php --filename=composer
+
 composer config extra.symfony.allow-contrib true
 
 # Use source when installing personal libraries
@@ -95,7 +98,7 @@ composer require \
     rpkamp/mailhog-mink-behat-context \
     --no-update --dev
 
-composer update --no-interaction --no-progress
+php -d memory_limit=-1 composer update --no-interaction --no-progress
 
 rm -rf features/demo.feature
 

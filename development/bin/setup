@@ -2,7 +2,10 @@
 
 set -e
 
-composer install --prefer-dist --no-interaction --no-progress
+wget https://getcomposer.org/installer -O composer-setup.php
+php composer-setup.php --filename=composer
+
+php -d memory_limit=-1 composer install --prefer-dist --no-interaction --no-progress
 bin/console doctrine:database:create --if-not-exists
 bin/console doctrine:migrations:migrate -n
 bin/console fos:elastica:populate -n
