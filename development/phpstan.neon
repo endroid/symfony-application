@@ -2,6 +2,8 @@ includes:
     - vendor/phpstan/phpstan/conf/config.levelmax.neon
 
 parameters:
+    paths:
+        - src
     excludes_analyse:
         - */features/*
         - */src/Migrations/*

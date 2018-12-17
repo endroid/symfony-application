@@ -4,8 +4,7 @@ set -e
 
 git init
 
-wget https://getcomposer.org/installer -O composer-setup.php
-php composer-setup.php --filename=composer
+curl -sS https://getcomposer.org/installer | php -- --filename=composer
 
 composer config extra.symfony.allow-contrib true
 
