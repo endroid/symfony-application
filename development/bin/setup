@@ -4,10 +4,10 @@ set -e
 
 curl -sS https://getcomposer.org/installer | php -- --filename=composer
 
-php -d memory_limit=-1 composer install --prefer-dist --no-interaction --no-progress
-bin/console doctrine:database:create --if-not-exists
-bin/console doctrine:migrations:migrate -n
-bin/console fos:elastica:populate -n
-bin/console ckeditor:install --no-progress-bar --clear=skip -n
-bin/console assets:install --symlink
+php -d memory_limit=-1 composer install --prefer-dist --no-progress -n -q
+bin/console doctrine:database:create --if-not-exists -q
+bin/console doctrine:migrations:migrate -n -q
+bin/console fos:elastica:populate -n -q
+bin/console ckeditor:install --no-progress-bar --clear=skip -n -q
+bin/console assets:install --symlink -q
 make generate-jwt-keys

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e
+
+rm -rf symfony-start
+
+curl -sS https://getcomposer.org/installer | php -- --filename=composer
+
+php -d memory_limit=-1 composer install --prefer-dist --no-interaction --no-progress
+
+# Always start from website skeleton
+composer create-project symfony/website-skeleton symfony-start -s beta --no-install -q
+
+vendor/bin/teleport development symfony-start $@
+
+(
+    cd symfony-start/vendor
+    ln -s ../../vendor/endroid endroid
+)
+
+(
+    cd symfony-start
+    bin/create
+)

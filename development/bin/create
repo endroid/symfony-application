@@ -81,7 +81,7 @@ composer require \
     symfony/monolog-bundle \
     symfony/templating \
     webonyx/graphql-php \
-    --no-update
+    --no-update -q
 
 composer require \
     behat/mink-extension \
@@ -95,15 +95,15 @@ composer require \
     phpstan/phpstan \
     rpkamp/mailhog-behat-extension \
     rpkamp/mailhog-mink-behat-context \
-    --no-update --dev
+    --no-update --dev -q
 
-php -d memory_limit=-1 composer update --no-interaction --no-progress
+php -d memory_limit=-1 composer update --no-progress -n
 
 rm -rf features/demo.feature
 
-bin/console doctrine:database:drop --if-exists --force
-bin/console doctrine:database:create
-bin/console doctrine:migrations:diff
+bin/console doctrine:database:drop --if-exists --force -q
+bin/console doctrine:database:create -q
+bin/console doctrine:migrations:diff -q
 
 # Allow fixtures in production environment and server commands in test environment
 sed -i -e 's/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => \[\x27dev\x27 => true, \x27test\x27 => true\],/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => \[\x27all\x27 => true\],/g' config/bundles.php
