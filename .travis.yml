@@ -23,7 +23,7 @@ before_install:
   - composer install --prefer-dist --no-interaction --no-progress
 
 script:
-  - ./build travis
+  - bin/build travis
   - cd symfony-start
   - bin/setup
   - APP_ENV=test bin/console server:run 0.0.0.0:9090 -q &
