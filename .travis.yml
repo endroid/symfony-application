@@ -20,7 +20,7 @@ before_install:
   - chmod +x mailhog
   - (./mailhog -api-bind-addr 0.0.0.0:8025 -ui-bind-addr 0.0.0.0:8025 -smtp-bind-addr 0.0.0.0:1025 &) > /dev/null 2>&1
   - echo "memory_limit = -1" > travis.php.ini && phpenv config-add travis.php.ini
-  - composer install --prefer-dist --no-interaction --no-progress
+
 
 script:
   - bin/build travis
