@@ -21,12 +21,11 @@ before_install:
   - (./mailhog -api-bind-addr 0.0.0.0:8025 -ui-bind-addr 0.0.0.0:8025 -smtp-bind-addr 0.0.0.0:1025 &) > /dev/null 2>&1
   - echo "memory_limit = -1" > travis.php.ini && phpenv config-add travis.php.ini
 
-
 script:
   - bin/build travis
   - cd symfony-start
   - bin/setup
-  - APP_ENV=test bin/console server:run 0.0.0.0:9090 -q &
+  - bin/console server:run 0.0.0.0:9090 -q --env=test &
   - bin/test
 
 notifications:
