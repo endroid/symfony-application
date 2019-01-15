@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if [ ! -f development/.env ]; then
-    echo "Please create a .env file for production before deploying"
+if [ ! -f development/.env.local ]; then
+    echo "Please create a .env.local file for production before deploying"
     exit 1
 fi
 
