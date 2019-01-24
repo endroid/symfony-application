@@ -1,9 +1,0 @@
-parameters:
-    ascii: ~
-    tasks:
-        phpunitbridge: ~
-        behat: ~
-        phpcsfixer2:
-            config: .php_cs
-        phpstan:
-            configuration: phpstan.neon

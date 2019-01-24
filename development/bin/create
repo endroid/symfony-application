@@ -91,7 +91,6 @@ composer require \
     behatch/contexts \
     friendsofphp/php-cs-fixer \
     phpmd/phpmd \
-    phpro/grumphp \
     phpstan/phpstan \
     rpkamp/mailhog-behat-extension \
     rpkamp/mailhog-mink-behat-context \

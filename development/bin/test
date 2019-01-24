@@ -2,5 +2,11 @@
 
 set -e
 
-echo Running GrumPHP ...
-vendor/bin/grumphp run
+echo Running CS fixer ...
+vendor/bin/php-cs-fixer fix
+
+echo Running PHPStan ...
+vendor/bin/phpstan analyse
+
+echo Running Behat tests ...
+vendor/bin/behat
