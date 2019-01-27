@@ -12,7 +12,8 @@ composer config extra.symfony.allow-contrib true
 sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
 
 {## if play ##}
-composer config repositories.play-bundle vcs git@github.com:endroid/EndroidPlayBundle.git
+composer config repositories.play-bundle vcs git@github.com:endroid/play-bundle.git
+composer config repositories.adventure-bundle vcs git@github.com:endroid/adventure-bundle.git
 {## endif ##}
 
 composer require \
@@ -20,6 +21,9 @@ composer require \
     doctrine/doctrine-fixtures-bundle \
     doctrine/doctrine-migrations-bundle \
     easycorp/easyadmin-bundle \
+{## if play ##}
+    endroid/adventure-bundle:dev-master \
+{## endif ##}
     endroid/asset:dev-master \
     endroid/calendar:dev-master \
     endroid/cm-sms:dev-master \
