@@ -2,21 +2,13 @@
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
+use Behat\Gherkin\Node\TableNode;
 use Behatch\Context\RestContext;
-use FOS\UserBundle\Model\UserManagerInterface;
-use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTManager;
 
 class JwtFeatureContext implements Context
 {
+    /** @var RestContext */
     private $restContext;
-    private $userManager;
-    private $tokenManager;
-
-    public function __construct(UserManagerInterface $userManager, JWTManager $tokenManager)
-    {
-        $this->userManager = $userManager;
-        $this->tokenManager = $tokenManager;
-    }
 
     /**
      * @BeforeScenario
@@ -27,20 +19,22 @@ class JwtFeatureContext implements Context
     }
 
     /**
-     * @Given I retrieve a JWT token for user :username
+     * @Given /^I retrieve a JWT token for user "([^"]*)" with password "([^"]*)"$/
      */
-    public function iRetrieveAJwtTokenForUser(string $username): void
+    public function iRetrieveAJWTTokenForUserWithPassword($username, $password)
     {
-        $user = $this->userManager->findUserByUsername($username);
-        $token = $this->tokenManager->create($user);
-        $this->restContext->iAddHeaderEqualTo('Authorization', "Bearer $token");
-    }
+        $data = new TableNode([
+            ['key', 'value'],
+            ['_username', $username],
+            ['_password', $password],
+        ]);
 
-    /**
-     * @Given I use JWT token :token
-     */
-    public function iUseJwtToken(string $token): void
-    {
-        $this->restContext->iAddHeaderEqualTo('Authorization', "Bearer $token");
+        $this->restContext->iSendARequestToWithParameters('POST', '/api/login_check', $data);
+
+        $response = json_decode($this->restContext->getSession()->getDriver()->getContent(), true);
+
+        if (isset($response['token'])) {
+            $this->restContext->iAddHeaderEqualTo('Authorization', 'Bearer '.$response['token']);
+        }
     }
 }

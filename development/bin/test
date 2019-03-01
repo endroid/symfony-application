@@ -2,9 +2,6 @@
 
 set -e
 
-echo Running CS fixer ...
-vendor/bin/php-cs-fixer fix
-
 echo Running PHPStan ...
 vendor/bin/phpstan analyse
 

@@ -21,8 +21,6 @@ default:
                 - Behatch\Context\TableContext
                 - Behatch\Context\JsonContext
                 - Behatch\Context\RestContext
-                - JwtFeatureContext:
-                      userManager: '@fos_user.user_manager'
-                      tokenManager: '@lexik_jwt_authentication.jwt_manager'
+                - JwtFeatureContext
                 - rpkamp\Behat\Context\MinkAwareMailhogContext
                 - rpkamp\Behat\MailhogExtension\Context\MailhogContext
