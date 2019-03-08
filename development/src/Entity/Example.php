@@ -6,7 +6,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
-use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * @ApiResource
@@ -18,22 +18,22 @@ class Example
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="uuid")
      */
-    protected $id;
+    private $id;
 
     /**
      * @ORM\Column(type="string")
      */
-    protected $name;
+    private $name;
 
-    public function __construct(string $id, string $name)
+    public function __construct(UuidInterface $id, string $name)
     {
-        $this->id = Uuid::fromString($id);
+        $this->id = $id;
         $this->name = $name;
     }
 
-    public function getId()
+    public function getId(): UuidInterface
     {
         return $this->id;
     }

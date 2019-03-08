@@ -20,12 +20,7 @@ class Group extends BaseGroup
      */
     protected $id;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="groups")
-     */
-    protected $users;
-
-    public function __toString()
+    public function __toString(): string
     {
         return $this->name;
     }

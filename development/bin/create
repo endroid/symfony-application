@@ -75,6 +75,7 @@ composer require \
     php-http/httplug-bundle:1.13.1 \
     predis/predis \
     pusher/pusher-php-server \
+    ramsey/uuid-doctrine \
     ruflin/elastica \
     sensiolabs/security-checker \
     snc/redis-bundle \

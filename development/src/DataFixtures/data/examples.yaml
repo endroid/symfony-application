@@ -1,16 +1,16 @@
 examples:
     example_1:
-        id: 63bf0dd5-68df-4e2f-bcfe-b36583f0615e
+        id: '63bf0dd5-68df-4e2f-bcfe-b36583f0615e'
         name: 'Example 1'
     example_2:
-        id: b3e939fa-7e63-47f8-8aa8-09592e4ef158
+        id: 'b3e939fa-7e63-47f8-8aa8-09592e4ef158'
         name: 'Example 2'
     example_3:
-        id: e64e7429-5d20-44c9-8d15-1838d36c0df2
+        id: 'e64e7429-5d20-44c9-8d15-1838d36c0df2'
         name: 'Example 3'
     example_4:
-        id: 69a619eb-8b82-41be-bb89-70ab375400c5
+        id: '69a619eb-8b82-41be-bb89-70ab375400c5'
         name: 'Example 4'
     example_5:
-        id: e4740bf1-6617-4779-bb03-cd492aeddcef
+        id: 'e4740bf1-6617-4779-bb03-cd492aeddcef'
         name: 'Example 5'

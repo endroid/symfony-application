@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Repository;
+namespace App\Repository\ORM;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 abstract class AbstractRepository extends ServiceEntityRepository
@@ -14,6 +16,11 @@ abstract class AbstractRepository extends ServiceEntityRepository
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, $this->className);
+    }
+
+    public function nextIdentity(): UuidInterface
+    {
+        return Uuid::uuid4();
     }
 
     public function save($entity, $flush = true): void
