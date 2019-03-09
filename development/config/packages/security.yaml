@@ -36,6 +36,11 @@ security:
                 oauth_user_provider:
                     service: App\Security\UserProvider
 
+        api_refresh:
+            pattern: ^/api/token/refresh
+            stateless: true
+            anonymous: true
+
         api_login:
             pattern: ^/api/login
             stateless: true
@@ -61,6 +66,7 @@ security:
     access_control:
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/easy-admin/, role: ROLE_ADMIN }
+        - { path: ^/api/token/refresh, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api, role: IS_AUTHENTICATED_FULLY }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }

@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -e # Break on any error
-
-security-checker security:check
-#assets/node_modules/.bin/psi endroid.nl --threshold=75
-php-cs-fixer fix src --rules=@Symfony
-php-cs-fixer fix vendor/endroid --rules=@Symfony
-vendor/bin/phpstan analyse src --level max

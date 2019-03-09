@@ -65,10 +65,10 @@ composer require \
     friendsofsymfony/ckeditor-bundle \
     friendsofsymfony/elastica-bundle \
     friendsofsymfony/user-bundle \
+    gesdinet/jwt-refresh-token-bundle \
     helios-ag/fm-elfinder-bundle \
     hwi/oauth-bundle \
     knplabs/knp-snappy-bundle \
-    lexik/jwt-authentication-bundle \
     nelmio/cors-bundle \
     nelmio/security-bundle \
     php-ai/php-ml \

@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-set -e # Break on any error
-
-vendor/bin/behat
-vendor/bin/simple-phpunit
