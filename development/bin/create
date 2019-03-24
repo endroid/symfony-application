@@ -118,5 +118,7 @@ sed -i 's/"cache:clear": "symfony-cmd",/"cache:clear": "symfony-cmd",\n\t\t\t"do
 
 bin/setup
 
+rm -rf src/DataFixtures/AppFixtures.php
+
 vendor/bin/php-cs-fixer fix src
 vendor/bin/php-cs-fixer fix vendor/endroid

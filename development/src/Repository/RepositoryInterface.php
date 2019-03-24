@@ -9,5 +9,6 @@ use Ramsey\Uuid\UuidInterface;
 interface RepositoryInterface
 {
     public function nextIdentity(): UuidInterface;
+    
     public function save($entity): void;
 }
