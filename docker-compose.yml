@@ -22,10 +22,21 @@ services:
             - ./docker/mariadb/data:/var/lib/mysql
         expose:
             - 3306
+
     redis:
         image: redis:3
         expose:
             - 6379
+    mercure:
+        image: dunglas/mercure
+        environment:
+            JWT_KEY: 3f32b715f03fababaf4c843af4bf3ae1
+            CORS_ALLOWED_ORIGINS: '*'
+            ALLOW_ANONYMOUS: 1
+        ports:
+            - 3080:80
+            - 3433:433
+
     php:
         build: docker/php/
         environment:

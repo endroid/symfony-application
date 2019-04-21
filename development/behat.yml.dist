@@ -5,12 +5,12 @@ default:
                 bootstrap: features/bootstrap/bootstrap.php
                 class: App\Kernel
         Behat\MinkExtension:
-            base_url: {## if travis ##}http://0.0.0.0:9090{## else ##}https://nginx{## endif ##}/test.php
+            base_url: {-- if travis --}http://0.0.0.0:9090{-- else --}https://nginx{-- endif --}/test.php
             goutte:
                 guzzle_parameters:
                     verify: false
         rpkamp\Behat\MailhogExtension:
-            base_url: http://{## if travis ##}localhost{## else ##}mailhog{## endif ##}:8025
+            base_url: http://{-- if travis --}localhost{-- else --}mailhog{-- endif --}:8025
         Behatch\Extension: ~
 
     suites:

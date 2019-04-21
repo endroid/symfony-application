@@ -1,0 +1,10 @@
+{% block body %}
+    <main></main>
+    <section id="example">
+        <example example-id="{{ example.id }}"></example>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('js/example') }}
+{% endblock %}

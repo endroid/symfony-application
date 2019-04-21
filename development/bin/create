@@ -11,19 +11,19 @@ composer config extra.symfony.allow-contrib true
 # Use source when installing personal libraries
 sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
 
-{## if play ##}
+{-- if play --}
 composer config repositories.play-bundle vcs git@github.com:endroid/play-bundle.git
 composer config repositories.adventure-bundle vcs git@github.com:endroid/adventure-bundle.git
-{## endif ##}
+{-- endif --}
 
 composer require \
     api-platform/api-pack \
     doctrine/doctrine-fixtures-bundle \
     doctrine/doctrine-migrations-bundle \
     easycorp/easyadmin-bundle \
-{## if play ##}
+{-- if play --}
     endroid/adventure-bundle:dev-master \
-{## endif ##}
+{-- endif --}
     endroid/asset:dev-master \
     endroid/calendar:dev-master \
     endroid/cm-sms:dev-master \
@@ -45,9 +45,9 @@ composer require \
     endroid/import-demo-bundle:dev-master \
     endroid/installer:dev-master \
     endroid/pdf:dev-master \
-{## if play ##}
+{-- if play --}
     endroid/play-bundle:dev-master \
-{## endif ##}
+{-- endif --}
     endroid/priority-shuffle-random:dev-master \
     endroid/property-access:dev-master \
     endroid/qr-code:dev-master \
@@ -82,9 +82,11 @@ composer require \
     sonata-project/doctrine-orm-admin-bundle \
     symfony/dotenv \
     symfony/lock \
+    symfony/mercure-bundle \
     symfony/messenger \
     symfony/monolog-bundle \
     symfony/templating \
+    symfony/webpack-encore-bundle \
     webonyx/graphql-php \
     --no-update -q
 
@@ -105,6 +107,9 @@ php -d memory_limit=-1 composer update --no-progress -n
 
 rm -rf features/demo.feature
 
+yarn install
+yarn add vue vue-loader@^15.0.11 vue-template-compiler
+
 bin/console doctrine:database:drop --if-exists --force -q
 bin/console doctrine:database:create -q
 bin/console doctrine:migrations:diff -q
@@ -122,3 +127,6 @@ rm -rf src/DataFixtures/AppFixtures.php
 
 vendor/bin/php-cs-fixer fix src
 vendor/bin/php-cs-fixer fix vendor/endroid
+
+git init
+git ac "Initial commit"
