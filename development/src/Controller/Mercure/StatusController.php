@@ -11,29 +11,20 @@ use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 
-class UpdateController
+class StatusController
 {
-    private $commandBus;
     private $templating;
 
-    public function __construct(MessageBusInterface $commandBus, Environment $templating)
+    public function __construct(Environment $templating)
     {
-        $this->commandBus = $commandBus;
         $this->templating = $templating;
     }
 
     /**
-     * @Route("/mercure/update", name="mercure_update")
+     * @Route("/mercure/status", name="mercure_status")
      */
     public function __invoke(Request $request): Response
     {
-        $update = new Update(
-            'http://localhost/update',
-            json_encode(['status' => $request->query->get('status', 'none')])
-        );
-
-        $this->commandBus->dispatch($update);
-
-        return new Response('Update sent');
+        return new Response($this->templating->render('mercure/status.html.twig'));
     }
 }

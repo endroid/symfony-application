@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    Status: <div id="status">-</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script>
+    const u = new URL('http://localhost:3000/hub');
+    u.searchParams.append('topic', 'http://localhost/update');
+
+    const es = new EventSource(u);
+    es.onmessage = e => {
+        let data = JSON.parse(e.data);
+        document.getElementById('status').innerText = data.status;
+    }
+    </script>
+
+{% endblock %}
