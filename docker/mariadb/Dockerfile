@@ -1,4 +1,4 @@
-FROM mariadb:10.3.5
+FROM mariadb:10.3
 
 ADD application.cnf /etc/mysql/conf.d/application.cnf
 

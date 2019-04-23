@@ -1,14 +1,14 @@
-FROM php:7-fpm
+FROM php:7.3-fpm
 
 # User permissions
 RUN usermod -u 1000 www-data
 RUN chown -R 1000 /var/www/
 
-RUN apt-get update && apt-get install -y git unzip wget vim nano gnupg bash-completion iputils-ping libxslt-dev zlib1g-dev libicu-dev g++ libssl-dev libxml2-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libsasl2-dev libcurl4-openssl-dev pkg-config libxrender1 libfontconfig1 --fix-missing
+RUN apt-get update && apt-get install -y git libzip-dev unzip wget vim nano gnupg bash-completion iputils-ping libxslt-dev zlib1g-dev libicu-dev g++ libssl-dev libxml2-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libsasl2-dev libcurl4-openssl-dev pkg-config libxrender1 libfontconfig1 --fix-missing
 
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
-RUN docker-php-ext-install bcmath ftp gd iconv intl mbstring opcache pcntl pdo pdo_mysql soap xsl zip
+RUN docker-php-ext-install zip bcmath ftp gd iconv intl mbstring opcache pcntl pdo pdo_mysql soap xsl
 
 # Custom PHP settings
 ADD application.ini /usr/local/etc/php/conf.d/application.ini
@@ -32,7 +32,7 @@ RUN apt-get update && apt-get install -y yarn --fix-missing
 RUN git config --global push.default matching
 
 # Blackfire
-RUN wget -O - https://packagecloud.io/gpg.key | apt-key add -
+RUN wget -q -O - https://packages.blackfire.io/gpg.key | apt-key add -
 RUN echo "deb http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list
 RUN apt-get update && apt-get install -y blackfire-agent blackfire-php --fix-missing
 
