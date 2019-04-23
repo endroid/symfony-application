@@ -11,7 +11,7 @@
     {{ parent() }}
 
     <script>
-    const u = new URL('http://localhost:3000/hub');
+		const u = new URL('http://' + location.hostname + ':3000/hub');
     u.searchParams.append('topic', 'http://localhost/update');
 
     const es = new EventSource(u);
