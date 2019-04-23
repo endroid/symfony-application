@@ -29,7 +29,7 @@ class UpdateController
     {
         $update = new Update(
             'http://localhost/update',
-            json_encode(['status' => $request->query->get('status', 'none')])
+            (string) json_encode(['status' => $request->query->get('status', 'none')])
         );
 
         $this->commandBus->dispatch($update);
