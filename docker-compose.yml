@@ -22,7 +22,6 @@ services:
             - ./docker/mariadb/data:/var/lib/mysql
         expose:
             - 3306
-
     redis:
         image: redis:3
         expose:
@@ -35,7 +34,6 @@ services:
             ALLOW_ANONYMOUS: 1
         ports:
             - 3000:80
-
     php:
         build: docker/php/
         environment:
