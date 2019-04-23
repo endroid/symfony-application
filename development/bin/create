@@ -128,5 +128,4 @@ rm -rf src/DataFixtures/AppFixtures.php
 vendor/bin/php-cs-fixer fix src
 vendor/bin/php-cs-fixer fix vendor/endroid
 
-git init
-git ac "Initial commit"
+yarn build
