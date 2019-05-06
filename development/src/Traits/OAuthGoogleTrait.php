@@ -14,7 +14,7 @@ trait OAuthGoogleTrait
     /**
      * @ORM\Column(type="string", nullable=true, unique=true)
      */
-    protected $googleId;
+    private $googleId;
 
     public function getGoogleId(): ?string
     {

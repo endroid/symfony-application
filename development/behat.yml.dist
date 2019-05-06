@@ -17,10 +17,10 @@ default:
         default:
             contexts:
                 - FeatureContext
+                - JwtFeatureContext
                 - Behatch\Context\DebugContext
                 - Behatch\Context\TableContext
                 - Behatch\Context\JsonContext
                 - Behatch\Context\RestContext
-                - JwtFeatureContext
                 - rpkamp\Behat\Context\MinkAwareMailhogContext
                 - rpkamp\Behat\MailhogExtension\Context\MailhogContext

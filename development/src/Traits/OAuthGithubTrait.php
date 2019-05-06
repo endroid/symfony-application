@@ -14,7 +14,7 @@ trait OAuthGithubTrait
     /**
      * @ORM\Column(type="string", nullable=true, unique=true)
      */
-    protected $githubId;
+    private $githubId;
 
     public function getGithubId(): ?string
     {
