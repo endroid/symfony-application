@@ -21,10 +21,8 @@ trait OAuthGithubTrait
         return $this->githubId;
     }
 
-    public function setGithubId(string $githubId): self
+    public function setGithubId(string $githubId): void
     {
         $this->githubId = $githubId;
-
-        return $this;
     }
 }

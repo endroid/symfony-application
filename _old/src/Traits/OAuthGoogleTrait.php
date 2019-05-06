@@ -21,10 +21,8 @@ trait OAuthGoogleTrait
         return $this->googleId;
     }
 
-    public function setGoogleId(string $googleId): self
+    public function setGoogleId(string $googleId): void
     {
         $this->googleId = $googleId;
-
-        return $this;
     }
 }
