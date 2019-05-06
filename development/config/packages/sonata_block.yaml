@@ -2,5 +2,3 @@ sonata_block:
     default_contexts: [admin]
     blocks:
         sonata.admin.block.admin_list: ~
-        sonata.admin.block.search_result: ~
-        sonata.admin.block.stats: ~
