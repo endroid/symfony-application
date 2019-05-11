@@ -88,7 +88,7 @@ composer require \
     symfony/templating \
     symfony/webpack-encore-bundle \
     webonyx/graphql-php \
-    --no-update -q
+    --no-update
 
 composer require \
     behat/mink-extension \
@@ -99,9 +99,8 @@ composer require \
     friendsofphp/php-cs-fixer \
     phpmd/phpmd \
     phpstan/phpstan \
-    rpkamp/mailhog-behat-extension \
     rpkamp/mailhog-mink-behat-context \
-    --no-update --dev -q
+    --no-update --dev
 
 php -d memory_limit=-1 composer update --no-progress -n
 
@@ -109,6 +108,7 @@ rm -rf features/demo.feature
 
 yarn install
 yarn add vue vue-loader@^15.0.11 vue-template-compiler
+yarn add @vue/babel-preset-jsx @vue/babel-helper-vue-jsx-merge-props --dev
 
 bin/console doctrine:database:drop --if-exists --force -q
 bin/console doctrine:database:create -q
@@ -129,3 +129,6 @@ vendor/bin/php-cs-fixer fix src
 vendor/bin/php-cs-fixer fix vendor/endroid
 
 yarn build
+
+git add -A
+git commit -m "Initial commit" -q
