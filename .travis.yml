@@ -5,15 +5,11 @@ services:
   - redis-server
 
 addons:
-  mariadb: 10.3
+  mariadb: '10.3'
 
 php:
-  - 7.2
-  - 7.3
-
-matrix:
-  allow_failures:
-    - php: 7.3
+  - '7.2'
+  - '7.3'
 
 before_install:
   - wget -O mailhog https://github.com/mailhog/MailHog/releases/download/v1.0.0/MailHog_linux_amd64
