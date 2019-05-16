@@ -72,7 +72,6 @@ composer require \
     nelmio/cors-bundle \
     nelmio/security-bundle \
     php-ai/php-ml \
-    php-http/httplug-bundle:1.13.1 \
     predis/predis \
     pusher/pusher-php-server \
     ramsey/uuid-doctrine \
