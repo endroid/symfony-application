@@ -9,7 +9,7 @@ curl -sS https://getcomposer.org/installer | php -- --filename=composer
 php -d memory_limit=-1 composer install --prefer-dist --no-interaction --no-progress
 
 # Always start from website skeleton
-composer create-project symfony/website-skeleton symfony-start -s beta --no-install -q
+composer create-project symfony/website-skeleton symfony-start --no-install -q
 
 vendor/bin/teleport development symfony-start $@
 

@@ -6,6 +6,7 @@ git init
 
 curl -sS https://getcomposer.org/installer | php -- --filename=composer
 
+composer config minimum-stability beta
 composer config extra.symfony.allow-contrib true
 
 # Use source when installing personal libraries
@@ -80,7 +81,6 @@ composer require \
     sensiolabs/security-checker \
     snc/redis-bundle \
     sonata-project/doctrine-orm-admin-bundle \
-    symfony/http-client:dev-master \
     symfony/lock \
     symfony/mercure-bundle \
     symfony/messenger \
