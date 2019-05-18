@@ -22,4 +22,7 @@ vendor/bin/teleport development symfony-start $@
     cd symfony-start
     bin/create
     rm -rf bin/create
+
+    git add -A
+    git commit -m "Initial commit" -q
 )

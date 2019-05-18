@@ -129,5 +129,3 @@ vendor/bin/php-cs-fixer fix vendor/endroid
 
 yarn build
 
-git add -A
-git commit -m "Initial commit" -q
