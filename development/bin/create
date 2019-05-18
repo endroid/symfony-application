@@ -80,6 +80,7 @@ composer require \
     sensiolabs/security-checker \
     snc/redis-bundle \
     sonata-project/doctrine-orm-admin-bundle \
+    symfony/http-client:dev-master \
     symfony/lock \
     symfony/mercure-bundle \
     symfony/messenger \
