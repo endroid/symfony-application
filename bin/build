@@ -21,4 +21,5 @@ vendor/bin/teleport development symfony-start $@
 (
     cd symfony-start
     bin/create
+    rm -rf bin/create
 )

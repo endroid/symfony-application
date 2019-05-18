@@ -72,6 +72,7 @@ composer require \
     nelmio/cors-bundle \
     nelmio/security-bundle \
     php-ai/php-ml \
+    php-http/httplug-bundle:1.13.1 \
     predis/predis \
     pusher/pusher-php-server \
     ramsey/uuid-doctrine \
@@ -79,11 +80,9 @@ composer require \
     sensiolabs/security-checker \
     snc/redis-bundle \
     sonata-project/doctrine-orm-admin-bundle \
-    symfony/dotenv \
     symfony/lock \
     symfony/mercure-bundle \
     symfony/messenger \
-    symfony/monolog-bundle \
     symfony/templating \
     symfony/webpack-encore-bundle \
     webonyx/graphql-php \
