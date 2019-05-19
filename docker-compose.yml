@@ -4,10 +4,6 @@ services:
         image: elasticsearch:6.7.1
         expose:
             - 9200
-    kibana:
-        image: kibana:5
-        expose:
-            - 5601
     mailhog:
         image: mailhog/mailhog
         expose:
