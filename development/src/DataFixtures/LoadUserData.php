@@ -30,6 +30,7 @@ class LoadUserData extends Fixture implements OrderedFixtureInterface
                 $item['username'],
                 $item['email']
             );
+            $user->setPlainPassword($item['password']);
             $user->setRoles($item['roles']);
             $this->addReference($key, $user);
             $this->userRepository->save($user);

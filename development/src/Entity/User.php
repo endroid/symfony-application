@@ -6,7 +6,6 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
-use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -49,6 +48,7 @@ class User implements UserInterface
         $this->email = $email;
 
         $this->plainPassword = random_bytes(20);
+        $this->roles = ['ROLE_USER'];
     }
 
     public function getId(): string
@@ -98,15 +98,14 @@ class User implements UserInterface
 
     public function getRoles(): array
     {
-        $roles = $this->roles;
-        $roles[] = 'ROLE_USER';
-
-        return array_unique($roles);
+        return $this->roles;
     }
 
     public function setRoles(array $roles): void
     {
-        $this->roles = $roles;
+        $roles[] = 'ROLE_USER';
+
+        $this->roles = array_unique($roles);
     }
 
     public function getSalt()

@@ -12,15 +12,22 @@ declare(strict_types=1);
 namespace App\Security;
 
 use App\Entity\User;
+use App\Repository\UserRepository;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\User\OAuthAwareUserProviderInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 class UserProvider implements UserProviderInterface, OAuthAwareUserProviderInterface
 {
+    private $userRepository;
+
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
     public function loadUserByOAuthUserResponse(UserResponseInterface $response): UserInterface
     {
 //        try {
@@ -41,23 +48,9 @@ class UserProvider implements UserProviderInterface, OAuthAwareUserProviderInter
 //        return $user;
     }
 
-    public function loadUserByUsername($username)
+    public function loadUserByUsername($usernameOrEmail)
     {
-//        // make a call to your webservice here
-//        $userData = ...
-//        // pretend it returns an array on success, false if there is no user
-//
-//        if ($userData) {
-//            $password = '...';
-//
-//            // ...
-//
-//            return new WebserviceUser($username, $password, $salt, $roles);
-//        }
-
-        throw new UsernameNotFoundException(
-            sprintf('Username "%s" does not exist.', $username)
-        );
+        return $this->userRepository->findByUsernameOrEmail($usernameOrEmail);
     }
 
     public function refreshUser(UserInterface $user)
