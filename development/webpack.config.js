@@ -18,7 +18,7 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
-    .addEntry('example', './assets/js/example.js')
+    .addEntry('user', './assets/js/user.js')
     .enableVueLoader(() => {}, {
         useJsx: true
     })

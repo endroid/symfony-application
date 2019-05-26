@@ -4,31 +4,117 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use App\Traits\OAuthGithubTrait;
-use App\Traits\OAuthGoogleTrait;
-use FOS\UserBundle\Model\User as BaseUser;
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="user")
+ * @ApiResource()
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User extends BaseUser implements UserInterface
+class User implements UserInterface
 {
-    use OAuthGoogleTrait;
-    use OAuthGithubTrait;
+    /**
+     * @ORM\Id()
+     * @ORM\Column(type="string")
+     */
+    private $id;
 
     /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="string", length=180, unique=true)
      */
-    protected $id;
+    private $username;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Group", inversedBy="users")
-     * @ORM\JoinTable(name="user_user_group")
+     * @ORM\Column(type="string", length=180, unique=true)
      */
-    protected $groups;
+    private $email;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $password;
+    private $plainPassword = '';
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+
+    public function __construct(UuidInterface $id, string $username, string $email)
+    {
+        $this->id = $id;
+        $this->username = $username;
+        $this->email = $email;
+    }
+
+    public function getId(): UuidInterface
+    {
+        return $this->id;
+    }
+
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): void
+    {
+        $this->username = $username;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
+
+    public function getPlainPassword(): string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(string $plainPassword): void
+    {
+        $this->plainPassword = $plainPassword;
+    }
+
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): void
+    {
+        $this->roles = $roles;
+    }
+
+    public function getSalt()
+    {
+        // not needed when using the "bcrypt" algorithm
+    }
+
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
 }

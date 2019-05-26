@@ -11,31 +11,70 @@ declare(strict_types=1);
 
 namespace App\Security;
 
+use App\Entity\User;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
-use HWI\Bundle\OAuthBundle\Security\Core\Exception\AccountNotLinkedException;
-use HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider;
-use Symfony\Component\Security\Core\Exception\BadCredentialsException;
+use HWI\Bundle\OAuthBundle\Security\Core\User\OAuthAwareUserProviderInterface;
+use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
+use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
 
-class UserProvider extends FOSUBUserProvider
+class UserProvider implements UserProviderInterface, OAuthAwareUserProviderInterface
 {
     public function loadUserByOAuthUserResponse(UserResponseInterface $response): UserInterface
     {
-        try {
-            return parent::loadUserByOAuthUserResponse($response);
-        } catch (AccountNotLinkedException $exception) {
-            // Do nothing: we will try to link and load by email
+//        try {
+//            return parent::loadUserByOAuthUserResponse($response);
+//        } catch (AccountNotLinkedException $exception) {
+//            // Do nothing: we will try to link and load by email
+//        }
+//
+//        $userEmail = (string) $response->getEmail();
+//        $user = $this->userManager->findUserByEmail($userEmail);
+//
+//        if (!$user instanceof UserInterface) {
+//            throw new BadCredentialsException(sprintf('User with email address "%s" does not exist', $userEmail));
+//        }
+//
+//        $this->connect($user, $response);
+//
+//        return $user;
+    }
+
+    public function loadUserByUsername($username)
+    {
+//        // make a call to your webservice here
+//        $userData = ...
+//        // pretend it returns an array on success, false if there is no user
+//
+//        if ($userData) {
+//            $password = '...';
+//
+//            // ...
+//
+//            return new WebserviceUser($username, $password, $salt, $roles);
+//        }
+
+        throw new UsernameNotFoundException(
+            sprintf('Username "%s" does not exist.', $username)
+        );
+    }
+
+    public function refreshUser(UserInterface $user)
+    {
+        if (!$user instanceof User) {
+            throw new UnsupportedUserException(
+                sprintf('Instances of "%s" are not supported.', get_class($user))
+            );
         }
 
-        $userEmail = (string) $response->getEmail();
-        $user = $this->userManager->findUserByEmail($userEmail);
+        $username = $user->getUsername();
 
-        if (!$user instanceof UserInterface) {
-            throw new BadCredentialsException(sprintf('User with email address "%s" does not exist', $userEmail));
-        }
+        return $this->loadUserByUsername($username);
+    }
 
-        $this->connect($user, $response);
-
-        return $user;
+    public function supportsClass($class)
+    {
+        return User::class === $class;
     }
 }

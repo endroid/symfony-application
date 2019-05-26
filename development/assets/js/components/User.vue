@@ -1,7 +1,7 @@
 <template>
     <li>
-        {{ example.text }}
-        <button @click="$emit('remove', example.id)">
+        {{ user.email }}
+        <button @click="$emit('remove', user.id)">
             X
         </button>
     </li>
@@ -10,7 +10,7 @@
 <script>
 	export default {
 		props: {
-			example: {
+			user: {
 				type: Object,
 				required: true
 			}

@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace App\DataFixtures;
 
+use App\Entity\User;
+use App\Repository\UserRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use FOS\UserBundle\Model\UserManagerInterface;
 use Symfony\Component\Yaml\Yaml;
 
 class LoadUserData extends Fixture implements OrderedFixtureInterface
 {
-    private $userManager;
+    private $userRepository;
 
-    public function __construct(UserManagerInterface $userManager)
+    public function __construct(UserRepository $userRepository)
     {
-        $this->userManager = $userManager;
+        $this->userRepository = $userRepository;
     }
 
     public function load(ObjectManager $manager): void
@@ -24,25 +25,19 @@ class LoadUserData extends Fixture implements OrderedFixtureInterface
         $data = Yaml::parse((string) file_get_contents(__DIR__.'/data/users.yaml'));
 
         foreach ($data['users'] as $key => $item) {
-            $user = $this->userManager->createUser();
-            $user->setUsername($item['username']);
-            $user->setPlainPassword($item['password']);
-            $user->setEmail($item['email']);
-            $user->setEnabled(true);
-
-            foreach ($item['groups'] as $groupKey) {
-                $user->addGroup($this->getReference($groupKey));
-            }
-
+            $user = new User(
+                $this->userRepository->nextIdentity(),
+                $item['username'],
+                $item['email']
+            );
+            $user->setRoles($item['roles']);
             $this->addReference($key, $user);
-            $this->userManager->updateUser($user);
+            $this->userRepository->save($user);
         }
-
-        $manager->flush();
     }
 
     public function getOrder(): int
     {
-        return 10;
+        return 5;
     }
 }

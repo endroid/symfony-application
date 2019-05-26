@@ -1,4 +1,0 @@
-user_groups:
-    group_admin:
-        name: 'Administrators'
-        roles: [ROLE_ADMIN]

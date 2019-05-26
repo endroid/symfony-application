@@ -7,17 +7,8 @@ admin:
 
     user:
         label: 'Gebruikers'
-        username: 'Gebruikersnaam'
         email: 'E-mailadres'
-        enabled: 'Actief'
         administration: 'Beheer'
-
-    group:
-        label: 'Groepen'
-        name: 'Naam'
 
 User List: 'Overzicht gebruikers'
 User Create: 'Gebruiker aanmaken'
-
-Group List: 'Overzicht groepen'
-Group Create: 'Groep aanmaken'

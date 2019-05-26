@@ -8,12 +8,12 @@ fos_elastica:
                 index:
                     number_of_replicas: 0
             types:
-                example:
+                user:
                     properties:
-                        name: ~
+                        email: ~
                     persistence:
                         driver: orm
-                        model: App\Entity\Example
+                        model: App\Entity\User
                         provider: ~
                         finder: ~
                         listener: ~

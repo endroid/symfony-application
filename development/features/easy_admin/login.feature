@@ -8,7 +8,7 @@ Feature: Easy Admin
 
   Scenario: Easy Admin
     When I am on "/easy-admin"
-    And I should see "Add Example"
+    And I should see "Add User"
 
   Scenario: Not logged in
     When I am on "/logout"

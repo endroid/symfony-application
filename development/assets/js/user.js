@@ -1,11 +1,11 @@
 import Vue from 'vue'
-import ExampleApp from './ExampleApp'
+import UserApp from './UserApp'
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
 	el: '#app',
-	template: '<ExampleApp/>',
-	components: { ExampleApp }
+	template: '<UserApp/>',
+	components: { UserApp }
 })

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Repository\ORM;
+namespace App\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Ramsey\Uuid\Uuid;
