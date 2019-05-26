@@ -33,10 +33,8 @@ class JwtFeatureContext implements Context
 
         $response = json_decode($this->restContext->getSession()->getDriver()->getContent(), true);
 
-        if (!isset($response['token'])) {
-            dump($response);
+        if (isset($response['token'])) {
+            $this->restContext->iAddHeaderEqualTo('Authorization', 'Bearer '.$response['token']);
         }
-
-        $this->restContext->iAddHeaderEqualTo('Authorization', 'Bearer '.$response['token']);
     }
 }
