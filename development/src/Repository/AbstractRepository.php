@@ -18,9 +18,9 @@ abstract class AbstractRepository extends ServiceEntityRepository
         parent::__construct($registry, $this->className);
     }
 
-    public function nextIdentity(): UuidInterface
+    public function nextIdentity(): string
     {
-        return Uuid::uuid4();
+        return Uuid::uuid4()->toString();
     }
 
     public function save($entity, $flush = true): void

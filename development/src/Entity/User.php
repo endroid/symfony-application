@@ -42,14 +42,16 @@ class User implements UserInterface
      */
     private $roles = [];
 
-    public function __construct(UuidInterface $id, string $username, string $email)
+    public function __construct(string $id, string $username, string $email)
     {
         $this->id = $id;
         $this->username = $username;
         $this->email = $email;
+
+        $this->plainPassword = random_bytes(20);
     }
 
-    public function getId(): UuidInterface
+    public function getId(): string
     {
         return $this->id;
     }

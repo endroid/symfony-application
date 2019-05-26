@@ -24,13 +24,14 @@ class UserRepository extends AbstractRepository
     public function save($entity, $flush = true): void
     {
         /** @var User $entity */
-        if ($entity->getPlainPassword() !== '') {
+        if ('' !== $entity->getPlainPassword()) {
             $entity->setPassword(
                 $this->passwordEncoder->encodePassword(
                     $entity,
                     $entity->getPlainPassword()
                 )
             );
+            $entity->setPlainPassword('');
         }
 
         parent::save($entity, $flush);
