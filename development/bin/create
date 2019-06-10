@@ -34,6 +34,7 @@ composer require \
     endroid/data-sanitize-demo-bundle:dev-master \
     endroid/documenter:dev-master \
     endroid/embed:dev-master \
+    endroid/finance-bundle:dev-master \
     endroid/flusher:dev-master \
     endroid/flusher-bundle:dev-master \
     endroid/form-bundle:dev-master \
