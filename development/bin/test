@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -e
-
-echo Running PHPStan ...
-vendor/bin/phpstan analyse
-
-echo Running Behat tests ...
-vendor/bin/behat

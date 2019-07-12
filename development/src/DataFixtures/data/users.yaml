@@ -1,6 +1,0 @@
-users:
-    user_admin:
-        username: admin
-        email: 'admin@endroid.nl'
-        password: admin
-        roles: [ROLE_ADMIN]

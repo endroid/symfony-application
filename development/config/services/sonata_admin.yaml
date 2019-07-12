@@ -1,6 +1,12 @@
 services:
     admin.user:
         class: App\Admin\UserAdmin
-        arguments: [~, App\Entity\User, ~]
+        arguments: [~, App\Entity\User, ~, '@FOS\UserBundle\Model\UserManagerInterface']
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin.menu.user, label: admin.user.label, label_catalogue: admin, show_in_dashboard: true }
+
+    admin.user_group:
+        class: App\Admin\GroupAdmin
+        arguments: [~, App\Entity\Group, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin.menu.user, label: admin.group.label, label_catalogue: admin, show_in_dashboard: true }

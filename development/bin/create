@@ -19,9 +19,10 @@ composer config repositories.adventure-bundle vcs git@github.com:endroid/adventu
 
 composer require \
     api-platform/api-pack \
-    doctrine/doctrine-fixtures-bundle \
     doctrine/doctrine-migrations-bundle \
     easycorp/easyadmin-bundle \
+    friendsofsymfony/user-bundle \
+    hautelook/alice-bundle \
 {-- if play --}
     endroid/adventure-bundle:dev-master \
 {-- endif --}
@@ -91,6 +92,7 @@ composer require \
     --no-update
 
 composer require \
+    behat/mink:dev-master \
     behat/mink-extension \
     behat/mink-goutte-driver \
     behat/mink-selenium2-driver \
@@ -111,14 +113,8 @@ bin/console doctrine:database:drop --if-exists --force -q
 bin/console doctrine:database:create -q
 bin/console doctrine:migrations:diff -q
 
-# Allow fixtures in production environment and server commands in test environment
-sed -i -e 's/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => \[\x27dev\x27 => true, \x27test\x27 => true\],/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => \[\x27all\x27 => true\],/g' config/bundles.php
+# Allow in production environment
 sed -i -e 's/Symfony\\Bundle\\WebServerBundle\\WebServerBundle::class => \[\x27dev\x27 => true\],/Symfony\\Bundle\\WebServerBundle\\WebServerBundle::class => \[\x27all\x27 => true\],/g' config/bundles.php
-
-# Clear redis caches except sessions
-sed -i 's/"cache:clear": "symfony-cmd",/"cache:clear": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-metadata": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-result": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-query": "symfony-cmd",/' composer.json
-
-rm -rf src/DataFixtures/AppFixtures.php
 
 yarn build
 bin/setup
