@@ -25,7 +25,6 @@ vendor/bin/teleport development symfony-start $@
 
     cp symfony-start/composer.lock development/composer.lock
     cp symfony-start/composer.json development/composer.json
-    cp symfony-start/symfony.lock symfony/composer.lock
 
     git add -A
     git commit -m "Initial commit" -q
