@@ -23,8 +23,8 @@ vendor/bin/teleport development symfony-start $@
     bin/create
     rm -rf bin/create
 
-    cp symfony-start/composer.lock development/composer.lock
-    cp symfony-start/composer.json development/composer.json
+    cp composer.lock ../development/composer.lock
+    cp composer.json ../development/composer.json
 
     git add -A
     git commit -m "Initial commit" -q
