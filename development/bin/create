@@ -63,7 +63,6 @@ if [ ! -f composer.lock ]; then
         endroid/tile-bundle:dev-master \
         endroid/twitter:dev-master \
         friendsofsymfony/ckeditor-bundle \
-        friendsofsymfony/elastica-bundle \
         gesdinet/jwt-refresh-token-bundle \
         helios-ag/fm-elfinder-bundle \
         hwi/oauth-bundle \

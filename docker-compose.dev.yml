@@ -1,8 +1,5 @@
 version: '3'
 services:
-    elasticsearch:
-        ports:
-            - 9200:9200
     mailhog:
         ports:
             - 8025:8025

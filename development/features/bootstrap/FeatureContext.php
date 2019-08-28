@@ -14,7 +14,6 @@ class FeatureContext extends MinkContext
         passthru('bin/console doctrine:database:create --if-not-exists -q --env=test');
         passthru('bin/console doctrine:migrations:migrate -n -q --env=test');
         passthru('bin/console hautelook:fixtures:load -n -q --env=test');
-        passthru('bin/console fos:elastica:populate -n -q --env=test');
     }
 
     /**

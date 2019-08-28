@@ -1,9 +1,5 @@
 version: '3'
 services:
-    elasticsearch:
-        image: elasticsearch:6.8.0
-        expose:
-            - 9200
     mailhog:
         image: mailhog/mailhog
         expose:
@@ -43,7 +39,6 @@ services:
             - ~/.cache/yarn:/var/www/.cache/yarn
             - ~/.composer/cache:/var/www/.composer/cache
         depends_on:
-            - elasticsearch
             - mariadb
             - redis
         dns:
