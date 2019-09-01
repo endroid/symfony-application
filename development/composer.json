@@ -50,7 +50,6 @@
         "endroid/tile-bundle": "dev-master",
         "endroid/twitter": "dev-master",
         "friendsofsymfony/ckeditor-bundle": "^2.1",
-        "friendsofsymfony/elastica-bundle": "^5.1",
         "friendsofsymfony/user-bundle": "^2.1",
         "gesdinet/jwt-refresh-token-bundle": "^0.7.1",
         "hautelook/alice-bundle": "^2.5",
