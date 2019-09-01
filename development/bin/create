@@ -10,6 +10,7 @@ if [ ! -f composer.lock ]; then
 
     php -d memory_limit=-1 composer config minimum-stability beta
     php -d memory_limit=-1 composer config extra.symfony.allow-contrib true
+    php -d memory_limit=-1 composer config platform.php 7.2
 
     # Use source when installing personal libraries
     sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
