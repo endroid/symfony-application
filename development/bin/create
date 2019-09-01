@@ -112,6 +112,9 @@ bin/console doctrine:migrations:diff -q
 
 # Allow in production environment
 sed -i -e 's/Symfony\\Bundle\\WebServerBundle\\WebServerBundle::class => \[\x27dev\x27 => true\],/Symfony\\Bundle\\WebServerBundle\\WebServerBundle::class => \[\x27all\x27 => true\],/g' config/bundles.php
+sed -i -e 's/Nelmio\\Alice\\Bridge\\Symfony\\NelmioAliceBundle::class => \[\x27dev\x27 => true,/Nelmio\\Alice\\Bridge\\Symfony\\NelmioAliceBundle::class => \[\x27all\x27 => true,/g' config/bundles.php
+sed -i -e 's/Fidry\\AliceDataFixtures\\Bridge\\Symfony\\FidryAliceDataFixturesBundle::class => \[\x27dev\x27 => true,/Fidry\\AliceDataFixtures\\Bridge\\Symfony\\FidryAliceDataFixturesBundle::class => \[\x27all\x27 => true,/g' config/bundles.php
+sed -i -e 's/Hautelook\\AliceBundle\\HautelookAliceBundle::class => \[\x27dev\x27 => true,/Hautelook\\AliceBundle\\HautelookAliceBundle::class => \[\x27all\x27 => true,/g' config/bundles.php
 
 yarn build
 bin/setup
