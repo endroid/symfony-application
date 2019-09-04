@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 
-class HomeController
+class DefaultController
 {
     private $templating;
 
@@ -17,11 +17,8 @@ class HomeController
         $this->templating = $templating;
     }
 
-    /**
-     * @Route("/", name="home")
-     */
     public function __invoke(): Response
     {
-        return new Response($this->templating->render('home.html.twig'));
+        return new Response($this->templating->render('default.html.twig'));
     }
 }
