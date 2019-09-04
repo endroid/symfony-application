@@ -102,9 +102,10 @@ php -d memory_limit=-1 composer install --no-progress -n
 
 rm -rf features/demo.feature
 
-yarn install
-yarn add vue vue-loader@^15.0.11 vue-template-compiler
+yarn add vue
+yarn add vue-loader vue-template-compiler @babel/plugin-transform-runtime @babel/runtime --dev
 yarn add @vue/babel-preset-jsx @vue/babel-helper-vue-jsx-merge-props --dev
+yarn add vue-router
 
 bin/console doctrine:database:drop --if-exists --force -q
 bin/console doctrine:database:create -q
