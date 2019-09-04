@@ -1,5 +1,5 @@
 index:
     path: /{all}
-    controller: App\Controller\DefaultController
+    controller: App\Controller\AppController
     requirements:
         all: .*
