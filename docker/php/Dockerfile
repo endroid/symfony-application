@@ -13,6 +13,12 @@ RUN docker-php-ext-install zip bcmath ftp gd iconv intl mbstring opcache pcntl p
 # Custom PHP settings
 ADD application.ini /usr/local/etc/php/conf.d/application.ini
 
+# Composer
+RUN curl -LsS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer
+RUN chmod a+x /usr/local/bin/composer
+RUN chown 1000 /usr/local/bin/composer
+
 # Node
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update && apt-get install -y nodejs --fix-missing
