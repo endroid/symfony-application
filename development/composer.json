@@ -15,6 +15,7 @@
         "endroid/calendar": "dev-master",
         "endroid/cm-sms": "dev-master",
         "endroid/cm-sms-bundle": "dev-master",
+        "endroid/composer-message": "dev-master",
         "endroid/data-sanitize": "dev-master",
         "endroid/data-sanitize-bundle": "dev-master",
         "endroid/data-sanitize-demo-bundle": "dev-master",
