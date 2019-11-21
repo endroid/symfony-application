@@ -8,7 +8,6 @@ curl -sS https://getcomposer.org/installer | php -- --filename=composer
 
 if [ ! -f composer.lock ]; then
 
-    php -d memory_limit=-1 composer config minimum-stability beta
     php -d memory_limit=-1 composer config extra.symfony.allow-contrib true
 
     # Use source when installing personal libraries
@@ -21,84 +20,27 @@ if [ ! -f composer.lock ]; then
         api-platform/api-pack \
         doctrine/doctrine-migrations-bundle \
         easycorp/easyadmin-bundle \
-        friendsofsymfony/user-bundle \
-        hautelook/alice-bundle \
-        endroid/adventure-bundle:dev-master \
         endroid/asset:dev-master \
         endroid/calendar:dev-master \
         endroid/cm-sms:dev-master \
-        endroid/cm-sms-bundle:dev-master \
         endroid/composer-message:dev-master \
         endroid/data-sanitize:dev-master \
         endroid/data-sanitize-bundle:dev-master \
-        endroid/data-sanitize-demo-bundle:dev-master \
         endroid/documenter:dev-master \
         endroid/embed:dev-master \
         endroid/finance-bundle:dev-master \
         endroid/flusher:dev-master \
-        endroid/flusher-bundle:dev-master \
-        endroid/form-bundle:dev-master \
-        endroid/guide:dev-master \
-        endroid/guide-bundle:dev-master \
-        endroid/guidelines:dev-master \
-        endroid/image-placeholder:dev-master \
-        endroid/import:dev-master \
-        endroid/import-bundle:dev-master \
-        endroid/import-demo-bundle:dev-master \
         endroid/installer:dev-master \
-        endroid/pdf:dev-master \
-        endroid/play-bundle:dev-master \
-        endroid/priority-shuffle-random:dev-master \
-        endroid/property-access:dev-master \
         endroid/qr-code:dev-master \
         endroid/qr-code-bundle:dev-master \
-        endroid/simple-excel:dev-master \
-        endroid/soccer-calendar:dev-master \
-        endroid/soccer-calendar-bundle:dev-master \
-        endroid/soccer-data:dev-master \
-        endroid/sudoku:dev-master \
-        endroid/sudoku-bundle:dev-master \
-        endroid/teleporter:dev-master \
-        endroid/test:dev-master \
-        endroid/tile:dev-master \
-        endroid/tile-bundle:dev-master \
-        endroid/twitter:dev-master \
-        friendsofsymfony/ckeditor-bundle \
-        gesdinet/jwt-refresh-token-bundle \
-        helios-ag/fm-elfinder-bundle \
-        hwi/oauth-bundle \
-        knplabs/knp-snappy-bundle \
-        nelmio/cors-bundle \
-        nelmio/security-bundle \
-        php-ai/php-ml \
-        php-http/httplug-bundle:1.13.1 \
-        predis/predis \
-        pusher/pusher-php-server \
-        ramsey/uuid-doctrine \
-        ruflin/elastica \
-        sensiolabs/security-checker \
-        snc/redis-bundle \
-        sonata-project/doctrine-orm-admin-bundle \
         symfony/lock \
-        symfony/mercure-bundle \
         symfony/messenger \
-        symfony/templating \
         symfony/webpack-encore-bundle \
-        webonyx/graphql-php \
         --no-update
-
-    php -d memory_limit=-1 composer require \
-        behat/mink:dev-master \
-        behat/mink-extension \
-        behat/mink-goutte-driver \
-        behat/mink-selenium2-driver \
-        behat/symfony2-extension \
-        behatch/contexts \
-        rpkamp/mailhog-mink-behat-context \
-        --no-update --dev
 
 fi
 
+php -d memory_limit=-1 composer update --no-progress -n
 php -d memory_limit=-1 composer install --no-progress -n
 
 rm -rf features/demo.feature
@@ -118,7 +60,6 @@ sed -i -e 's/Nelmio\\Alice\\Bridge\\Symfony\\NelmioAliceBundle::class => \[\x27d
 sed -i -e 's/Fidry\\AliceDataFixtures\\Bridge\\Symfony\\FidryAliceDataFixturesBundle::class => \[\x27dev\x27 => true,/Fidry\\AliceDataFixtures\\Bridge\\Symfony\\FidryAliceDataFixturesBundle::class => \[\x27all\x27 => true,/g' config/bundles.php
 sed -i -e 's/Hautelook\\AliceBundle\\HautelookAliceBundle::class => \[\x27dev\x27 => true,/Hautelook\\AliceBundle\\HautelookAliceBundle::class => \[\x27all\x27 => true,/g' config/bundles.php
 
-yarn build
 bin/setup
 
 #vendor/bin/test

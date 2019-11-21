@@ -3,7 +3,7 @@ services:
     mailhog:
         ports:
             - 8025:8025
-    mariadb:
+    mysql:
         ports:
             - 3306:3306
     php:

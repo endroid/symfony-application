@@ -5,13 +5,13 @@ services:
         expose:
             - 1025
             - 8025
-    mariadb:
-        build: docker/mariadb/
+    mysql:
+        build: docker/mysql/
         environment:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: application
         volumes:
-            - ./docker/mariadb/data:/var/lib/mysql
+            - ./docker/mysql/data:/var/lib/mysql
         expose:
             - 3306
     redis:
@@ -39,7 +39,7 @@ services:
             - ~/.cache/yarn:/var/www/.cache/yarn
             - ~/.composer/cache:/var/www/.composer/cache
         depends_on:
-            - mariadb
+            - mysql
             - redis
         dns:
             - 8.8.8.8

@@ -1,0 +1,62 @@
+
+
+    php -d memory_limit=-1 composer require \
+        friendsofsymfony/user-bundle \
+        hautelook/alice-bundle \
+        endroid/adventure-bundle:dev-master \
+        endroid/cm-sms-bundle:dev-master \
+        endroid/data-sanitize-demo-bundle:dev-master \
+        endroid/flusher-bundle:dev-master \
+        endroid/form-bundle:dev-master \
+        endroid/guide:dev-master \
+        endroid/guide-bundle:dev-master \
+        endroid/guidelines:dev-master \
+        endroid/image-placeholder:dev-master \
+        endroid/import:dev-master \
+        endroid/import-bundle:dev-master \
+        endroid/import-demo-bundle:dev-master \
+        endroid/pdf:dev-master \
+        endroid/play-bundle:dev-master \
+        endroid/priority-shuffle-random:dev-master \
+        endroid/property-access:dev-master \
+        endroid/simple-excel:dev-master \
+        endroid/soccer-calendar:dev-master \
+        endroid/soccer-calendar-bundle:dev-master \
+        endroid/soccer-data:dev-master \
+        endroid/sudoku:dev-master \
+        endroid/sudoku-bundle:dev-master \
+        endroid/teleporter:dev-master \
+        endroid/test:dev-master \
+        endroid/tile:dev-master \
+        endroid/tile-bundle:dev-master \
+        endroid/twitter:dev-master \
+        friendsofsymfony/ckeditor-bundle \
+        gesdinet/jwt-refresh-token-bundle \
+        helios-ag/fm-elfinder-bundle \
+        hwi/oauth-bundle \
+        knplabs/knp-snappy-bundle \
+        nelmio/cors-bundle \
+        nelmio/security-bundle \
+        php-ai/php-ml \
+        php-http/httplug-bundle:1.13.1 \
+        predis/predis \
+        pusher/pusher-php-server \
+        ramsey/uuid-doctrine \
+        ruflin/elastica \
+        sensiolabs/security-checker \
+        snc/redis-bundle \
+        sonata-project/doctrine-orm-admin-bundle \
+        symfony/mercure-bundle \
+        symfony/templating \
+        webonyx/graphql-php \
+        --no-update
+
+    php -d memory_limit=-1 composer require \
+        behat/mink:dev-master \
+        behat/mink-extension \
+        behat/mink-goutte-driver \
+        behat/mink-selenium2-driver \
+        behat/symfony2-extension \
+        behatch/contexts \
+        rpkamp/mailhog-mink-behat-context \
+        --no-update --dev
