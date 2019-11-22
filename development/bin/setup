@@ -2,7 +2,7 @@
 
 set -e
 
-yarn build
+yarn -s build
 
 curl -sS https://getcomposer.org/installer | php -- --filename=composer
 php -d memory_limit=-1 composer install --prefer-dist --no-progress -n -q
@@ -10,7 +10,7 @@ php -d memory_limit=-1 composer install --prefer-dist --no-progress -n -q
 bin/console doctrine:database:create --if-not-exists -q
 bin/console doctrine:migrations:migrate -n -q
 
-bin/console ckeditor:install --no-progress-bar --clear=skip -n -q
+#bin/console ckeditor:install --no-progress-bar --clear=skip -n -q
 bin/console assets:install --symlink -q
 
 #make generate-jwt-keys
