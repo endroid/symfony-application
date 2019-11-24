@@ -16,16 +16,40 @@
         "endroid/composer-message": "dev-master",
         "endroid/data-sanitize": "dev-master",
         "endroid/data-sanitize-bundle": "dev-master",
+        "endroid/data-sanitize-demo-bundle": "dev-master",
         "endroid/documenter": "dev-master",
         "endroid/embed": "dev-master",
         "endroid/finance-bundle": "dev-master",
         "endroid/flusher": "dev-master",
+        "endroid/flusher-bundle": "dev-master",
+        "endroid/guide": "dev-master",
+        "endroid/guide-bundle": "dev-master",
+        "endroid/guidelines": "dev-master",
+        "endroid/image-placeholder": "dev-master",
+        "endroid/import": "dev-master",
+        "endroid/import-bundle": "dev-master",
+        "endroid/import-demo-bundle": "dev-master",
         "endroid/installer": "dev-master",
+        "endroid/play-bundle": "dev-master",
+        "endroid/priority-shuffle-random": "dev-master",
+        "endroid/property-access": "dev-master",
         "endroid/qr-code": "dev-master",
         "endroid/qr-code-bundle": "dev-master",
+        "endroid/simple-excel": "dev-master",
+        "endroid/soccer-calendar": "dev-master",
+        "endroid/soccer-calendar-bundle": "dev-master",
+        "endroid/soccer-data": "dev-master",
+        "endroid/sudoku": "dev-master",
+        "endroid/sudoku-bundle": "dev-master",
+        "endroid/teleporter": "dev-master",
         "endroid/test": "dev-master",
+        "endroid/tile": "dev-master",
+        "endroid/tile-bundle": "dev-master",
+        "lexik/jwt-authentication-bundle": "^2.6",
+        "php-ai/php-ml": "^0.8.0",
         "ruflin/elastica": "^6.1",
         "sensio/framework-extra-bundle": "^5.1",
+        "sensiolabs/security-checker": "^6.0",
         "symfony/asset": "*",
         "symfony/console": "*",
         "symfony/dotenv": "*",
@@ -37,6 +61,7 @@
         "symfony/intl": "*",
         "symfony/lock": "^5.0",
         "symfony/mailer": "*",
+        "symfony/mercure-bundle": "^0.2.3",
         "symfony/messenger": "^5.0",
         "symfony/monolog-bundle": "^3.1",
         "symfony/notifier": "*",
@@ -50,7 +75,8 @@
         "symfony/validator": "*",
         "symfony/web-link": "*",
         "symfony/webpack-encore-bundle": "^1.7",
-        "symfony/yaml": "*"
+        "symfony/yaml": "*",
+        "webonyx/graphql-php": "^0.13.8"
     },
     "require-dev": {
         "symfony/debug-pack": "*",
@@ -86,7 +112,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "security-checker security:check": "script"
         },
         "post-install-cmd": [
             "@auto-scripts"

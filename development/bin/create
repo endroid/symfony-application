@@ -26,23 +26,48 @@ if [ "$1" != "prod" ]; then
         endroid/composer-message:dev-master \
         endroid/data-sanitize:dev-master \
         endroid/data-sanitize-bundle:dev-master \
+        endroid/data-sanitize-demo-bundle:dev-master \
         endroid/documenter:dev-master \
         endroid/embed:dev-master \
         endroid/finance-bundle:dev-master \
         endroid/flusher:dev-master \
+        endroid/flusher-bundle:dev-master \
+        endroid/guide:dev-master \
+        endroid/guide-bundle:dev-master \
+        endroid/guidelines:dev-master \
+        endroid/image-placeholder:dev-master \
+        endroid/import:dev-master \
+        endroid/import-bundle:dev-master \
+        endroid/import-demo-bundle:dev-master \
         endroid/installer:dev-master \
+        endroid/play-bundle:dev-master \
+        endroid/priority-shuffle-random:dev-master \
+        endroid/property-access:dev-master \
         endroid/qr-code:dev-master \
         endroid/qr-code-bundle:dev-master \
+        endroid/simple-excel:dev-master \
+        endroid/soccer-calendar:dev-master \
+        endroid/soccer-calendar-bundle:dev-master \
+        endroid/soccer-data:dev-master \
+        endroid/sudoku:dev-master \
+        endroid/sudoku-bundle:dev-master \
+        endroid/teleporter:dev-master \
         endroid/test:dev-master \
+        endroid/tile:dev-master \
+        endroid/tile-bundle:dev-master \
+        lexik/jwt-authentication-bundle \
+        php-ai/php-ml \
         ruflin/elastica \
+        sensiolabs/security-checker \
         symfony/lock \
+        symfony/mercure-bundle \
         symfony/messenger \
         symfony/webpack-encore-bundle \
+        webonyx/graphql-php \
         --no-update
 
 fi
 
-php -d memory_limit=-1 composer install --no-progress -n
 php -d memory_limit=-1 composer install --no-progress -n
 
 rm -rf features/demo.feature
