@@ -28,7 +28,6 @@
         endroid/teleporter:dev-master \
         endroid/tile:dev-master \
         endroid/tile-bundle:dev-master \
-        endroid/twitter:dev-master \
         friendsofsymfony/ckeditor-bundle \
         gesdinet/jwt-refresh-token-bundle \
         helios-ag/fm-elfinder-bundle \
