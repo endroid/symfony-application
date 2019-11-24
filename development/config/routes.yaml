@@ -1,4 +1,4 @@
-index:
+app:
     path: /{all}
     controller: App\Controller\AppController
     requirements:

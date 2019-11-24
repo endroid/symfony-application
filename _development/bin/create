@@ -1,7 +1,6 @@
 # Not compatible: subscribed on updates
 
         friendsofsymfony/ckeditor-bundle \
-        friendsofsymfony/user-bundle \
         hautelook/alice-bundle \ (not reported yet)
         hwi/oauth-bundle \ (subscribed)
         endroid/form-bundle:dev-master \ (depends on incompatible sonata admin)
