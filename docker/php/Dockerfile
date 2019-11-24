@@ -1,10 +1,10 @@
-FROM php:7.3-fpm
+FROM php:7.4-rc-fpm
 
 # User permissions
 RUN usermod -u 1000 www-data
 RUN chown -R 1000 /var/www/
 
-RUN apt-get update && apt-get install -y git libzip-dev unzip wget vim nano gnupg bash-completion iputils-ping libxslt-dev zlib1g-dev libicu-dev g++ libssl-dev libxml2-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libsasl2-dev libcurl4-openssl-dev pkg-config libxrender1 libfontconfig1 --fix-missing
+RUN apt-get update && apt-get install -y git libzip-dev libonig-dev unzip wget vim nano gnupg bash-completion iputils-ping libxslt-dev zlib1g-dev libicu-dev g++ libssl-dev libxml2-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libsasl2-dev libcurl4-openssl-dev pkg-config libxrender1 libfontconfig1 --fix-missing
 
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y yarn --fix-missing
 # Blackfire
 RUN wget -q -O - https://packages.blackfire.io/gpg.key | apt-key add -
 RUN echo "deb http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list
-RUN apt-get update && apt-get install -y blackfire-agent blackfire-php --fix-missing
+#RUN apt-get update && apt-get install -y blackfire-agent blackfire-php --fix-missing
 
 ENTRYPOINT sh /var/www/html/docker/php/entrypoint.sh && php-fpm
 
