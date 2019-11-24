@@ -1,3 +1,0 @@
-framework:
-  session:
-    handler_id: snc_redis.session.handler
