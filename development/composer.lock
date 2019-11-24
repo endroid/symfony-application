@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a4c62026f67563d51a218a78f7477cd2",
+    "content-hash": "21c07c7c5192e7c4b47eb1a0dd07f3c6",
     "packages": [
         {
             "name": "api-platform/api-pack",
@@ -1671,6 +1671,75 @@
             "time": "2019-07-19T14:48:24+00:00"
         },
         {
+            "name": "endroid/adventure-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/endroid/adventure-bundle.git",
+                "reference": "eb4a1a11576ed4b0dfeeab97490e2588be2fba86"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/endroid/adventure-bundle/zipball/eb4a1a11576ed4b0dfeeab97490e2588be2fba86",
+                "reference": "eb4a1a11576ed4b0dfeeab97490e2588be2fba86",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "^1.8.1||^2.0",
+                "doctrine/orm": "^2.6",
+                "endroid/installer": "^1.1",
+                "php": ">=7.2",
+                "ramsey/uuid": "^3.8",
+                "ramsey/uuid-doctrine": "^1.5",
+                "symfony/asset": "^4.2||^5.0",
+                "symfony/messenger": "^4.2||^5.0",
+                "symfony/yaml": "^4.2||^5.0",
+                "twig/twig": "^2.4"
+            },
+            "require-dev": {
+                "endroid/test": "dev-master"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Endroid\\AdventureBundle\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Endroid\\AdventureBundle\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen van den Enden",
+                    "email": "info@endroid.nl"
+                }
+            ],
+            "description": "Endroid Adventure Bundle",
+            "homepage": "https://github.com/endroid/adventure-bundle",
+            "keywords": [
+                "adventure",
+                "bundle",
+                "endroid",
+                "php",
+                "symfony"
+            ],
+            "support": {
+                "source": "https://github.com/endroid/adventure-bundle/tree/master",
+                "issues": "https://github.com/endroid/adventure-bundle/issues"
+            },
+            "time": "2019-11-24T20:14:22+00:00"
+        },
+        {
             "name": "endroid/asset",
             "version": "dev-master",
             "source": {
@@ -1841,6 +1910,65 @@
                 "sms"
             ],
             "time": "2019-11-23T10:53:01+00:00"
+        },
+        {
+            "name": "endroid/cm-sms-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/endroid/cm-sms-bundle.git",
+                "reference": "ca890529c5cdc5fcb987f570273b7af3ab0e7f1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/endroid/cm-sms-bundle/zipball/ca890529c5cdc5fcb987f570273b7af3ab0e7f1b",
+                "reference": "ca890529c5cdc5fcb987f570273b7af3ab0e7f1b",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "^1.8.1||^2.0",
+                "doctrine/orm": "^2.6",
+                "endroid/cm-sms": "^2.0",
+                "php": ">=7.2",
+                "symfony/asset": "^3.4||^4.0||^5.0",
+                "symfony/web-link": "^3.4||^4.0||^5.0",
+                "twig/twig": "^2.4"
+            },
+            "require-dev": {
+                "endroid/test": "dev-master"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Endroid\\CmSmsBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen van den Enden",
+                    "email": "info@endroid.nl"
+                }
+            ],
+            "description": "Endroid CM SMS Bundle",
+            "homepage": "https://github.com/endroid/cm-sms-bundle",
+            "keywords": [
+                "bundle",
+                "cm",
+                "endroid",
+                "php",
+                "sms",
+                "symfony"
+            ],
+            "time": "2019-11-24T20:21:37+00:00"
         },
         {
             "name": "endroid/composer-message",
@@ -6686,6 +6814,63 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
+        },
+        {
+            "name": "ramsey/uuid-doctrine",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramsey/uuid-doctrine.git",
+                "reference": "2a56db8e68bff487508244f5a2008075279d0255"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/uuid-doctrine/zipball/2a56db8e68bff487508244f5a2008075279d0255",
+                "reference": "2a56db8e68bff487508244f5a2008075279d0255",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "^2.5",
+                "php": "^5.4 || ^7.0",
+                "ramsey/uuid": "^3.0"
+            },
+            "require-dev": {
+                "jakub-onderka/php-parallel-lint": "^1.0",
+                "mockery/mockery": "^0.9 || ^1.1",
+                "php-coveralls/php-coveralls": "^1.1 || ^2.1",
+                "phpunit/phpunit": "^4.8 || ^5.7 || ^6.5",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ramsey\\Uuid\\Doctrine\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marijn Huizendveld",
+                    "email": "marijn.huizendveld@gmail.com"
+                },
+                {
+                    "name": "Ben Ramsey",
+                    "email": "ben@benramsey.com",
+                    "homepage": "http://benramsey.com"
+                }
+            ],
+            "description": "Allow the use of a ramsey/uuid UUID as Doctrine field type.",
+            "homepage": "https://github.com/ramsey/uuid-doctrine",
+            "keywords": [
+                "doctrine",
+                "guid",
+                "identifier",
+                "uuid"
+            ],
+            "time": "2018-08-11T21:01:22+00:00"
         },
         {
             "name": "react/promise",
@@ -12273,9 +12458,11 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "endroid/adventure-bundle": 20,
         "endroid/asset": 20,
         "endroid/calendar": 20,
         "endroid/cm-sms": 20,
+        "endroid/cm-sms-bundle": 20,
         "endroid/composer-message": 20,
         "endroid/data-sanitize": 20,
         "endroid/data-sanitize-bundle": 20,
