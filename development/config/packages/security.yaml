@@ -1,7 +1,8 @@
 security:
     encoders:
         App\Entity\User:
-            algorithm: sodium
+            algorithm: bcrypt
+            cost: 13
 
     providers:
         app_user_provider:

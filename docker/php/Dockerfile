@@ -1,4 +1,4 @@
-FROM php:7.4-rc-fpm
+FROM php:7.3-fpm
 
 # User permissions
 RUN usermod -u 1000 www-data
