@@ -8,6 +8,5 @@
         gesdinet/jwt-refresh-token-bundle \ (not reported yet)
         helios-ag/fm-elfinder-bundle \ (not reported yet)
         knplabs/knp-snappy-bundle \ (subscribed)
-        nelmio/security-bundle \ (subscribed)
         sonata-project/doctrine-orm-admin-bundle \ (subscribed)
         symfony/templating \
