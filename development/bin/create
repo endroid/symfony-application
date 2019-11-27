@@ -58,7 +58,6 @@ if [ "$1" != "prod" ]; then
         endroid/test:dev-master \
         endroid/tile:dev-master \
         endroid/tile-bundle:dev-master \
-        hwi/oauth-bundle:dev-symfony-5 \
         lexik/jwt-authentication-bundle \
         php-ai/php-ml \
         predis/predis \

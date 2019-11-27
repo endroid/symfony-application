@@ -2,6 +2,7 @@
 
         friendsofsymfony/ckeditor-bundle \
         hautelook/alice-bundle \ (not reported yet)
+        hwi/oauth-bundle:dev-symfony-5 \ (wip, issue with httplug-bundle / httpclient compatibility)
         endroid/form-bundle:dev-master \ (depends on incompatible sonata admin)
         endroid/pdf:dev-master \ (snappy + bundle not compatible)
         gesdinet/jwt-refresh-token-bundle \ (not reported yet)
