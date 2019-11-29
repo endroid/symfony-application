@@ -1,4 +1,4 @@
-FROM php:7.3-fpm
+FROM php:7.4-fpm
 
 # User permissions
 RUN usermod -u 1000 www-data
@@ -11,7 +11,7 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
 RUN docker-php-ext-install zip bcmath ftp gd iconv intl mbstring opcache pcntl pdo pdo_mysql soap xsl
 
 # Custom PHP settings
-ADD application.ini /usr/local/etc/php/conf.d/application.ini
+ADD zzzz-config.ini /usr/local/etc/php/conf.d/zzzz-config.ini
 
 # Composer
 RUN curl -LsS https://getcomposer.org/installer | php
