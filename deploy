@@ -19,4 +19,4 @@ docker-compose exec mariadb mysql -proot -Bse "DROP DATABASE IF EXISTS applicati
 docker-compose exec nginx docker/nginx/ssl/certbot
 docker-compose exec --user 1000 php /bin/bash bin/build play
 docker-compose exec --user 1000 php /bin/bash -c "cd symfony-start && bin/setup"
-docker-compose exec --user 1000 php /bin/bash -c "cd symfony-start && bin/console hautelook:fixtures:load -n"
+docker-compose exec --user 1000 php /bin/bash -c "cd symfony-start && bin/console doctrine:fixtures:load -n"
