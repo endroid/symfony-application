@@ -32,6 +32,7 @@
         "endroid/import-bundle": "dev-master",
         "endroid/import-demo-bundle": "dev-master",
         "endroid/installer": "dev-master",
+        "endroid/pdf": "dev-master",
         "endroid/play-bundle": "dev-master",
         "endroid/priority-shuffle-random": "dev-master",
         "endroid/property-access": "dev-master",
@@ -142,10 +143,6 @@
         "adventure-bundle": {
             "type": "vcs",
             "url": "git@github.com:endroid/adventure-bundle.git"
-        },
-        "hwi-oauth-bundle": {
-            "type": "vcs",
-            "url": "git@github.com:Jeroeny/HWIOAuthBundle.git"
         }
     }
 }

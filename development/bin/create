@@ -15,7 +15,6 @@ if [ "$1" != "prod" ]; then
 
     php -d memory_limit=-1 composer config repositories.play-bundle vcs git@github.com:endroid/play-bundle.git
     php -d memory_limit=-1 composer config repositories.adventure-bundle vcs git@github.com:endroid/adventure-bundle.git
-    php -d memory_limit=-1 composer config repositories.hwi-oauth-bundle vcs git@github.com:Jeroeny/HWIOAuthBundle.git
 
     php -d memory_limit=-1 composer require \
         api-platform/api-pack \
@@ -43,6 +42,7 @@ if [ "$1" != "prod" ]; then
         endroid/import-bundle:dev-master \
         endroid/import-demo-bundle:dev-master \
         endroid/installer:dev-master \
+        endroid/pdf:dev-master \
         endroid/play-bundle:dev-master \
         endroid/priority-shuffle-random:dev-master \
         endroid/property-access:dev-master \
