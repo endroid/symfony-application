@@ -10,7 +10,7 @@
         "api-platform/api-pack": "^1.2",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
         "doctrine/doctrine-migrations-bundle": "^2.1",
-        "easycorp/easyadmin-bundle": "^2.3",
+        "easycorp/easyadmin-bundle": "^2.0@dev",
         "endroid/adventure-bundle": "dev-master",
         "endroid/asset": "dev-master",
         "endroid/calendar": "dev-master",
@@ -118,6 +118,9 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
+			"doctrine:cache:clear-metadata": "symfony-cmd",
+			"doctrine:cache:clear-result": "symfony-cmd",
+			"doctrine:cache:clear-query": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
             "security-checker security:check": "script"
         },

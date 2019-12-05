@@ -20,7 +20,7 @@ if [ "$1" != "prod" ]; then
         api-platform/api-pack \
         doctrine/doctrine-fixtures-bundle \
         doctrine/doctrine-migrations-bundle \
-        easycorp/easyadmin-bundle \
+        easycorp/easyadmin-bundle:^2.0@dev \
         endroid/adventure-bundle:dev-master \
         endroid/asset:dev-master \
         endroid/calendar:dev-master \
@@ -75,6 +75,9 @@ if [ "$1" != "prod" ]; then
 fi
 
 php -d memory_limit=-1 composer install --no-progress -n
+
+# Clear redis caches except sessions after code update
+sed -i 's/"cache:clear": "symfony-cmd",/"cache:clear": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-metadata": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-result": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-query": "symfony-cmd",/' composer.json
 
 rm -rf features/demo.feature
 

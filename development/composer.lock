@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c654796b9acae214c66984f4f092e7d",
+    "content-hash": "07e465aa0fca1713619616c88d01acf8",
     "packages": [
         {
             "name": "api-platform/api-pack",
@@ -1599,16 +1599,16 @@
         },
         {
             "name": "easycorp/easyadmin-bundle",
-            "version": "v2.3.3",
+            "version": "2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EasyCorp/EasyAdminBundle.git",
-                "reference": "daa33be55f5ae24041bbe2aa428d39cedbc4a0f4"
+                "reference": "5d7ce9f156ff972258f26c320cd1fcc74b8e5f6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/daa33be55f5ae24041bbe2aa428d39cedbc4a0f4",
-                "reference": "daa33be55f5ae24041bbe2aa428d39cedbc4a0f4",
+                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/5d7ce9f156ff972258f26c320cd1fcc74b8e5f6e",
+                "reference": "5d7ce9f156ff972258f26c320cd1fcc74b8e5f6e",
                 "shasum": ""
             },
             "require": {
@@ -1679,7 +1679,7 @@
                 "backend",
                 "generator"
             ],
-            "time": "2019-11-08T09:47:25+00:00"
+            "time": "2019-11-15T18:46:31+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -13437,6 +13437,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "easycorp/easyadmin-bundle": 20,
         "endroid/adventure-bundle": 20,
         "endroid/asset": 20,
         "endroid/calendar": 20,
