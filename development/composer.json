@@ -48,8 +48,10 @@
         "endroid/test": "dev-master",
         "endroid/tile": "dev-master",
         "endroid/tile-bundle": "dev-master",
+        "knplabs/knp-snappy-bundle": "dev-symfony5",
         "lexik/jwt-authentication-bundle": "^2.6",
         "nelmio/alice": "^3.5",
+        "nelmio/security-bundle": "dev-symfony5-simple",
         "php-ai/php-ml": "^0.8.0",
         "predis/predis": "^1.1",
         "ruflin/elastica": "^6.1",
@@ -148,6 +150,14 @@
         "adventure-bundle": {
             "type": "vcs",
             "url": "git@github.com:endroid/adventure-bundle.git"
+        },
+        "security-bundle": {
+            "type": "vcs",
+            "url": "git@github.com:damienalexandre/NelmioSecurityBundle.git"
+        },
+        "knp-snappy-bundle": {
+            "type": "vcs",
+            "url": "git@github.com:zairigimad/KnpSnappyBundle.git"
         }
     }
 }
