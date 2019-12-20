@@ -15,14 +15,13 @@ if [ "$1" != "prod" ]; then
 
     php -d memory_limit=-1 composer config repositories.play-bundle vcs git@github.com:endroid/play-bundle.git
     php -d memory_limit=-1 composer config repositories.adventure-bundle vcs git@github.com:endroid/adventure-bundle.git
-    php -d memory_limit=-1 composer config repositories.security-bundle vcs git@github.com:damienalexandre/NelmioSecurityBundle.git
     php -d memory_limit=-1 composer config repositories.knp-snappy-bundle vcs git@github.com:zairigimad/KnpSnappyBundle.git
 
     php -d memory_limit=-1 composer require \
         api-platform/api-pack \
         doctrine/doctrine-fixtures-bundle \
         doctrine/doctrine-migrations-bundle \
-        easycorp/easyadmin-bundle:^2.0@dev \
+        easycorp/easyadmin-bundle \
         endroid/adventure-bundle:dev-master \
         endroid/asset:dev-master \
         endroid/calendar:dev-master \
@@ -63,7 +62,6 @@ if [ "$1" != "prod" ]; then
         knplabs/knp-snappy-bundle:dev-symfony5 \
         lexik/jwt-authentication-bundle \
         nelmio/alice \
-        nelmio/security-bundle:dev-symfony5-simple \
         php-ai/php-ml \
         predis/predis \
         ruflin/elastica \

@@ -33,6 +33,10 @@ RUN wget -q -O - https://packages.blackfire.io/gpg.key | apt-key add -
 RUN echo "deb http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list
 RUN apt-get update && apt-get install -y blackfire-agent blackfire-php --fix-missing
 
+# Install pcov
+RUN pecl install pcov
+RUN docker-php-ext-enable pcov
+
 ENTRYPOINT sh /var/www/html/docker/php/entrypoint.sh && php-fpm
 
 ADD .bashrc /var/www/.bashrc

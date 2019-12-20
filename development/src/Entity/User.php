@@ -97,6 +97,9 @@ class User implements UserInterface
     {
         $this->plainPassword = $plainPassword;
 
+        // This line makes sure the doctrine lifecycle event is triggered
+        $this->password = null;
+
         return $this;
     }
 

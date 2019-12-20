@@ -29,11 +29,6 @@ security:
                 path: app_logout
                 target: app
 
-        api_refresh:
-            pattern: ^/api/token/refresh
-            stateless: true
-            anonymous: true
-
         api_login:
             pattern: ^/api/login
             stateless: true
@@ -56,6 +51,5 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin/, role: ROLE_ADMIN }
-        - { path: ^/api/token/refresh, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api, role: IS_AUTHENTICATED_FULLY }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

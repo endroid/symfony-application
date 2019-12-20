@@ -6,7 +6,6 @@ easy_admin:
         User:
             label: User
             class: App\Entity\User
-            controller: App\Controller\Admin\UserController
             form:
                 fields:
                     - { property: 'roles', type: 'choice', type_options: { expanded: true, multiple: true, choices: { 'Normal user': 'ROLE_USER', 'Administrator': 'ROLE_ADMIN' }}}

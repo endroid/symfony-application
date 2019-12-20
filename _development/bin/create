@@ -1,6 +1,3 @@
 # Not compatible: subscribed on updates
 
-#        hautelook/alice-bundle \ (not reported yet)
-#        sentry/sentry-symfony \
 #        hwi/oauth-bundle \ (wip, issue with httplug-bundle / httpclient compatibility)
-#        gesdinet/jwt-refresh-token-bundle \ (not reported yet)
