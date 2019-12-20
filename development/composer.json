@@ -10,7 +10,7 @@
         "api-platform/api-pack": "^1.2",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
         "doctrine/doctrine-migrations-bundle": "^2.1",
-        "easycorp/easyadmin-bundle": "^2.0@dev",
+        "easycorp/easyadmin-bundle": "^2.3",
         "endroid/adventure-bundle": "dev-master",
         "endroid/asset": "dev-master",
         "endroid/calendar": "dev-master",
