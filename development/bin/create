@@ -49,7 +49,7 @@ if [ "$1" != "prod" ]; then
         endroid/property-access:dev-master \
         endroid/qr-code:dev-master \
         endroid/qr-code-bundle:dev-master \
-        endroid/simple-excel:dev-master \
+        endroid/simple-spreadsheet:dev-master \
         endroid/soccer-calendar:dev-master \
         endroid/soccer-calendar-bundle:dev-master \
         endroid/soccer-data:dev-master \
