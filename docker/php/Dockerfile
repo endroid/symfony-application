@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y git rsync libzip-dev libonig-dev unzip 
 
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-freetype
-RUN docker-php-ext-install zip bcmath ftp gd iconv intl mbstring opcache pcntl pdo pdo_mysql soap xsl
+RUN docker-php-ext-install zip bcmath exif ftp gd iconv intl mbstring opcache pcntl pdo pdo_mysql soap xsl
 
 # Custom PHP settings
 ADD zzzz-config.ini /usr/local/etc/php/conf.d/zzzz-config.ini
