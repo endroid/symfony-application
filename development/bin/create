@@ -83,7 +83,7 @@ sed -i 's/"cache:clear": "symfony-cmd",/"cache:clear": "symfony-cmd",\n\t\t\t"do
 rm -rf features/demo.feature
 
 yarn add -s vue
-yarn add -s vue-loader vue-template-compiler @babel/plugin-transform-runtime @babel/runtime --dev
+yarn add -s vue-loader@15.0.11 vue-template-compiler @babel/plugin-transform-runtime @babel/runtime --dev
 yarn add -s @vue/babel-preset-jsx @vue/babel-helper-vue-jsx-merge-props --dev
 yarn add -s vue-router
 
