@@ -49,7 +49,7 @@
         "endroid/tile-bundle": "dev-master",
         "knplabs/knp-snappy-bundle": "dev-symfony5",
         "lexik/jwt-authentication-bundle": "^2.6",
-        "nelmio/alice": "^3.5",
+        "nelmio/alice": "^3.6",
         "php-ai/php-ml": "^0.8.0",
         "predis/predis": "^1.1",
         "ruflin/elastica": "^6.1",
