@@ -140,6 +140,8 @@
             "require": "5.0.*"
         }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "repositories": {
         "play-bundle": {
             "type": "vcs",
