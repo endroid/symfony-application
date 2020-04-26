@@ -17,7 +17,6 @@ if [ "$1" != "prod" ]; then
 
     php -d memory_limit=-1 composer config repositories.play-bundle vcs git@github.com:endroid/play-bundle.git
     php -d memory_limit=-1 composer config repositories.adventure-bundle vcs git@github.com:endroid/adventure-bundle.git
-    php -d memory_limit=-1 composer config repositories.knp-snappy-bundle vcs git@github.com:zairigimad/KnpSnappyBundle.git
 
     php -d memory_limit=-1 composer require \
         api-platform/api-pack \
@@ -51,22 +50,21 @@ if [ "$1" != "prod" ]; then
         endroid/property-access:dev-master \
         endroid/qr-code:dev-master \
         endroid/qr-code-bundle:dev-master \
+        endroid/quality:dev-master \
         endroid/simple-spreadsheet:dev-master \
         endroid/soccer-calendar:dev-master \
         endroid/soccer-calendar-bundle:dev-master \
         endroid/soccer-data:dev-master \
         endroid/sudoku:dev-master \
         endroid/teleporter:dev-master \
-        endroid/test:dev-master \
         endroid/tile:dev-master \
         endroid/tile-bundle:dev-master \
-        knplabs/knp-snappy-bundle:dev-symfony5 \
+        knplabs/knp-snappy-bundle \
         lexik/jwt-authentication-bundle \
         nelmio/alice \
         php-ai/php-ml \
         predis/predis \
         ruflin/elastica \
-        sensiolabs/security-checker \
         snc/redis-bundle \
         symfony/lock \
         symfony/mercure-bundle \
@@ -78,9 +76,6 @@ if [ "$1" != "prod" ]; then
 fi
 
 php -d memory_limit=-1 composer install --no-progress -n
-
-# Clear redis caches except sessions after code update
-sed -i 's/"cache:clear": "symfony-cmd",/"cache:clear": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-metadata": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-result": "symfony-cmd",\n\t\t\t"doctrine:cache:clear-query": "symfony-cmd",/' composer.json
 
 rm -rf features/demo.feature
 
