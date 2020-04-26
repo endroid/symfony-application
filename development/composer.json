@@ -1,0 +1,150 @@
+{
+    "name": "symfony/website-skeleton",
+    "type": "project",
+    "license": "MIT",
+    "description": "A skeleton to start a new Symfony website",
+    "require": {
+        "php": "^7.2.5",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "api-platform/api-pack": "^1.2",
+        "doctrine/doctrine-fixtures-bundle": "^3.3",
+        "doctrine/doctrine-migrations-bundle": "^2.1",
+        "easycorp/easyadmin-bundle": "^2.3",
+        "endroid/adventure-bundle": "dev-master",
+        "endroid/asset": "dev-master",
+        "endroid/calendar": "dev-master",
+        "endroid/cm-sms": "dev-master",
+        "endroid/cm-sms-bundle": "dev-master",
+        "endroid/composer-message": "dev-master",
+        "endroid/data-sanitize": "dev-master",
+        "endroid/data-sanitize-bundle": "dev-master",
+        "endroid/data-sanitize-demo-bundle": "dev-master",
+        "endroid/documenter": "dev-master",
+        "endroid/embed": "dev-master",
+        "endroid/finance-bundle": "dev-master",
+        "endroid/flusher": "dev-master",
+        "endroid/guide": "dev-master",
+        "endroid/guide-bundle": "dev-master",
+        "endroid/guidelines": "dev-master",
+        "endroid/image-placeholder": "dev-master",
+        "endroid/import": "dev-master",
+        "endroid/import-bundle": "dev-master",
+        "endroid/import-demo-bundle": "dev-master",
+        "endroid/installer": "dev-master",
+        "endroid/pdf": "dev-master",
+        "endroid/play-bundle": "dev-master",
+        "endroid/priority-shuffle-random": "dev-master",
+        "endroid/property-access": "dev-master",
+        "endroid/qr-code": "dev-master",
+        "endroid/qr-code-bundle": "dev-master",
+        "endroid/quality": "dev-master",
+        "endroid/simple-spreadsheet": "dev-master",
+        "endroid/soccer-calendar": "dev-master",
+        "endroid/soccer-calendar-bundle": "dev-master",
+        "endroid/soccer-data": "dev-master",
+        "endroid/sudoku": "dev-master",
+        "endroid/teleporter": "dev-master",
+        "endroid/tile": "dev-master",
+        "endroid/tile-bundle": "dev-master",
+        "knplabs/knp-snappy-bundle": "^1.7",
+        "lexik/jwt-authentication-bundle": "^2.6",
+        "nelmio/alice": "^3.6",
+        "php-ai/php-ml": "^0.8.0",
+        "predis/predis": "^1.1",
+        "ruflin/elastica": "^6.1",
+        "sensio/framework-extra-bundle": "^5.1",
+        "snc/redis-bundle": "^3.2",
+        "symfony/asset": "*",
+        "symfony/console": "*",
+        "symfony/dotenv": "*",
+        "symfony/expression-language": "*",
+        "symfony/flex": "^1.3.1",
+        "symfony/form": "*",
+        "symfony/framework-bundle": "*",
+        "symfony/http-client": "*",
+        "symfony/intl": "*",
+        "symfony/lock": "^5.0",
+        "symfony/mailer": "*",
+        "symfony/mercure-bundle": "^0.2.3",
+        "symfony/messenger": "^5.0",
+        "symfony/monolog-bundle": "^3.1",
+        "symfony/notifier": "*",
+        "symfony/orm-pack": "*",
+        "symfony/process": "*",
+        "symfony/security-bundle": "*",
+        "symfony/serializer-pack": "*",
+        "symfony/string": "*",
+        "symfony/translation": "*",
+        "symfony/twig-pack": "*",
+        "symfony/validator": "*",
+        "symfony/web-link": "*",
+        "symfony/webpack-encore-bundle": "^1.7",
+        "symfony/yaml": "*",
+        "webonyx/graphql-php": "^0.13.8"
+    },
+    "require-dev": {
+        "symfony/debug-pack": "*",
+        "symfony/maker-bundle": "^1.0",
+        "symfony/profiler-pack": "*",
+        "symfony/test-pack": "*"
+    },
+    "config": {
+        "preferred-install": {
+            "endroid/*":"source","*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "paragonie/random_compat": "2.*",
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php71": "*",
+        "symfony/polyfill-php70": "*",
+        "symfony/polyfill-php56": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": "true",
+            "require": "5.0.*"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": {
+        "play-bundle": {
+            "type": "vcs",
+            "url": "git@github.com:endroid/play-bundle.git"
+        },
+        "adventure-bundle": {
+            "type": "vcs",
+            "url": "git@github.com:endroid/adventure-bundle.git"
+        }
+    }
+}
