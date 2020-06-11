@@ -11,17 +11,17 @@ if [ "$1" != "prod" ]; then
     composer config minimum-stability dev
     composer config prefer-stable true
     composer config extra.symfony.allow-contrib true
+    composer config platform.php 7.4
 
     # Use source when installing personal libraries
     sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
 
-    php -d memory_limit=-1 composer config repositories.play-bundle vcs git@github.com:endroid/play-bundle.git
-    php -d memory_limit=-1 composer config repositories.adventure-bundle vcs git@github.com:endroid/adventure-bundle.git
+    composer config repositories.play-bundle vcs git@github.com:endroid/play-bundle.git
+    composer config repositories.adventure-bundle vcs git@github.com:endroid/adventure-bundle.git
 
-    php -d memory_limit=-1 composer require \
+    composer require \
         api-platform/api-pack \
         doctrine/doctrine-fixtures-bundle \
-        doctrine/doctrine-migrations-bundle \
         easycorp/easyadmin-bundle \
         endroid/adventure-bundle:dev-master \
         endroid/asset:dev-master \
@@ -32,7 +32,6 @@ if [ "$1" != "prod" ]; then
         endroid/data-sanitize:dev-master \
         endroid/data-sanitize-bundle:dev-master \
         endroid/data-sanitize-demo-bundle:dev-master \
-        endroid/documenter:dev-master \
         endroid/embed:dev-master \
         endroid/finance-bundle:dev-master \
         endroid/flusher:dev-master \
@@ -84,14 +83,10 @@ yarn add -s vue-loader@15.0.11 vue-template-compiler @babel/plugin-transform-run
 yarn add -s @vue/babel-preset-jsx @vue/babel-helper-vue-jsx-merge-props --dev
 yarn add -s vue-router
 
-bin/console doctrine:database:drop --if-exists --force -q
-bin/console doctrine:database:create -q
-bin/console doctrine:migrations:diff -q
-
-# Allow in production environment
-sed -i -e 's/Symfony\\Bundle\\WebServerBundle\\WebServerBundle::class => \[\x27dev\x27 => true\],/Symfony\\Bundle\\WebServerBundle\\WebServerBundle::class => \[\x27all\x27 => true\],/g' config/bundles.php
-sed -i -e 's/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => \[\x27dev\x27 => true,/Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle::class => \[\x27all\x27 => true,/g' config/bundles.php
+bin/console doctrine:database:drop --if-exists --force
+bin/console doctrine:database:create
+bin/console doctrine:migrations:diff
 
 bin/setup
 
-#vendor/bin/test
+bin/tasks/php-cs-fixer

@@ -1,0 +1,10 @@
+endroid_guide:
+    shows:
+        -
+            label: Homeland
+            type: epguides
+            url: http://epguides.com/Homeland/
+        -
+            label: Experimensen
+            type: npo
+            url: https://www.npo3.nl/experimensen/AT_2107362

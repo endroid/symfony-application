@@ -9,7 +9,6 @@
         "ext-iconv": "*",
         "api-platform/api-pack": "^1.2",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
-        "doctrine/doctrine-migrations-bundle": "^2.1",
         "easycorp/easyadmin-bundle": "^2.3",
         "endroid/adventure-bundle": "dev-master",
         "endroid/asset": "dev-master",
@@ -20,7 +19,6 @@
         "endroid/data-sanitize": "dev-master",
         "endroid/data-sanitize-bundle": "dev-master",
         "endroid/data-sanitize-demo-bundle": "dev-master",
-        "endroid/documenter": "dev-master",
         "endroid/embed": "dev-master",
         "endroid/finance-bundle": "dev-master",
         "endroid/flusher": "dev-master",
@@ -48,11 +46,11 @@
         "endroid/tile": "dev-master",
         "endroid/tile-bundle": "dev-master",
         "knplabs/knp-snappy-bundle": "^1.7",
-        "lexik/jwt-authentication-bundle": "^2.6",
-        "nelmio/alice": "^3.6",
-        "php-ai/php-ml": "^0.8.0",
+        "lexik/jwt-authentication-bundle": "^2.7",
+        "nelmio/alice": "^3.7",
+        "php-ai/php-ml": "^0.9.0",
         "predis/predis": "^1.1",
-        "ruflin/elastica": "^6.1",
+        "ruflin/elastica": "^7.0",
         "sensio/framework-extra-bundle": "^5.1",
         "snc/redis-bundle": "^3.2",
         "symfony/asset": "*",
@@ -64,10 +62,11 @@
         "symfony/framework-bundle": "*",
         "symfony/http-client": "*",
         "symfony/intl": "*",
-        "symfony/lock": "^5.0",
+        "symfony/lock": "^5.1",
         "symfony/mailer": "*",
-        "symfony/mercure-bundle": "^0.2.3",
-        "symfony/messenger": "^5.0",
+        "symfony/mercure-bundle": "^0.2.4",
+        "symfony/messenger": "^5.1",
+        "symfony/mime": "*",
         "symfony/monolog-bundle": "^3.1",
         "symfony/notifier": "*",
         "symfony/orm-pack": "*",
@@ -90,10 +89,14 @@
         "symfony/test-pack": "*"
     },
     "config": {
+        "optimize-autoloader": true,
         "preferred-install": {
             "endroid/*":"source","*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "php": "7.4"
+        }
     },
     "autoload": {
         "psr-4": {
@@ -132,7 +135,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": "true",
-            "require": "5.0.*"
+            "require": "5.1.*"
         }
     },
     "minimum-stability": "dev",

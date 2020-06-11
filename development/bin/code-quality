@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+bin/tasks/php-cs-fixer
+bin/tasks/phpstan
+{-- if not sylius --}
+bin/tasks/psalm
+{-- endif --}

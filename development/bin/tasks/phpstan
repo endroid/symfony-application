@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+if [ ! -f vendor/bin/phpstan ]; then
+    curl -LsS https://github.com/phpstan/phpstan/releases/download/0.12.25/phpstan.phar -o vendor/bin/phpstan --create-dirs
+    chmod +x vendor/bin/phpstan
+fi
+
+echo "Running PHPStan ..."
+vendor/bin/phpstan analyse src --configuration=phpstan.neon --level=max
