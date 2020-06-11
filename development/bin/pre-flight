@@ -1,6 +1,0 @@
-#!/bin/sh
-
-set -e
-
-bin/tasks/php-lint
-bin/tasks/security-checker

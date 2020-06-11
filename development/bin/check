@@ -1,7 +1,0 @@
-#!/bin/sh
-
-set -e
-
-bin/pre-flight
-bin/code-quality
-bin/test

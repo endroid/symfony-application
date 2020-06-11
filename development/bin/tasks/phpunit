@@ -1,6 +1,0 @@
-#!/bin/sh
-
-set -e
-
-echo "Running PHPUnit ..."
-php -d pcov.enabled=1 bin/phpunit --testdox --coverage-html=public/coverage
