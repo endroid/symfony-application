@@ -13,9 +13,9 @@ fi
 # GITHUB OAUTH
 
 if [ $GITHUB_OAUTH_TOKEN != "" ]; then
-    mkdir -p /var/www/.composer
-    chmod -R 777 /var/www/.composer
-    echo "{ \"github-oauth\": { \"github.com\": \"$GITHUB_OAUTH_TOKEN\" }}" > /var/www/.composer/auth.json
+    mkdir -p /root/.composer
+    chmod -R 777 /root/.composer
+    echo "{ \"github-oauth\": { \"github.com\": \"$GITHUB_OAUTH_TOKEN\" }}" > /root/.composer/auth.json
 fi
 
 # ERROR REPORTING
