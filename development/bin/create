@@ -34,7 +34,6 @@ composer require \
     endroid/flusher:dev-master \
     endroid/guide:dev-master \
     endroid/guide-bundle:dev-master \
-    endroid/guidelines:dev-master \
     endroid/image-placeholder:dev-master \
     endroid/import:dev-master \
     endroid/import-bundle:dev-master \
