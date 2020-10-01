@@ -5,7 +5,7 @@ if [ ! -f development/.env.local ]; then
     exit 1
 fi
 
-./stop
+docker-compose stop
 echo y | docker-compose rm
 
 git reset --hard
@@ -17,6 +17,6 @@ docker-compose up -d
 
 docker-compose exec mysql mysql -proot -Bse "DROP DATABASE IF EXISTS application"
 docker-compose exec nginx docker/nginx/ssl/certbot
-docker-compose exec --user 1000 php /bin/bash bin/build prod
-docker-compose exec --user 1000 php /bin/bash -c "cd symfony-start && bin/setup"
-docker-compose exec --user 1000 php /bin/bash -c "cd symfony-start && bin/console doctrine:fixtures:load -n"
+docker-compose exec --user 1000 php-cli /bin/bash bin/build prod
+docker-compose exec --user 1000 php-cli /bin/bash -c "cd symfony-start && bin/setup"
+docker-compose exec --user 1000 php-cli /bin/bash -c "cd symfony-start && bin/console doctrine:fixtures:load -n"
