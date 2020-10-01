@@ -6,7 +6,7 @@ services:
     mysql:
         ports:
             - 3306:3306
-    php:
+    php-cli:
         environment:
             - ENVIRONMENT=dev
             - BLACKFIRE_SERVER_ID=${BLACKFIRE_SERVER_ID}
