@@ -4,7 +4,7 @@ set -e
 
 git init
 
-curl -sS https://getcomposer.org/installer | php -- --filename=composer
+curl -sS https://getcomposer.org/installer | php -- --filename=composer --version=2.0.0-RC1
 
 if [ "$1" != "prod" ]; then
 
@@ -20,10 +20,9 @@ if [ "$1" != "prod" ]; then
     composer config repositories.adventure-bundle vcs git@github.com:endroid/adventure-bundle.git
 
     composer require \
-        api-platform/api-pack \
         doctrine/doctrine-fixtures-bundle \
-        easycorp/easyadmin-bundle \
         endroid/adventure-bundle:dev-master \
+        endroid/anonymizer:dev-master \
         endroid/asset:dev-master \
         endroid/calendar:dev-master \
         endroid/cm-sms:dev-master \
@@ -47,8 +46,8 @@ if [ "$1" != "prod" ]; then
         endroid/play-bundle:dev-master \
         endroid/priority-shuffle-random:dev-master \
         endroid/property-access:dev-master \
-        endroid/qr-code:dev-master \
-        endroid/qr-code-bundle:dev-master \
+        endroid/qr-code:4.0.x-dev \
+        endroid/qr-code-bundle:4.0.x-dev \
         endroid/quality:dev-master \
         endroid/simple-spreadsheet:dev-master \
         endroid/soccer-calendar:dev-master \
@@ -58,25 +57,15 @@ if [ "$1" != "prod" ]; then
         endroid/teleporter:dev-master \
         endroid/tile:dev-master \
         endroid/tile-bundle:dev-master \
-        knplabs/knp-snappy-bundle \
-        lexik/jwt-authentication-bundle \
-        nelmio/alice \
-        php-ai/php-ml \
         predis/predis \
-        ruflin/elastica \
         snc/redis-bundle \
-        symfony/lock \
-        symfony/mercure-bundle \
         symfony/messenger \
         symfony/webpack-encore-bundle \
-        webonyx/graphql-php \
         --no-update
 
 fi
 
-php -d memory_limit=-1 composer install --no-progress -n
-
-rm -rf features/demo.feature
+php -d memory_limit=-1 composer update --no-progress -n || php -d memory_limit=-1 composer update --no-progress -n
 
 yarn add -s vue
 yarn add -s vue-loader@15.0.11 vue-template-compiler @babel/plugin-transform-runtime @babel/runtime --dev
@@ -88,5 +77,3 @@ bin/console doctrine:database:create
 bin/console doctrine:migrations:diff
 
 bin/setup
-
-bin/tasks/php-cs-fixer

@@ -4,13 +4,9 @@ set -e
 
 yarn -s build
 
-curl -sS https://getcomposer.org/installer | php -- --filename=composer
+curl -sS https://getcomposer.org/installer | php -- --filename=composer --version=2.0.0-RC1
 php -d memory_limit=-1 composer install --prefer-dist --no-progress -n
 
 bin/console doctrine:database:create --if-not-exists
 bin/console doctrine:migrations:migrate -n
-
-#bin/console ckeditor:install --no-progress-bar --clear=skip -n
 bin/console assets:install --symlink
-
-make generate-jwt-keys
