@@ -10,11 +10,6 @@ php -d memory_limit=-1 composer install --prefer-dist --no-interaction --no-prog
 # Always start from website skeleton
 php -d memory_limit=-1 composer create-project symfony/website-skeleton symfony-start --no-install -q
 
-if [ "$1" != "prod" ]; then
-    rm -rf development/composer.lock
-    rm -rf development/composer.json
-fi
-
 vendor/bin/teleport development symfony-start
 
 (
@@ -26,9 +21,6 @@ vendor/bin/teleport development symfony-start
     cd symfony-start
     bin/create $@
     rm -rf assets/create
-
-    cp composer.lock ../development/composer.lock
-    cp composer.json ../development/composer.json
 
     git add -A
     git commit -m "Initial commit" -q

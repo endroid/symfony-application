@@ -17,6 +17,6 @@ docker-compose up -d
 
 docker-compose exec mysql mysql -proot -Bse "DROP DATABASE IF EXISTS application"
 docker-compose exec nginx docker/nginx/ssl/certbot
-docker-compose exec --user 1000 php-cli /bin/bash bin/build prod
+docker-compose exec --user 1000 php-cli /bin/bash bin/build
 docker-compose exec --user 1000 php-cli /bin/bash -c "cd symfony-start && bin/setup"
 docker-compose exec --user 1000 php-cli /bin/bash -c "cd symfony-start && bin/console doctrine:fixtures:load -n"
