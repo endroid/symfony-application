@@ -13,7 +13,7 @@ git pull
 sed -i -e 's/localhost/endroid.nl/g' docker/nginx/nginx.conf
 
 docker-compose build
-docker-compose up -d
+docker-compose up -d --remove-orphans
 
 docker-compose exec mysql mysql -proot -Bse "DROP DATABASE IF EXISTS application"
 docker-compose exec nginx docker/nginx/ssl/certbot
