@@ -1,5 +1,6 @@
 /.env
 /composer
+/composer.lock
 /development/.env.local
 /development/behat.yml
 /symfony-start/
