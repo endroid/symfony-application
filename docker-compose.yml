@@ -36,9 +36,8 @@ services:
             - ~/.gitconfig:/var/www/.gitconfig
             - ~/.gitignore_global:/var/www/.gitignore_global
             - ~/.ssh:/var/www/.ssh
-            - ~/.cache/Cypress:/var/www/.cache/Cypress
             - ~/.cache/yarn:/var/www/.cache/yarn
-            - ~/.composer/cache:/var/www/.composer/cache
+            - ~/.composer:/var/www/.composer:rw
         depends_on:
             - mysql
             - redis

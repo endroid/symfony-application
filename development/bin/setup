@@ -2,9 +2,7 @@
 
 set -e
 
-yarn -s build
-
-curl -sS https://getcomposer.org/installer | php -- --filename=composer --version=2.0.0-RC1
+curl -sS https://getcomposer.org/installer | php -- --filename=composer --version=2.0.0-RC2
 php -d memory_limit=-1 composer install --prefer-dist --no-progress -n
 
 bin/console doctrine:database:create --if-not-exists
