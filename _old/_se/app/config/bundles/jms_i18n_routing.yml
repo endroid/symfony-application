@@ -1,4 +1,0 @@
-jms_i18n_routing:
-    locales: '%locales%'
-    default_locale: '%locale%'
-    strategy: prefix_except_default
