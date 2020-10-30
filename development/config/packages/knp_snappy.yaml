@@ -1,0 +1,14 @@
+knp_snappy:
+    pdf:
+        enabled: true
+        binary: '%env(resolve:WKHTMLTOPDF_PATH)%'
+        options:
+            - { name: dpi, value: 300 }
+            - { name: disable-smart-shrinking, value: true }
+            - { name: lowquality, value: false }
+            - { name: page-size, value: A4 }
+            - { name: viewport-size, value: 792x1122 }
+            - { name: margin-top, value: 0 }
+            - { name: margin-right, value: 0 }
+            - { name: margin-bottom, value: 0 }
+            - { name: margin-left, value: 0 }

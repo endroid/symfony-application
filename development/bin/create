@@ -54,6 +54,7 @@ sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
     endroid/teleporter:dev-master \
     endroid/tile:dev-master \
     endroid/tile-bundle:dev-master \
+    knplabs/knp-snappy-bundle \
     predis/predis \
     snc/redis-bundle \
     symfony/messenger \
