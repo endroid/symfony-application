@@ -23,8 +23,6 @@ sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
     endroid/anonymizer:dev-master \
     endroid/asset:dev-master \
     endroid/calendar:dev-master \
-    endroid/cm-sms:dev-master \
-    endroid/cm-sms-bundle:dev-master \
     endroid/composer-message:dev-master \
     endroid/data-sanitize:dev-master \
     endroid/data-sanitize-bundle:dev-master \
