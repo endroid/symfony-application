@@ -15,19 +15,31 @@ services:
         expose:
             - 3306
     redis:
-        image: redis:5
+        image: redis:6
         expose:
             - 6379
-    mercure:
-        image: dunglas/mercure
-        environment:
-            JWT_KEY: 3f32b715f03fababaf4c843af4bf3ae1
-            CORS_ALLOWED_ORIGINS: '*'
-            ALLOW_ANONYMOUS: 1
-        ports:
-            - 3000:80
     php-cli:
         build: docker/php/
+        environment:
+            - ENVIRONMENT=prod
+            - GITHUB_OAUTH_TOKEN=${GITHUB_OAUTH_TOKEN}
+        volumes:
+            - .:/var/www/html
+            - ~/.gitconfig:/var/www/.gitconfig
+            - ~/.gitignore_global:/var/www/.gitignore_global
+            - ~/.ssh:/var/www/.ssh
+            - ~/.cache/yarn:/var/www/.cache/yarn
+            - ~/.composer:/var/www/.composer:rw
+        depends_on:
+            - mysql
+            - redis
+        dns:
+            - 8.8.8.8
+            - 8.8.4.4
+        expose:
+            - 9000
+    php8-cli:
+        build: docker/php8/
         environment:
             - ENVIRONMENT=prod
             - GITHUB_OAUTH_TOKEN=${GITHUB_OAUTH_TOKEN}
