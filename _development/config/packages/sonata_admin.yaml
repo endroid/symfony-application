@@ -1,9 +1,0 @@
-sonata_admin:
-    title: 'Symfony Start'
-    title_logo: '/favicon.ico'
-    assets:
-        extra_stylesheets:
-            - bundles/sonataadmin/vendor/admin-lte/dist/css/skins/skin-black.css
-    dashboard:
-        blocks:
-            - { type: sonata.admin.block.admin_list, position: left }

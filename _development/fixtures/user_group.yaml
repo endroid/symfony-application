@@ -1,5 +1,0 @@
-App\Entity\Group:
-    group_admin:
-        __construct:
-          - 'Administrators'
-          - ['ROLE_ADMIN']

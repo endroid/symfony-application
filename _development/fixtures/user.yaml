@@ -1,8 +1,0 @@
-App\Entity\User:
-    user_admin:
-        username: 'admin'
-        plainPassword: 'admin'
-        email: 'admin@endroid.nl'
-        groups: ['@group_admin']
-        roles: [ROLE_ADMIN]
-        enabled: true
