@@ -1,0 +1,4 @@
+app:
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults: { template:  'app.html.twig' }
