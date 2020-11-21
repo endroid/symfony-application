@@ -22,7 +22,7 @@ RUN wget -q -O - https://packages.blackfire.io/gpg.key | apt-key add -
 RUN echo "deb http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list
 RUN apt-get update && apt-get install -y blackfire-agent blackfire-php --fix-missing
 
-RUN mkdir -p /var/www/.ssh
+RUN mkdir -p /var/www/.ssh /root/.ssh
 RUN ssh-keyscan -t rsa -H github.com >> /var/www/.ssh/known_hosts
 RUN ssh-keyscan -t rsa -H github.com >> /root/.ssh/known_hosts
 
