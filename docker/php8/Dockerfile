@@ -22,6 +22,9 @@ ADD zzzz-config.ini /usr/local/etc/php/conf.d/zzzz-config.ini
 #RUN echo "deb http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list
 #RUN apt-get update && apt-get install -y blackfire-agent blackfire-php --fix-missing
 
+RUN ssh-keyscan -t rsa -H github.com >> /var/www/.ssh/known_hosts
+RUN ssh-keyscan -t rsa -H github.com >> /root/.ssh/known_hosts
+
 ENTRYPOINT sh /var/www/html/docker/php/entrypoint.sh && php-fpm
 
 ADD .bashrc /var/www/.bashrc
