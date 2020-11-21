@@ -17,6 +17,8 @@ if [ $GITHUB_OAUTH_TOKEN != "" ]; then
     chmod -R 777 /var/www/.composer
     echo "{ \"github-oauth\": { \"github.com\": \"$GITHUB_OAUTH_TOKEN\" }}" > /var/www/.composer/auth.json
     echo "{ \"github-oauth\": { \"github.com\": \"$GITHUB_OAUTH_TOKEN\" }}" > /root/.composer/auth.json
+    ssh-keyscan -t rsa -H github.com >> /var/www/.ssh/known_hosts
+    ssh-keyscan -t rsa -H github.com >> /root/.ssh/known_hosts
 fi
 
 # ERROR REPORTING
