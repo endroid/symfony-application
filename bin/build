@@ -7,7 +7,7 @@ rm -rf symfony-start
 curl -sS https://getcomposer.org/installer | php -- --filename=composer
 ./composer update --prefer-dist --no-interaction --no-progress
 
-# Always start from website skeleton
+# Always start from website skeleton (contains ORM etc.)
 ./composer create-project symfony/website-skeleton symfony-start --no-install
 
 vendor/bin/teleport development symfony-start
