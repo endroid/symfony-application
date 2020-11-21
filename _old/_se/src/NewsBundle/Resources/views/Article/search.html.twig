@@ -1,4 +1,0 @@
-<h2><a href="{{ url('news_article_show', { slug: result.slug }) }}">{{ result.title }}</a></h2>
-<p>{{ result.date|localizeddate('long', 'none', app.request.locale) }}</p>
-<p>{{ result.content|striptags|raw }}</p>
-<p><a href="{{ url('news_article_show', { slug: result.slug }) }}">{{ 'read_more'|trans }}</a></p>

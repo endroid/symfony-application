@@ -1,8 +1,0 @@
-fos_oauth_server:
-    db_driver:            orm
-    client_class:         OAuthBundle\Entity\Client
-    access_token_class:   OAuthBundle\Entity\AccessToken
-    refresh_token_class:  OAuthBundle\Entity\RefreshToken
-    auth_code_class:      OAuthBundle\Entity\AuthCode
-    service:
-        user_provider:    fos_user.user_provider.username
