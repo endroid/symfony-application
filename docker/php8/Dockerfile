@@ -4,7 +4,7 @@ FROM php:8.0.0RC4-fpm
 RUN usermod -u 1000 www-data
 RUN chown -R 1000 /var/www/
 
-RUN apt-get update && apt-get install -y git gnupg libfontconfig1 libfreetype6-dev libicu-dev libpng-dev libxrender1 libzip-dev unzip wget
+RUN apt-get update && apt-get install -y git gnupg libfontconfig1 libfreetype6-dev libicu-dev libpng-dev libxrender1 libzip-dev rsync unzip wget
 
 RUN docker-php-ext-configure gd --with-freetype
 RUN docker-php-ext-install gd intl pdo_mysql zip
