@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:8-fpm
 
 # User permissions
 RUN usermod -u 1000 www-data
@@ -18,9 +18,9 @@ RUN git clone --depth 1 https://github.com/krakjoe/pcov.git /usr/src/php/ext/pco
 ADD zzzz-config.ini /usr/local/etc/php/conf.d/zzzz-config.ini
 
 # Blackfire
-RUN wget -q -O - https://packages.blackfire.io/gpg.key | apt-key add -
-RUN echo "deb http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list
-RUN apt-get update && apt-get install -y blackfire-agent blackfire-php --fix-missing
+#RUN wget -q -O - https://packages.blackfire.io/gpg.key | apt-key add -
+#RUN echo "deb http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list
+#RUN apt-get update && apt-get install -y blackfire-agent blackfire-php --fix-missing
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

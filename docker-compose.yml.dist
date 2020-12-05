@@ -38,8 +38,28 @@ services:
             - 8.8.4.4
         expose:
             - 9000
-    php8-cli:
-        build: docker/php8/
+    php73-cli:
+        build: docker/php73/
+        environment:
+            - ENVIRONMENT=prod
+            - GITHUB_OAUTH_TOKEN=${GITHUB_OAUTH_TOKEN}
+        volumes:
+            - .:/var/www/html
+            - ~/.gitconfig:/var/www/.gitconfig
+            - ~/.gitignore_global:/var/www/.gitignore_global
+            - ~/.ssh:/var/www/.ssh
+            - ~/.cache/yarn:/var/www/.cache/yarn
+            - ~/.composer:/var/www/.composer:rw
+        depends_on:
+            - mysql
+            - redis
+        dns:
+            - 8.8.8.8
+            - 8.8.4.4
+        expose:
+            - 9000
+    php80-cli:
+        build: docker/php80/
         environment:
             - ENVIRONMENT=prod
             - GITHUB_OAUTH_TOKEN=${GITHUB_OAUTH_TOKEN}
