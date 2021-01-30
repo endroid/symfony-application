@@ -3,5 +3,6 @@
 /composer.lock
 /development/.env.local
 /development/behat.yml
+/docker-compose.yml
 /symfony-start/
 /vendor/

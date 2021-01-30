@@ -9,7 +9,7 @@ curl -sS https://getcomposer.org/installer | php -- --filename=composer
 ./composer config minimum-stability dev
 ./composer config prefer-stable true
 ./composer config extra.symfony.allow-contrib true
-./composer config platform.php 7.4
+./composer config platform.php 8.0
 
 # Use source when installing personal libraries
 sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
@@ -33,13 +33,9 @@ sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
     endroid/guide:dev-master \
     endroid/guide-bundle:dev-master \
     endroid/image-placeholder:dev-master \
-    endroid/import:dev-master \
-    endroid/import-bundle:dev-master \
-    endroid/import-demo-bundle:dev-master \
     endroid/installer:dev-master \
     endroid/pdf:dev-master \
     endroid/play-bundle:dev-master \
-    endroid/priority-shuffle-random:dev-master \
     endroid/property-access:dev-master \
     endroid/qr-code:4.0.x-dev \
     endroid/qr-code-bundle:4.0.x-dev \

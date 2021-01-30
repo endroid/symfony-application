@@ -1,25 +1,25 @@
-endroid_qr_code:
-    default:
-        qrCode:
-            class: Endroid\QrCode\QrCode\QrCodeInterface
-            data: 'Life is too short for generating QR codes'
-            encoding: 'UTF-8'
-            errorCorrectionLevel: high
-        writer:
-            class: Endroid\QrCode\Writer\PngWriter
-            size: 300
-            roundBlockSizeMode: 'margin'
-            validateResult: true
-        logo:
-            path: '%kernel.project_dir%/vendor/endroid/qr-code/tests/assets/symfony.png'
-        label:
-            text: 'This is the label'
-            alignment: center
-    custom:
-        qrCode:
-            class: Endroid\QrCode\QrCode\QrCodeInterface
-            errorCorrectionLevel: low
-        writer:
-            class: Endroid\QrCode\Writer\PngWriter
-            size: 400
-            validateResult: false
+#endroid_qr_code:
+#    default:
+#        qrCode:
+#            class: Endroid\QrCode\QrCode\QrCodeInterface
+#            data: 'Life is too short for generating QR codes'
+#            encoding: 'UTF-8'
+#            errorCorrectionLevel: high
+#        writer:
+#            class: Endroid\QrCode\Writer\PngWriter
+#            size: 300
+#            roundBlockSizeMode: 'margin'
+#            validateResult: true
+#        logo:
+#            path: '%kernel.project_dir%/vendor/endroid/qr-code/tests/assets/symfony.png'
+#        label:
+#            text: 'This is the label'
+#            alignment: center
+#    custom:
+#        qrCode:
+#            class: Endroid\QrCode\QrCode\QrCodeInterface
+#            errorCorrectionLevel: low
+#        writer:
+#            class: Endroid\QrCode\Writer\PngWriter
+#            size: 400
+#            validateResult: false
