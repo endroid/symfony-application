@@ -37,8 +37,8 @@ sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
     endroid/pdf:dev-master \
     endroid/play-bundle:dev-master \
     endroid/property-access:dev-master \
-    endroid/qr-code:4.0.x-dev \
-    endroid/qr-code-bundle:4.0.x-dev \
+    endroid/qr-code:dev-master \
+    endroid/qr-code-bundle:dev-master \
     endroid/quality:dev-master \
     endroid/simple-spreadsheet:dev-master \
     endroid/soccer-calendar:dev-master \

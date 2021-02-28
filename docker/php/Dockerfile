@@ -14,8 +14,8 @@ RUN git clone --depth 1 https://github.com/krakjoe/pcov.git /usr/src/php/ext/pco
     && docker-php-ext-configure pcov --enable-pcov \
     && docker-php-ext-install pcov
 
-# Custom PHP settings
-ADD zzzz-config.ini /usr/local/etc/php/conf.d/zzzz-config.ini
+# Install opcache
+#RUN docker-php-ext-install opcache
 
 # Blackfire
 #RUN wget -q -O - https://packages.blackfire.io/gpg.key | apt-key add -
@@ -24,6 +24,9 @@ ADD zzzz-config.ini /usr/local/etc/php/conf.d/zzzz-config.ini
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Custom PHP settings
+ADD zzzz-config.ini /usr/local/etc/php/conf.d/zzzz-config.ini
 
 RUN mkdir -p /var/www/.ssh /root/.ssh
 RUN ssh-keyscan -t rsa -H github.com >> /var/www/.ssh/known_hosts
