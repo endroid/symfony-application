@@ -15,7 +15,7 @@ RUN git clone --depth 1 https://github.com/krakjoe/pcov.git /usr/src/php/ext/pco
     && docker-php-ext-install pcov
 
 # Install opcache
-#RUN docker-php-ext-install opcache
+RUN docker-php-ext-install opcache
 
 # Blackfire
 #RUN wget -q -O - https://packages.blackfire.io/gpg.key | apt-key add -
