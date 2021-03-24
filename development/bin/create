@@ -28,10 +28,7 @@ sed -i -e s#\"[*]\":#\"endroid/*\":\"source\",\"*\":#g composer.json
     endroid/data-sanitize-bundle:dev-master \
     endroid/data-sanitize-demo-bundle:dev-master \
     endroid/embed:dev-master \
-    endroid/finance-bundle:dev-master \
     endroid/flusher:dev-master \
-    endroid/guide:dev-master \
-    endroid/guide-bundle:dev-master \
     endroid/image-placeholder:dev-master \
     endroid/installer:dev-master \
     endroid/pdf:dev-master \
