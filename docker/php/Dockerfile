@@ -17,13 +17,20 @@ RUN git clone --depth 1 https://github.com/krakjoe/pcov.git /usr/src/php/ext/pco
 # Install opcache
 RUN docker-php-ext-install opcache
 
-# Blackfire
-RUN wget -q -O - https://packages.blackfire.io/gpg.key | apt-key add -
+# Blackfire Probe
+RUN apt-get update && apt-get install -y gnupg
+RUN curl -sL https://packages.blackfire.io/gpg.key | apt-key add -
 RUN echo "deb http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list
-RUN apt-get update && apt-get install -y blackfire-agent blackfire-php --fix-missing
+RUN apt-get update && apt-get install -y blackfire
+RUN blackfire php:install
+RUN printf "blackfire.agent_socket=tcp://blackfire:8707\n" > $PHP_INI_DIR/conf.d/zzzz-blackfire.ini
+
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Chromium (for Panther)
+RUN apt-get update && apt-get install -y chromium libnss3-dev
 
 # Custom PHP settings
 ADD zzzz-config.ini /usr/local/etc/php/conf.d/zzzz-config.ini

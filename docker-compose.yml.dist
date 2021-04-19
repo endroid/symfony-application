@@ -18,6 +18,8 @@ services:
 
     redis:
         image: redis:6
+        volumes:
+            - ./.docker/data/redis/:/data:rw
         expose:
             - 6379
 
@@ -55,3 +57,12 @@ services:
             - 80:80
             - 443:443
             - 8000:8000
+
+    blackfire:
+        image: blackfire/blackfire
+        environment:
+            # Do not change: instead set these envs on your host
+            BLACKFIRE_SERVER_ID: ~
+            BLACKFIRE_SERVER_TOKEN: ~
+            BLACKFIRE_CLIENT_ID: ~
+            BLACKFIRE_CLIENT_TOKEN: ~
