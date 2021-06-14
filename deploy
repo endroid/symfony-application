@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 if [ ! -f development/.env.local ]; then
     echo "Please create a .env.local file for production with APP_ENV=prod before deploying"
     exit 1
@@ -7,6 +9,9 @@ fi
 
 docker-compose stop
 echo y | docker-compose rm
+rm -rf vendor
+rm -rf docker/data
+rm -rf symfony-start
 
 git reset --hard
 git pull
