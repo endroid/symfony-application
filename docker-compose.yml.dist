@@ -19,7 +19,7 @@ services:
     redis:
         image: redis:6
         volumes:
-            - ./.docker/data/redis/:/data:rw
+            - ./docker/data/redis/:/data:rw
         expose:
             - 6379
 

@@ -4,5 +4,6 @@
 /development/.env.local
 /development/behat.yml
 /docker-compose.yml
+/docker/data/
 /symfony-start/
 /vendor/
