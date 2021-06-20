@@ -25,7 +25,6 @@ RUN apt-get update && apt-get install -y blackfire
 RUN blackfire php:install
 RUN printf "blackfire.agent_socket=tcp://blackfire:8707\n" > $PHP_INI_DIR/conf.d/zzzz-blackfire.ini
 
-
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
